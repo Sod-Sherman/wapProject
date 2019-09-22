@@ -62,7 +62,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deactivateUser(User user) {
+    public void deactivateUser(User user)
+    {
         userRepository.deactivateUser(user);
     }
 
