@@ -30,5 +30,15 @@ public class UserRepositoryImpl implements UserRepository{
         return null;
     }
 
+    @Override
+    public void saveUser(User user) {
+        users.add(user);
+    }
+
+    @Override
+    public void deleteUser(User user) {
+
+    }
+
 
 }
