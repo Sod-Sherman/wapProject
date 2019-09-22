@@ -18,6 +18,7 @@ public class UserRepositoryImpl implements UserRepository {
                 new User("Turtogtokh", "M.", "tur", "123", "t@mum.edu"),
                 new User("Admin", "", "admin", "123", "a@mum.edu")
         ));
+        PostRepository postRepository = new PostRepositoryImpl();
     }
 
     @Override

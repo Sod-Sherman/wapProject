@@ -70,5 +70,14 @@ public class Post implements Comparable<Post>{
         return getPostedDate().compareTo(o.getPostedDate());
     }
 
-
+    @Override
+    public String toString() {
+        return "Post{" +
+                "content='" + content + '\'' +
+                ", active=" + active +
+                ", postedDate=" + postedDate +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }
