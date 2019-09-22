@@ -7,4 +7,5 @@ public interface UserRepository{
     abstract User findByUsername(String username);
     abstract void saveUser(User user);
     abstract void deleteUser(User user);
+    abstract void deactivateUser(User user);
 }
