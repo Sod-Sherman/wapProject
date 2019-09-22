@@ -8,7 +8,7 @@ public class Post implements Comparable<Post>{
     private Boolean active = true;
     private LocalDate postedDate = LocalDate.now();
     private String imgUrl;
-    private User user = new User();
+    private User user;
 
     public Post(String content, LocalDate postedDate, String imgURL, User user) {
         this.content = content;
