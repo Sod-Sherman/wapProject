@@ -2,7 +2,7 @@ package edu.mum.wap.socialnetwork.model;
 
 import java.time.LocalDate;
 
-public class Ads {
+public class Ads implements Comparable<Ads>{
     private Integer id;
     private boolean active = true;
     private String content;
@@ -11,7 +11,7 @@ public class Ads {
     private Double unitPrice;
     private String imgUrl;
     private String type;
-    private String Company;
+    private String company;
     private LocalDate postedDate;
     private Integer duration;
     private String location;
@@ -39,7 +39,7 @@ public class Ads {
     }
 
     public void setCompany(String company) {
-        Company = company;
+        company = company;
     }
 
     public void setDuration(Integer duration) {
@@ -91,7 +91,7 @@ public class Ads {
     }
 
     public String getCompany() {
-        return Company;
+        return company;
     }
 
     public LocalDate getPostedDate() {
@@ -112,5 +112,23 @@ public class Ads {
 
     public Integer getAgeRangeMax() {
         return ageRangeMax;
+    }
+
+    @Override
+    public String toString(){
+        return "Ads{" +
+                "id=" + id + '\'' +
+                ", content='" + content + '\'' +
+                ", type='" + type + '\'' +
+                ", location='" + location + '\'' +
+                ", company='" +  company + '\'' +
+                ", url='" + url + '\'' +
+                ", active='" + active + '\'' +
+                ", counter=" + counter +
+                "}";
+    }
+    @Override
+    public int compareTo(Ads ad){
+        return getPostedDate().compareTo(ad.getPostedDate());
     }
 }
