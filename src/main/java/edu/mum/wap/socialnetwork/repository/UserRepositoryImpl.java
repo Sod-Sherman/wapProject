@@ -1,7 +1,6 @@
 package edu.mum.wap.socialnetwork.repository;
 
 import edu.mum.wap.socialnetwork.model.*;
-import sun.plugin.javascript.navig.Array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
