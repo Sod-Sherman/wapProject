@@ -16,8 +16,8 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
-        User user = new User();
-        userService.login(user);
+
+       // userService.login(user);
     }
 
     @Override
