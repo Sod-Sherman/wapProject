@@ -1,7 +1,7 @@
 <html>
 <body>
 <%@ include file="WEB-INF/fragment/header.jsp"%>
-<h2>Hello Worldffff</h2>
+<h2>Hello World!</h2>
 
 
 
