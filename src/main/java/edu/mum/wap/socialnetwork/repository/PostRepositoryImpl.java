@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class PostRepositoryImpl implements PostRepository {
-    private UserRepository userRepository;
+    private UserRepository userRepository = new UserRepositoryImpl();
     private List<Post> posts;
 
     public PostRepositoryImpl() {

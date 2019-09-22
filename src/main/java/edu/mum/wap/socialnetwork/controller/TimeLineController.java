@@ -41,7 +41,7 @@ public class TimeLineController extends HttpServlet {
             System.out.println(loggedInUser);
             System.out.println(userService.getPosts(loggedInUser));
 
-            RequestDispatcher rd = req.getRequestDispatcher("timeline.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("/wapProject/timeline.jsp");
             rd.forward(req,resp);
 
 //            resp.sendRedirect("/wapProject/timeline.jsp");
