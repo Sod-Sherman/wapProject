@@ -10,8 +10,9 @@
     <title>Title</title>
 </head>
 <body>
-
 <%@ include file="WEB-INF/fragment/admin-side-panel.jsp"%>
+<main>
 
+</main>
 </body>
 </html>
