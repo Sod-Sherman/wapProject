@@ -11,7 +11,7 @@ public class User {
     private String password;
 
     private String email;
-    private Boolean active;
+    private Boolean active = true;
 
     private List<User> followers;
     private List<Post> posts;
