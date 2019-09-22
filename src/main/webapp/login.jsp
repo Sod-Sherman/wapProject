@@ -11,10 +11,11 @@
     <title>Title</title>
 </head>
 <body>
+<%@ include file="WEB-INF/fragment/header.jsp" %>
 <div class="container">
-    <%@ include file="WEB-INF/fragment/header.jsp" %>
+
 
 </div>
-
+<%@include file="WEB-INF/fragment/footer.jsp"%>
 </body>
 </html>

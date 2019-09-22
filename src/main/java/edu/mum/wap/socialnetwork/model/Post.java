@@ -7,13 +7,13 @@ public class Post implements Comparable<Post>{
     private String content;
     private Boolean active = true;
     private LocalDate postedDate = LocalDate.now();
-    private String imgURL;
+    private String imgUrl;
     private User user;
 
     public Post(String content, LocalDate postedDate, String imgURL, User user) {
         this.content = content;
         this.postedDate = postedDate;
-        this.imgURL = imgURL;
+        this.imgUrl = imgURL;
         this.user = user;
     }
 
@@ -49,12 +49,12 @@ public class Post implements Comparable<Post>{
         this.postedDate = postedDate;
     }
 
-    public String getImgURL() {
-        return imgURL;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setImgURL(String imgURL) {
-        this.imgURL = imgURL;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public User getUser() {
