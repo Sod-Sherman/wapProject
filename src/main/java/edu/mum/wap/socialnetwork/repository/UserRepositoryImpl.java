@@ -11,8 +11,8 @@ public class UserRepositoryImpl implements UserRepository {
     private List<User> users;
 
     public UserRepositoryImpl() {
-        if(users == null)
-            users = new ArrayList<User>(Arrays.asList(
+        if(this.users == null)
+            this.users = new ArrayList<User>(Arrays.asList(
                 new User("Sodbileg", "Shirmen", "sod", "123", "s@mum.edu"),
                 new User("Purevdemberel", "Byambatogtokh", "puujgee", "123", "p@mum.edu"),
                 new User("Turtogtokh", "M.", "tur", "123", "t@mum.edu"),
@@ -53,7 +53,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     }
 
-
-
-
+    public List<User> getUsers() {
+        return users;
+    }
 }

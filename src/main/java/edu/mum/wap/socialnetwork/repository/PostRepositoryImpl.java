@@ -10,12 +10,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class PostRepositoryImpl implements PostRepository {
-    private UserRepository userRepository = new UserRepositoryImpl();
     private List<Post> posts;
-
+    UserRepository userRepository = new UserRepositoryImpl();
+    
     public PostRepositoryImpl() {
         if(posts == null)
-            posts = new ArrayList<>(Arrays.asList(
+            this.posts = new ArrayList<>(Arrays.asList(
                 new Post("The docuseries about my life and work is out today. I hope you’ll check it out on Netflix — and then read some of the stories that didn’t make the cut on my blog.",
                         LocalDate.of(2019,8,31),"/images/post/safe_image.jpg",
                         userRepository.findByUsername("sod")),
