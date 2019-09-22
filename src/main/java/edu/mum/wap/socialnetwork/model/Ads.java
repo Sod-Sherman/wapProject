@@ -131,4 +131,8 @@ public class Ads implements Comparable<Ads>{
     public int compareTo(Ads ad){
         return getPostedDate().compareTo(ad.getPostedDate());
     }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }
