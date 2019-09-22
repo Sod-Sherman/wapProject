@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-    <%@ include file="/fragmant/header.jsp" %>
+    <%@ include file="WEB-INF/fragment/header.jsp" %>
 
 </div>
 
