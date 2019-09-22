@@ -6,7 +6,6 @@ import edu.mum.wap.socialnetwork.repository.UserRepository;
 import edu.mum.wap.socialnetwork.repository.UserRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
 
-import javax.servlet.http.HttpSession;
 
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository = new UserRepositoryImpl();
