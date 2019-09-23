@@ -2,6 +2,7 @@ package edu.mum.wap.socialnetwork.controller;
 
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.service.UserService;
+import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ import java.io.PrintWriter;
 
 @WebServlet("/user")
 public class UserController extends HttpServlet {
-    UserService userService;
+    UserService userService = new UserServiceImpl();
 
     public UserController() {
     }
@@ -25,9 +26,6 @@ public class UserController extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-//        resp.setContentType("text/html;charset=UTF-8");
-//        PrintWriter out = resp.getWriter();
-
         String firstNameInput = req.getParameter("firstName");
         String lastNameInput = req.getParameter("lastName");
         String usernameInput = req.getParameter("username");
@@ -36,7 +34,6 @@ public class UserController extends HttpServlet {
 
         User bean = new User(firstNameInput, lastNameInput, usernameInput, passwordInput, emailInput);
 
-        //boolean status = bean.validate();
 
         String statusMsg = "UnSuccess";
         if(userService.addUser(bean)) {
@@ -44,9 +41,6 @@ public class UserController extends HttpServlet {
             session.setAttribute("loggedInUser", bean);
         }
         session.setAttribute("statusMsg", statusMsg);
-
-//        RequestDispatcher rd = req.getRequestDispatcher("signup-success.jsp");
-//        rd.forward(req, resp);
 
         resp.sendRedirect("signup-success.jsp");
 

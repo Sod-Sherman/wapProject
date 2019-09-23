@@ -16,6 +16,6 @@
 <body>
 ${statusMsg}
 <p>Successfully registered.</p>
-Welcome, ${bean.firstName}
+Welcome, ${loggedInUser.firstName}
 </body>
 </html>
