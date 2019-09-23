@@ -32,63 +32,65 @@
                     <div class="tab-pane fade show active" id="view">
                         VIEW
                     </div>
+
                     <div class="tab-pane fade" id="create">
-                        <div class="form-group">
-                            <fieldset>
-                                <label class="control-label" for="readOnlyInput">Advertisement Id</label>
-                                <input class="form-control" id="readOnlyInput" type="text" placeholder="Auto generated ID" readonly="">
-                            </fieldset>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleTextarea">Content</label>
-                            <textarea class="form-control" id="exampleTextarea" placeholder="Please briefly describe your advertisement" rows="3"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Price per view</label>
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">$</span>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-5">
+                                    PREVIEW
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <fieldset>
+                                            <label class="control-label" for="readOnlyInput">Advertisement Id</label>
+                                            <input class="form-control" id="readOnlyInput" type="text" placeholder="Auto generated ID" readonly="">
+                                        </fieldset>
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">.00</span>
+
+                                    <div class="form-group">
+                                        <label for="exampleTextarea">Content</label>
+                                        <textarea class="form-control" id="exampleTextarea" placeholder="Please briefly describe your advertisement" rows="3"></textarea>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Price per view</label>
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">$</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="custom-select">
+                                            <option selected="">Choose location group</option>
+                                            <option value="1">USA</option>
+                                            <option value="2">China</option>
+                                            <option value="3">Mongolia</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label col-form-label-sm">User Age Range</label>
+                                        <input class="form-control form-control-sm" type="number" placeholder="from..." id="rangeMin" maxlength="60px"></br>
+                                        <input class="form-control form-control-sm" type="number" id="rangeMax" placeholder="to..." maxlength="40px">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label col-form-label-sm">Duration</label>
+                                        <input class="form-control form-control-sm" type="number" id="duration" width="40px">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-primary">Reset</button>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <select class="custom-select">
-                                <option selected="">Choose location group</option>
-                                <option value="1">USA</option>
-                                <option value="2">China</option>
-                                <option value="3">Mongolia</option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group has-danger">
-                            <label class="form-control-label" for="inputDanger1">Invalid input</label>
-                            <input type="text" value="wrong value" class="form-control is-invalid" id="inputInvalid">
-                            <div class="invalid-feedback">Sorry, that username's taken. Try another?</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-form-label col-form-label-lg" for="inputLarge">Large input</label>
-                            <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" id="inputLarge">
-                        </div>
-
-
-
-                        <div class="form-group">
-                            <label class="col-form-label col-form-label-sm" for="inputSmall">Small input</label>
-                            <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" id="inputSmall">
-                        </div>
-
-
                     </div>
                     <div class="tab-pane fade" id="update">
                         <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>

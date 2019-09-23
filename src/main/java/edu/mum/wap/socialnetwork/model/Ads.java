@@ -6,6 +6,7 @@ public class Ads implements Comparable<Ads>{
     private Integer id;
     private boolean active = true;
     private String content;
+    private String article;
     private String url;
     private Long counter;
     private Double unitPrice;
@@ -18,12 +19,21 @@ public class Ads implements Comparable<Ads>{
     private Integer ageRangeMin;
     private Integer ageRangeMax;
 
-    public Ads(Integer id, String content, String url, Double unitPrice, String imgUrl){
+    public Ads(Integer id, String article, String content, String url, Double unitPrice, String imgUrl){
         this.id = id;
+        this.article = article;
         this.content = content;
         this.url = url;
         this. unitPrice = unitPrice;
         this.imgUrl = imgUrl;
+    }
+
+    public String getArticle() {
+        return article;
+    }
+
+    public void setArticle(String article) {
+        this.article = article;
     }
 
     public void setActive(boolean active) {
@@ -118,6 +128,7 @@ public class Ads implements Comparable<Ads>{
     public String toString(){
         return "Ads{" +
                 "id=" + id + '\'' +
+                ", article='" + article + '\'' +
                 ", content='" + content + '\'' +
                 ", type='" + type + '\'' +
                 ", location='" + location + '\'' +
