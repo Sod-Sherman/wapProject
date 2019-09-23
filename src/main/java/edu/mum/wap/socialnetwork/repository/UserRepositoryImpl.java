@@ -37,6 +37,7 @@ public final class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> findAllUsers() {
+
         return users;
     }
 
