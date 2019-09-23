@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService {
     public abstract Integer login(User user);
-    public abstract void updateProfile(User user);
+    public abstract boolean updateProfile(User user);
     public abstract Boolean addUser(User user);
     public abstract Boolean addPost(User user, Post post);
     public abstract void deactivateUser(User user);

@@ -17,7 +17,7 @@
 
 <div class="container">
 <form action="user" method="POST">
-    <h2>SignUp From</h2>
+    <h2>Signup From</h2>
     <div class="form-group">
         <label for="InputFirstName1">First Name</label>
         <input type="text" name="firstName" class="form-control" id="InputFirstName1" aria-describedby="firstName" placeholder="First name">

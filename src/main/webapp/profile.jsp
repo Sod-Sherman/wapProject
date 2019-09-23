@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: sdblg
-  Date: 9/23/2019
-  Time: 10:02 AM
+  User: user
+  Date: 2019-09-23
+  Time: 15:26
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,7 +17,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css2">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
@@ -67,6 +67,7 @@
             </div>
 
         </div><!--/col-3-->
+
         <div class="col-sm-9">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
@@ -78,41 +79,42 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
                     <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
+                    <form class="form" action="##" method="post" id="registrationForm1">
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="first_name"><h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="${loggedInUser.firstName}" title="enter your first name if any.">
+                                <label for="firstName"><h4>First name</h4></label>
+                                <%--<input type="text" class="form-control" name="first_name" id="firstName" placeholder="firstname&lt;%&ndash;${loggedInUser.firstName}&ndash;%&gt;" title="enter your first name if any.">--%>
+                                <label type="text" id="firstName"></label>
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="last_name"><h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="${loggedInUser.lastName}" title="enter your last name if any.">
+                                <label for="lastName"><h4>Last name</h4></label>
+                                <input type="text" class="form-control" name="last_name" id="lastName" placeholder="lastname<%--${loggedInUser.lastName}--%>" title="enter your last name if any.">
                             </div>
                         </div>
 
                         <div class="form-group">
 
+                            <div class="col-xs-6">
+                                <label for="username"><h4>Username</h4></label>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="username<%--${loggedInUser.username}--%>" title="enter your username if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-xs-6">
                                 <label for="phone"><h4>Phone</h4></label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="mobile"><h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone number" title="enter your phone number if any.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="email"><h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="email<%--${loggedInUser.email}--%>" title="enter your email.">
                             </div>
                         </div>
                         <div class="form-group">
@@ -132,8 +134,8 @@
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="password2"><h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                                <label for="repeatPassword"><h4>Verify</h4></label>
+                                <input type="password" class="form-control" name="password2" id="repeatPassword" placeholder="repeat password" title="enter your password2.">
                             </div>
                         </div>
                         <div class="form-group">
@@ -148,24 +150,25 @@
                     <hr>
 
                 </div><!--/tab-pane-->
+
                 <div class="tab-pane" id="messages">
 
                     <h2></h2>
 
                     <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
+                    <form class="form" action="##" method="post" id="registrationForm2">
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="first_name"><h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                                <label for="firstName2"><h4>First name</h4></label>
+                                <input type="text" class="form-control" name="first_name" id="firstName2" placeholder="first name" title="enter your first name if any.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="last_name"><h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                                <label for="lastName2"><h4>Last name</h4></label>
+                                <input type="text" class="form-control" name="last_name" id="lastName2" placeholder="last name" title="enter your last name if any.">
                             </div>
                         </div>
 
@@ -173,42 +176,42 @@
 
                             <div class="col-xs-6">
                                 <label for="phone"><h4>Phone</h4></label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                                <input type="text" class="form-control" name="phone" id="phone2" placeholder="enter phone" title="enter your phone number if any.">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-6">
-                                <label for="mobile"><h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                <label for="mobile2"><h4>Mobile</h4></label>
+                                <input type="text" class="form-control" name="mobile" id="mobile2" placeholder="enter mobile number" title="enter your mobile number if any.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="email"><h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                <input type="email" class="form-control" name="email" id="email2" placeholder="you@email.com" title="enter your email.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="email"><h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                                <input type="email" class="form-control" id="location2" placeholder="somewhere" title="enter a location">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="password"><h4>Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                                <input type="password" class="form-control" name="password" id="passwordrep2" placeholder="password" title="enter your password.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="password2"><h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                                <label for="password2rep2"><h4>Verify</h4></label>
+                                <input type="password" class="form-control" name="password2" id="password2rep2" placeholder="password2" title="enter your password2.">
                             </div>
                         </div>
                         <div class="form-group">
@@ -225,19 +228,19 @@
 
 
                     <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
+                    <form class="form" action="##" method="post" id="registrationForm3">
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="first_name"><h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                                <label for="firstName3"><h4>First name</h4></label>
+                                <input type="text" class="form-control" name="first_name" id="firstName3" placeholder="first name" title="enter your first name if any.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="last_name"><h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                                <label for="lastName3"><h4>Last name</h4></label>
+                                <input type="text" class="form-control" name="last_name" id="lastName3" placeholder="last name" title="enter your last name if any.">
                             </div>
                         </div>
 
@@ -245,44 +248,46 @@
 
                             <div class="col-xs-6">
                                 <label for="phone"><h4>Phone</h4></label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                                <input type="text" class="form-control" name="phone" id="phone3" placeholder="enter phone" title="enter your phone number if any.">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-6">
-                                <label for="mobile"><h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                <label for="mobile3"><h4>Mobile</h4></label>
+                                <input type="text" class="form-control" name="mobile" id="mobile3" placeholder="enter mobile number" title="enter your mobile number if any.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="email"><h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                <input type="email" class="form-control" name="email" id="email3" placeholder="you@email.com" title="enter your email.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="email"><h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                                <input type="email" class="form-control" id="location3" placeholder="somewhere" title="enter a location">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="password"><h4>Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                                <input type="password" class="form-control" name="password" id="passwordrep3" placeholder="password" title="enter your password.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="password2"><h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                                <label for="password2rep3"><h4>Verify</h4></label>
+                                <input type="password" class="form-control" name="password2" id="password2rep3" placeholder="password2" title="enter your password2.">
                             </div>
                         </div>
+
+
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
@@ -314,12 +319,20 @@
             }
         }
 
+            <p>${status}</p>
+            <p>${loggedInUser.firstName}</p>
 
         $(".file-upload").on('change', function(){
             readURL(this);
+
         });
+
     });
+
+
 </script>
+
+
 
 </body>
 </html>

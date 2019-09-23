@@ -26,9 +26,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateProfile(User user) {
+    public boolean updateProfile(User user) {
         User tempUser = userRepository.findByUsername(user.getUsername());
-        if (tempUser == null) return;
+        if (tempUser == null) return false;
         if (!tempUser.getUsername().equalsIgnoreCase(user.getUsername()))
             tempUser.setUsername(user.getUsername());
         if (!tempUser.getPassword().equals(user.getPassword()))
@@ -40,6 +40,7 @@ public class UserServiceImpl implements UserService {
         if (!tempUser.getEmail().equalsIgnoreCase(user.getEmail()))
             tempUser.setEmail(user.getEmail());
 
+        return false;
     }
 
     @Override

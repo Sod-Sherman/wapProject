@@ -20,6 +20,8 @@ public class User {
     private List<User> followers;
     private List<Post> posts;
     private String location;
+    private String phone;
+    private String repeatPassword;
 
     public User() {
     }
@@ -34,6 +36,17 @@ public class User {
         this.posts  = new ArrayList<>();
         this.fullName = firstName + " " + lastName;
 
+    }
+
+    public User(String firstName, String lastName, String username, String password, String email, String location, String phone, String repeatPassword) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.location = location;
+        this.phone = phone;
+        this.repeatPassword = repeatPassword;
     }
 
     public Integer getId() {
@@ -114,6 +127,22 @@ public class User {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 
     public boolean validate(){
