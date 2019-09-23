@@ -22,8 +22,6 @@ public class AdsServiceImpl implements AdsService {
     public void updateAds(Ads ad) {
         Ads tempAd = adsRepository.findByAdsId(ad.getId());
         if(tempAd == null) return;
-        if(!tempAd.getCompany().equalsIgnoreCase(ad.getCompany()))
-            tempAd.setCompany(ad.getCompany());
         if(!tempAd.getContent().equalsIgnoreCase(ad.getContent()))
             tempAd.setContent(ad.getContent());
     }

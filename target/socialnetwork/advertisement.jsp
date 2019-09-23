@@ -94,6 +94,7 @@
                                         <label class="col-form-label col-form-label-sm">Duration</label>
                                         <input class="form-control form-control-sm" type="number" id="duration" width="40px">
                                     </div>
+
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-primary">Reset</button>
                                 </div>
