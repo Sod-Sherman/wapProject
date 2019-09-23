@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <%@ include file="WEB-INF/fragment/admin_header.jsp"%>
 <body>
@@ -30,29 +30,33 @@
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade show active" id="post">
-                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-                </div>
-                <div class="tab-pane fade" id="user">
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Full name</th>
                             <th scope="col">User name</th>
+                            <th scope="col">Post Content</th>
+                            <th scope="col">Posted Date</th>
                             <th scope="col">Status</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="user" items="${usersAll}">
+                        <c:forEach var="post" items="${postsAll}">
                             <tr class="table-primary">
-                                <th scope="row">Primary</th>
-                                <td>${user.fullName}</td>
-                                <td>${user.userName}</td>
-                                <td>${user.active}</td>
+                                <td>${post.user.username}</td>
+                                <td>${post.content}</td>
+                                <td>${post.postedDate}</td>
+                                <td>${post.active}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
+                </div>
+                <div class="tab-pane fade" id="user">
+                  <div>
+                      <p>
+                          table${usersAll}
+                      </p>
+                  </div>
                 </div>
                 <div class="tab-pane fade" id="advertisement">
                     <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>

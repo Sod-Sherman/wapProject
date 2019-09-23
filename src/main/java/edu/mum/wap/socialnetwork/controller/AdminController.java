@@ -7,6 +7,7 @@ import edu.mum.wap.socialnetwork.service.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,12 @@ public class AdminController extends HttpServlet {
         }
         List<User> myUsers = userService.getAllUsers();
         session.setAttribute("usersAll", myUsers);
-
+        List<Post> myPosts = postService.getAllPosts();
+        session.setAttribute("postsAll", myPosts);
+        //
+        // resp.sendRedirect("admin.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("admin.jsp");
+        rd.forward(req,resp);
 
     }
 
