@@ -9,4 +9,5 @@ public interface PostRepository {
 
     public abstract List<Post> findRecentPostsByUsername(String username);
     public abstract void addPost(User user, Post post);
+    public abstract List<Post> findAllPosts();
 }

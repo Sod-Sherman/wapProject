@@ -1,5 +1,6 @@
 package edu.mum.wap.socialnetwork.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,9 @@ public class User {
     private String lastName;
     private String username;
     private String password;
+    private String fullName;
+    private LocalDate dob;
+    private String imgUrl;
 
     private String email;
     private Boolean active = true;
@@ -28,6 +32,8 @@ public class User {
         this.email = email;
         this.followers =  new ArrayList<>();
         this.posts  = new ArrayList<>();
+        this.fullName = firstName + " " + lastName;
+
     }
 
     public Integer getId() {
@@ -113,6 +119,26 @@ public class User {
     public boolean validate(){
         return "admin".equals(password);
 
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public String getFullName(){
+        return fullName;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     @Override

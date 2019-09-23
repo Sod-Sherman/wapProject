@@ -29,10 +29,15 @@ public final class UserRepositoryImpl implements UserRepository {
     @Override
     public User findByUsername(String username) {
         for (User user : users) {
-            System.out.println(user);
+//            System.out.println(user);
             if (user.getUsername().equalsIgnoreCase(username)) return user;
         }
         return null;
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        return users;
     }
 
     @Override

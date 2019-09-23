@@ -15,7 +15,7 @@
         <%@ include file="WEB-INF/fragment/admin-side-panel.jsp"%>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-
+            <header>Usage Report
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#post">Post</a>
@@ -62,6 +62,7 @@
                     <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
                 </div>
             </div>
+            </header>
             <%@ include file="WEB-INF/fragment/ads.jsp"%>
 
         </main>
