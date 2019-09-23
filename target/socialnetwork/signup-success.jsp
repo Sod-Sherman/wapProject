@@ -15,7 +15,7 @@
 </head>
 <body>
 ${statusMsg}
-<p>Successfully registered.</p>
+<p>Successfully registered..</p>
 Welcome, ${loggedInUser.firstName}
 </body>
 </html>
