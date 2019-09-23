@@ -3,6 +3,7 @@ package edu.mum.wap.socialnetwork.service.impl;
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.repository.PostRepository;
+import edu.mum.wap.socialnetwork.repository.PostRepositoryImpl;
 import edu.mum.wap.socialnetwork.repository.UserRepository;
 import edu.mum.wap.socialnetwork.repository.UserRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
@@ -11,8 +12,8 @@ import java.util.List;
 
 
 public class UserServiceImpl implements UserService {
-    private UserRepository userRepository = new UserRepositoryImpl();
-    private PostRepository postRepository;
+    private UserRepository userRepository = UserRepositoryImpl.getInstance();
+    private PostRepository postRepository = PostRepositoryImpl.getInstance();
 
     @Override
     public Integer login(User user) {  //if username, password is correct then return 1, admin 2, incorrect null
