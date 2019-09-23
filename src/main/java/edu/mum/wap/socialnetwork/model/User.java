@@ -1,5 +1,6 @@
 package edu.mum.wap.socialnetwork.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -25,6 +26,8 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.followers =  new ArrayList<>();
+        this.posts  = new ArrayList<>();
     }
 
     public Integer getId() {

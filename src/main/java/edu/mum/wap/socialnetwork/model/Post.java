@@ -3,7 +3,7 @@ package edu.mum.wap.socialnetwork.model;
 import java.time.LocalDate;
 
 public class Post implements Comparable<Post>{
-    private Integer id;
+    private Double id;
     private String content;
     private Boolean active = true;
     private LocalDate postedDate = LocalDate.now();
@@ -17,11 +17,11 @@ public class Post implements Comparable<Post>{
         this.user = user;
     }
 
-    public Integer getId() {
+    public Double getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Double id) {
         this.id = id;
     }
 
@@ -70,5 +70,14 @@ public class Post implements Comparable<Post>{
         return getPostedDate().compareTo(o.getPostedDate());
     }
 
-
+    @Override
+    public String toString() {
+        return "Post{" +
+                "content='" + content + '\'' +
+                ", active=" + active +
+                ", postedDate=" + postedDate +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }
