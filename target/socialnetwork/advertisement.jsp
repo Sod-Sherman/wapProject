@@ -71,11 +71,11 @@
 
                         <div class="form-group">
                             <label class="col-form-label col-form-label-sm">User Age Range</label>
-                            <input class="form-control form-control-sm" type="number" id="rangeMin" width="40px">
-                            <input class="form-control form-control-sm" type="number" id="rangeMax" width="40px">
+                            <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" id="rangeMin" width="40px">
+                            <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" id="rangeMax" width="40px">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-primary">Reset</button>
+
+
                     </div>
                     <div class="tab-pane fade" id="update">
                         <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
