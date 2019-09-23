@@ -1,7 +1,9 @@
 package edu.mum.wap.socialnetwork.controller;
 
 import edu.mum.wap.socialnetwork.model.User;
+import edu.mum.wap.socialnetwork.repository.PostRepositoryImpl;
 import edu.mum.wap.socialnetwork.repository.UserRepository;
+import edu.mum.wap.socialnetwork.repository.UserRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
@@ -16,7 +18,15 @@ import java.io.IOException;
 
 @WebServlet("/timeline")
 public class TimeLineController extends HttpServlet {
+    @Override
+    public void init() throws ServletException {
+        UserRepositoryImpl.getInstance();
+        PostRepositoryImpl.getInstance();
+
+    }
+
     private HttpSession session;
+
     private UserService userService = new UserServiceImpl();
 
     @Override
@@ -41,10 +51,10 @@ public class TimeLineController extends HttpServlet {
             System.out.println(loggedInUser);
             System.out.println(userService.getPosts(loggedInUser));
 
-            RequestDispatcher rd = req.getRequestDispatcher("/wapProject/timeline.jsp");
-            rd.forward(req,resp);
+//            RequestDispatcher rd = req.getRequestDispatcher("/wapProject/timeline.jsp");
+//            rd.forward(req,resp);
 
-//            resp.sendRedirect("/wapProject/timeline.jsp");
+            resp.sendRedirect("/wapProject/timeline.jsp");
         } catch (SecurityException e) {
             System.out.println(e);
         }
