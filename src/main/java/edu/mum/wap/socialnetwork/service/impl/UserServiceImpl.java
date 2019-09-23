@@ -18,9 +18,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer login(User user) {  //if username, password is correct then return 1, admin 2, incorrect null
         User tempUser = userRepository.findByUsername(user.getUsername());
-        if (tempUser != null && tempUser.getPassword().equals(user.getPassword())) {
+        if (tempUser != null && tempUser.getPassword().equalsIgnoreCase(user.getUsername())) {
             if (tempUser.getUsername().equalsIgnoreCase("admin")) return 2; // admin user
-            if(tempUser.getUsername().equalsIgnoreCase(user.getUsername()))    return 1; // general user
+            if(tempUser.getPassword().equalsIgnoreCase("pass"))
+            return 1; // general user
         }
         return 0; //mismatch password or username
     }
@@ -77,16 +78,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Post> getPosts(User user) {
         return user.getPosts();
-    }
-
-    @Override
-    public List<Post> getAllPosts() {
-        return postRepository.findAllPosts();
-    }
-
-    @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAllUsers();
     }
 
     @Override
