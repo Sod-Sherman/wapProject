@@ -16,7 +16,6 @@
         <%@ include file="WEB-INF/fragment/admin-side-panel.jsp"%>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <header>Usage Report
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#view">Active advertisements</a>
@@ -36,9 +35,6 @@
                     <div class="tab-pane fade" id="create">
                         <div class="container">
                             <div class="row">
-                                <div class="col-5">
-                                    PREVIEW
-                                </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <fieldset>
@@ -46,10 +42,21 @@
                                             <input class="form-control" id="readOnlyInput" type="text" placeholder="Auto generated ID" readonly="">
                                         </fieldset>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="article">Article</label>
+                                        <input type="text" class="form-control" placeholder="Article will be placed in BOLD" id="article">
+                                    </div>
                                     <div class="form-group">
                                         <label for="exampleTextarea">Content</label>
                                         <textarea class="form-control" id="exampleTextarea" placeholder="Please briefly describe your advertisement" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="imgUrl">Image URL</label>
+                                        <input type="text" class="form-control" placeholder="Pictures without background" id="imgUrl">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="url">Product URL</label>
+                                        <input type="text" class="form-control" placeholder="Once clicked will ..." id="url">
                                     </div>
 
                                     <div class="form-group">
@@ -66,16 +73,17 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="form-group">
-                                        <select class="custom-select">
-                                            <option selected="">Choose location group</option>
-                                            <option value="1">USA</option>
-                                            <option value="2">China</option>
-                                            <option value="3">Mongolia</option>
-                                        </select>
-                                    </div>
-
+                                    <fieldset>
+                                        <legend>Choose Location group</legend>
+                                        <div class="form-group">
+                                            <select class="custom-select">
+                                                <option selected="">Choose location group</option>
+                                                <option value="1">USA</option>
+                                                <option value="2">China</option>
+                                                <option value="3">Mongolia</option>
+                                            </select>
+                                        </div>
+                                    </fieldset>
                                     <div class="form-group">
                                         <label class="col-form-label col-form-label-sm">User Age Range</label>
                                         <input class="form-control form-control-sm" type="number" placeholder="from..." id="rangeMin" maxlength="60px"></br>
@@ -88,6 +96,9 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-primary">Reset</button>
+                                </div>
+                                <div class="col-5">
+                                    PREVIEW
                                 </div>
                             </div>
                         </div>

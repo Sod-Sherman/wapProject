@@ -9,22 +9,18 @@ public class Ads implements Comparable<Ads>{
     private String article;
     private String url;
     private Long counter;
-    private Double unitPrice;
     private String imgUrl;
-    private String type;
-    private String company;
     private LocalDate postedDate;
     private Integer duration;
     private String location;
     private Integer ageRangeMin;
     private Integer ageRangeMax;
 
-    public Ads(Integer id, String article, String content, String url, Double unitPrice, String imgUrl){
+    public Ads(Integer id, String article, String content, String url, String imgUrl){
         this.id = id;
         this.article = article;
         this.content = content;
         this.url = url;
-        this. unitPrice = unitPrice;
         this.imgUrl = imgUrl;
     }
 
@@ -42,10 +38,6 @@ public class Ads implements Comparable<Ads>{
 
     public void setCounter(Long counter) {
         this.counter = counter;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public void setCompany(String company) {
@@ -88,20 +80,8 @@ public class Ads implements Comparable<Ads>{
         return counter;
     }
 
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
-
     public String getImgUrl() {
         return imgUrl;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getCompany() {
-        return company;
     }
 
     public LocalDate getPostedDate() {
@@ -130,9 +110,7 @@ public class Ads implements Comparable<Ads>{
                 "id=" + id + '\'' +
                 ", article='" + article + '\'' +
                 ", content='" + content + '\'' +
-                ", type='" + type + '\'' +
                 ", location='" + location + '\'' +
-                ", company='" +  company + '\'' +
                 ", url='" + url + '\'' +
                 ", active='" + active + '\'' +
                 ", counter=" + counter +
