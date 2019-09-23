@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
@@ -32,7 +33,8 @@ public class AdminController extends HttpServlet {
             out.println("Unauthorized access!");
             resp.sendRedirect("timeline.jsp");
         }
-
+       List<User> myUsers = userService.getAllUsers();
+        session.setAttribute("usersAll", myUsers);
 
 
     }
