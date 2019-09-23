@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
-    <link href="../../static/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="static/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet">
 
-    <script src="../../static/jquery-3.3.1.slim.min.js"></script>
+    <script src="static/jquery-3.3.1.slim.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 

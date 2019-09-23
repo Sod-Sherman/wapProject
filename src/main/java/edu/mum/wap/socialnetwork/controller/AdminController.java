@@ -1,5 +1,6 @@
 package edu.mum.wap.socialnetwork.controller;
 
+import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.service.PostService;
 import edu.mum.wap.socialnetwork.service.PostServiceImpl;
@@ -33,7 +34,7 @@ public class AdminController extends HttpServlet {
             out.println("Unauthorized access!");
             resp.sendRedirect("timeline.jsp");
         }
-       List<User> myUsers = userService.getAllUsers();
+        List<User> myUsers = userService.getAllUsers();
         session.setAttribute("usersAll", myUsers);
 
 
