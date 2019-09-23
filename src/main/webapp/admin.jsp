@@ -5,6 +5,8 @@
   Time: 5:44 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <%@ include file="WEB-INF/fragment/admin_header.jsp"%>
 <body>
@@ -39,19 +41,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="table-active">
-                            <th scope="row">Active</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                        </tr>
+                        <c:forEach var="user" items="${usersAll}">
                         <tr class="table-primary">
                             <th scope="row">Primary</th>
-                            <td>Column content</td>
+                            <td>${user.fullName}</td>
                             <td>Column content</td>
                             <td>Column content</td>
                         </tr>
-
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
