@@ -67,4 +67,9 @@ public final class PostRepositoryImpl implements PostRepository {
         user.setPosts(postList);
         posts.add(post);
     }
+
+    @Override
+    public List<Post> findAllPosts() {
+        return posts;
+    }
 }

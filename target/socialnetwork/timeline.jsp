@@ -11,7 +11,7 @@
 <body>
 <%@ include file="WEB-INF/fragment/header.jsp" %>
 <div class="container">
-    <%--    <jsp:useBean id="userPosts" scope="request" type="java.util.List"/>--%>
+
     <c:forEach var="post" items="${userPosts}">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
@@ -23,7 +23,9 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <p class="card-text">${post.content}</p>
-                        <p class="card-text"><small class="text-muted">Posted: ${post.postedDate}</small></p>
+                        <p class="card-text"><small class="text-muted">Posted:
+                                <a href="/profile?username=${post.user.username}"> ${post.user.fullName}</a>
+                                ${post.postedDate}</small></p>
                     </div>
                 </div>
             </div>

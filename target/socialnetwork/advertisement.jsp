@@ -16,7 +16,6 @@
         <%@ include file="WEB-INF/fragment/admin-side-panel.jsp"%>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <header>Usage Report
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#view">Active advertisements</a>
@@ -36,9 +35,6 @@
                     <div class="tab-pane fade" id="create">
                         <div class="container">
                             <div class="row">
-                                <div class="col-5">
-                                    PREVIEW
-                                </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <fieldset>
@@ -88,6 +84,9 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-primary">Reset</button>
+                                </div>
+                                <div class="col-5">
+                                    PREVIEW
                                 </div>
                             </div>
                         </div>
