@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: user
-  Date: 2019-09-23
-  Time: 15:26
+  User: sdblg
+  Date: 9/23/2019
+  Time: 10:02 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -32,7 +32,7 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10"><h1>User name: ${loggedInUser.username}</h1></div>
-        <div class="col-sm-2"><a href="timeline" class="pull-right"><img title="Time Line" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+        <div class="col-sm-2"><a href="/timeline" class="pull-right"><img title="Time Line" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
     </div>
     <div class="row">
         <div class="col-sm-3"><!--left col-->
@@ -84,8 +84,7 @@
 
                             <div class="col-xs-6">
                                 <label for="firstName"><h4>First name</h4></label>
-                                <%--<input type="text" class="form-control" name="first_name" id="firstName" placeholder="firstname&lt;%&ndash;${loggedInUser.firstName}&ndash;%&gt;" title="enter your first name if any.">--%>
-                                <label type="text" id="firstName"></label>
+                                <input type="text" class="form-control" name="first_name" id="firstName" placeholder="firstname<%--${loggedInUser.firstName}--%>" title="enter your first name if any.">
                             </div>
                         </div>
                         <div class="form-group">
@@ -120,8 +119,8 @@
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="email"><h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                                <label for="location"><h4>Location</h4></label>
+                                <input type="text" class="form-control" id="location" placeholder="somewhere" title="enter a location">
                             </div>
                         </div>
                         <div class="form-group">
@@ -150,7 +149,6 @@
                     <hr>
 
                 </div><!--/tab-pane-->
-
                 <div class="tab-pane" id="messages">
 
                     <h2></h2>
@@ -286,8 +284,6 @@
                                 <input type="password" class="form-control" name="password2" id="password2rep3" placeholder="password2" title="enter your password2.">
                             </div>
                         </div>
-
-
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
@@ -319,20 +315,12 @@
             }
         }
 
-            <p>${status}</p>
-            <p>${loggedInUser.firstName}</p>
 
         $(".file-upload").on('change', function(){
             readURL(this);
-
         });
-
     });
-
-
 </script>
-
-
 
 </body>
 </html>
