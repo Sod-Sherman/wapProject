@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
             status = "Success";
             session.setAttribute("loggedInUser", newUser);
         }else {
-            status = "password incorrent";
+            status = "password or username incorrect";
         }
 
         session.setAttribute("status", status);
