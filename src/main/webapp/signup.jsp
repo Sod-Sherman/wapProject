@@ -16,22 +16,29 @@
 <p></p>
 
 <div class="container">
-<form>
+<form action="user" method="POST">
+    <h2>SignUp From</h2>
     <div class="form-group">
-        <label for="InputFirstname1">First Name</label>
-        <input type="text" class="form-control" id="InputFirstname1" aria-describedby="firstname" placeholder="First name">
-        <small id="firstname" class="form-text text-muted"></small>
+        <label for="InputFirstName1">First Name</label>
+        <input type="text" name="firstName" class="form-control" id="InputFirstName1" aria-describedby="firstName" placeholder="First name">
+        <small id="firstName" class="form-text text-muted"></small>
     </div>
 
     <div class="form-group">
-        <label for="InputLastname1">Last Name</label>
-        <input type="text" class="form-control" id="InputLastname1" aria-describedby="lastname" placeholder="Last name">
-        <small id="lastname" class="form-text text-muted"></small>
+        <label for="InputLastName1">Last Name</label>
+        <input type="text" name="lastName" class="form-control" id="InputLastName1" aria-describedby="lastName" placeholder="Last name">
+        <small id="lastName" class="form-text text-muted"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="InputUsername1">Username</label>
+        <input type="text" name="username" class="form-control" id="InputUsername1" aria-describedby="username" placeholder="Username">
+        <small id="username" class="form-text text-muted"></small>
     </div>
 
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         <small id="emailHelp" class="form-text text-muted"></small>
     </div>
     <div class="form-group">
@@ -39,13 +46,12 @@
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
     <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <input type="checkbox" name="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
-
 
 
 <%@include file="WEB-INF/fragment/footer.jsp"%>

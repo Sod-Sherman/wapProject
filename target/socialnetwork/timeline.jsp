@@ -11,7 +11,7 @@
 <body>
 <%@ include file="WEB-INF/fragment/header.jsp" %>
 <div class="container">
-<%--    <jsp:useBean id="userPosts" scope="request" type="java.util.List"/>--%>
+    <%--    <jsp:useBean id="userPosts" scope="request" type="java.util.List"/>--%>
     <c:forEach var="post" items="${userPosts}">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
@@ -22,7 +22,6 @@
                 </c:if>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
                         <p class="card-text">${post.content}</p>
                         <p class="card-text"><small class="text-muted">Posted: ${post.postedDate}</small></p>
                     </div>

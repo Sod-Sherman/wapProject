@@ -17,6 +17,9 @@ public class User {
     private List<Post> posts;
     private String location;
 
+    public User() {
+    }
+
     public User(String firstName, String lastName, String username, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -105,6 +108,11 @@ public class User {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public boolean validate(){
+        return "admin".equals(password);
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
+Built-By: user
 Created-By: IntelliJ IDEA
-Built-By: 1246
-Build-Jdk: 12.0.1
+Built-By: sdblg
+Build-Jdk: 1.8.0_221
 
