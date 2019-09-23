@@ -18,11 +18,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer login(User user) {  //if username, password is correct then return 1, admin 2, incorrect null
         User tempUser = userRepository.findByUsername(user.getUsername());
-        if (tempUser != null && tempUser.getPassword().equalsIgnoreCase(user.getUsername())) {
+        if (tempUser != null && tempUser.getPassword().equals(user.getPassword())) {
             if (tempUser.getUsername().equalsIgnoreCase("admin")) return 2; // admin user
-            return 1; // general user
+            if(tempUser.getUsername().equalsIgnoreCase(user.getUsername()))    return 1; // general user
         }
-        return null; //mismatch password or username
+        return 0; //mismatch password or username
     }
 
     @Override
