@@ -59,6 +59,7 @@ public final class UserRepositoryImpl implements UserRepository {
 
     }
 
+
     public List<User> getUsers() {
         return users;
     }
