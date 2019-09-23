@@ -85,6 +85,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAllUsers();
+    }
+
+    @Override
     public List<Post> getPostsFollower(User user) {
         if(user == null) return null;
         return postRepository.findRecentPostsByUsername(user.getUsername());

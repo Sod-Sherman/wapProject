@@ -15,6 +15,7 @@ public interface UserService {
 
     abstract List<Post> getPosts(User user);
     abstract List<Post> getAllPosts();
+    abstract List<User> getAllUsers();
     abstract List<Post> getPostsFollower(User user);
     abstract User findByUsername(String username);
 }
