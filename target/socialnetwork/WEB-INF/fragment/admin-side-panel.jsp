@@ -5,12 +5,11 @@
   Time: 4:29 PM
   To change this template use File | Settings | File Templates.
 --%>
-
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="https://getbootstrap.com/docs/4.3/examples/dashboard/#">
+                    <li class="nav-item" id="admin">
+                        <a class="nav-link active" href="admin.jsp">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                  class="feather feather-home">
@@ -92,7 +91,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://getbootstrap.com/docs/4.3/examples/dashboard/#">
+                        <a class="nav-link" href="advertisement.jsp">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                  class="feather feather-layers">
