@@ -6,7 +6,7 @@ import edu.mum.wap.socialnetwork.repository.AdsRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.AdsService;
 
 public class AdsServiceImpl implements AdsService {
-    private AdsRepository adsRepository = new AdsRepositoryImpl();
+    private AdsRepository adsRepository = AdsRepositoryImpl.getInstance();
 
 
     @Override
