@@ -36,16 +36,8 @@
     </div>
     <div>
         <c:if test="${loggedInUser != null}"> <a href="profile.jsp"> ${loggedInUser.fullName}</a>  connected.
-            <a href="#" id="logout">Log Out</a></c:if>
+            <a href="#" id="logout">Log Out</a>
+        </c:if>
     </div>
 </nav>
-<script>
-    (
-        $("#logout").click(function () {
-            ${loggedInUser} = null;
-            alert("Sure?");
-        })
-    )();
-</script>
-</body>
-</html>
+
