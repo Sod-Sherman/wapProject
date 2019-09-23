@@ -13,7 +13,6 @@ import java.io.IOException;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
-
     UserService userService = new UserServiceImpl();
 
     public LoginController() {
