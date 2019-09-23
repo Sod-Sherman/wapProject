@@ -38,6 +38,7 @@
 <body data-gr-c-s-loaded="true">
 
 <%@ include file="WEB-INF/fragment/header.jsp" %>
+<p>${status}</p>
 <form action="login" method="POST">
 <div class="limiter">
     <div class="container-login100" style="background-image: url('images/bg-01.jpg');">

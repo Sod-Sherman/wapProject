@@ -58,6 +58,7 @@ public class Post implements Comparable<Post>{
     }
 
     public User getUser() {
+
         return user;
     }
 

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <%@ include file="WEB-INF/fragment/admin_header.jsp"%>
 <body>
@@ -15,7 +15,6 @@
 <div class="container-fluid">
     <div class="row">
         <%@ include file="WEB-INF/fragment/admin-side-panel.jsp"%>
-
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <header>Usage Report
             <ul class="nav nav-tabs">
@@ -34,26 +33,30 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th scope="col">Type</th>
-                            <th scope="col">Column heading</th>
-                            <th scope="col">Column heading</th>
-                            <th scope="col">Column heading</th>
+                            <th scope="col">User name</th>
+                            <th scope="col">Post Content</th>
+                            <th scope="col">Posted Date</th>
+                            <th scope="col">Status</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="user" items="${usersAll}">
-                        <tr class="table-primary">
-                            <th scope="row">Primary</th>
-                            <td>${user.fullName}</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                        </tr>
+                        <c:forEach var="post" items="${postsAll}">
+                            <tr class="table-primary">
+                                <td>${post.user.username}</td>
+                                <td>${post.content}</td>
+                                <td>${post.postedDate}</td>
+                                <td>${post.active}</td>
+                            </tr>
                         </c:forEach>
                         </tbody>
                     </table>
                 </div>
                 <div class="tab-pane fade" id="user">
-                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+                  <div>
+                      <p>
+                          table${usersAll}
+                      </p>
+                  </div>
                 </div>
                 <div class="tab-pane fade" id="advertisement">
                     <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
@@ -61,7 +64,6 @@
             </div>
             </header>
             <%@ include file="WEB-INF/fragment/ads.jsp"%>
-
         </main>
     </div>
 </div>

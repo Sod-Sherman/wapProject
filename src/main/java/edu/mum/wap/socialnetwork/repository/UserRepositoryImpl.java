@@ -37,6 +37,7 @@ public final class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> findAllUsers() {
+
         return users;
     }
 
@@ -58,6 +59,7 @@ public final class UserRepositoryImpl implements UserRepository {
         saveUser(tempUser);
 
     }
+
 
     public List<User> getUsers() {
         return users;

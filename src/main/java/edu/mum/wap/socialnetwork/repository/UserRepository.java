@@ -12,4 +12,5 @@ public interface UserRepository{
     abstract void deleteUser(User user);
     abstract void deactivateUser(User user);
 
+
 }

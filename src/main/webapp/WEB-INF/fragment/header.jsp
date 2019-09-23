@@ -34,6 +34,18 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
+    <div>
+        <c:if test="${loggedInUser != null}"> <a href="profile.jsp"> ${loggedInUser.fullName}</a>  connected.
+            <a href="#" id="logout">Log Out</a></c:if>
+    </div>
 </nav>
+<script>
+    (
+        $("#logout").click(function () {
+            ${loggedInUser} = null;
+            alert("Sure?");
+        })
+    )();
+</script>
 </body>
 </html>

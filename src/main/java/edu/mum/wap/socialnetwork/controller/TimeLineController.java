@@ -48,7 +48,7 @@ public class TimeLineController extends HttpServlet {
                 List<Post> posts = userService.getPosts(loggedInUser);
                 if(posts == null) posts.add(postService.getEmptyPost());
                 session.setAttribute("userPosts", posts);
-                RequestDispatcher rd = req.getRequestDispatcher("/wapProject/timeline.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("timeline.jsp");
                 rd.forward(req,resp);
             }
     }
