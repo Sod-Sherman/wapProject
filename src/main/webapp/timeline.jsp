@@ -9,7 +9,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
-
 <%@ include file="WEB-INF/fragment/header.jsp" %>
 <div class="container">
 <%--    <jsp:useBean id="userPosts" scope="request" type="java.util.List"/>--%>
