@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class PostRepositoryImpl implements PostRepository {
+public final class PostRepositoryImpl implements PostRepository {
     private List<Post> posts;
-    UserRepository userRepository;
+    private static final PostRepositoryImpl INSTANCE = new PostRepositoryImpl();
 
-    public PostRepositoryImpl() {
-
+    private PostRepositoryImpl() {
+        UserRepository userRepository = UserRepositoryImpl.getInstance();
         User sod = userRepository.findByUsername("sod");
         User tur = userRepository.findByUsername("tur");
         User puujgee = userRepository.findByUsername("puujgee");
@@ -30,24 +30,27 @@ public class PostRepositoryImpl implements PostRepository {
         puujgeePost.setId(Math.random());
 
 
-            this.posts = new ArrayList<>(Arrays.asList(sodPost, turPost, puujgeePost));
+        this.posts = new ArrayList<Post>(Arrays.asList(sodPost, turPost, puujgeePost));
 
-            List<Post> sodPosts = sod.getPosts();
-            sodPosts.add(sodPost);
+        List<Post> sodPosts = sod.getPosts();
+        sodPosts.add(sodPost);
 
         List<Post> turPosts = tur.getPosts();
         turPosts.add(turPost);
 
         List<Post> puujgeePosts = puujgee.getPosts();
         puujgeePosts.add(puujgeePost);
-    }
 
+    }
+    public static PostRepositoryImpl getInstance() {
+        return INSTANCE;
+    }
     @Override
     public List<Post> findRecentPostsByUsername(String username) {
-        if(username == null) return null;
+        if (username == null) return null;
         List<Post> result = new ArrayList<>();
-        for(Post post: posts){
-            if(username.equalsIgnoreCase(post.getUser().getUsername()))
+        for (Post post : posts) {
+            if (username.equalsIgnoreCase(post.getUser().getUsername()))
                 result.add(post);
         }
         Collections.sort(result);
@@ -56,10 +59,10 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public void addPost(User user, Post post) {
-        if(user == null && post == null) return;
-        if(post.getUser() == null) post.setUser(user);
+        if (user == null && post == null) return;
+        if (post.getUser() == null) post.setUser(user);
         post.setId(Math.random());
-        List<Post> postList= user.getPosts();
+        List<Post> postList = user.getPosts();
         postList.add(post);
         user.setPosts(postList);
         posts.add(post);
