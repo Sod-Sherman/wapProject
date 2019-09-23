@@ -23,6 +23,7 @@ public class LoginController extends HttpServlet {
         doGet(req, resp);
     }
 
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         String usernameInput = req.getParameter("username");
