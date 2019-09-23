@@ -16,6 +16,7 @@ public class LoginController extends HttpServlet {
     UserService userService = new UserServiceImpl();
 
     public LoginController() {
+
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
