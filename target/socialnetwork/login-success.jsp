@@ -15,9 +15,9 @@
     <title>Insert title here</title>
 </head>
 <body>
-${status}
-<p>Successfully registered.</p>
-Welcome, ${loggedInUser.firstName}
+
+<p>${status}</p>
+<p>${loggedInUser.firstName}</p>
 </body>
 </html>
 

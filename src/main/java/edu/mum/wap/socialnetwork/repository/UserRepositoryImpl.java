@@ -15,7 +15,7 @@ public final class UserRepositoryImpl implements UserRepository {
                     new User("Sodbileg", "Shirmen", "sod", "123", "s@mum.edu"),
                     new User("Purevdemberel", "Byambatogtokh", "puujgee", "123", "p@mum.edu"),
                     new User("Turtogtokh", "M.", "tur", "123", "t@mum.edu"),
-                    new User("Admin", "", "admin", "123", "a@mum.edu")));
+                    new User("Admin", "LastNameAdmin", "admin", "123", "a@mum.edu")));
     }
     public static UserRepositoryImpl getInstance() {
         return INSTANCE;

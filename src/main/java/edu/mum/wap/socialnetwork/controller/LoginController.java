@@ -1,9 +1,12 @@
 package edu.mum.wap.socialnetwork.controller;
 
 import edu.mum.wap.socialnetwork.model.User;
+import edu.mum.wap.socialnetwork.repository.PostRepositoryImpl;
+import edu.mum.wap.socialnetwork.repository.UserRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +16,13 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet({"/login"})
 public class LoginController extends HttpServlet {
-    UserService userService = new UserServiceImpl();
-
-    public LoginController() {
+    private UserService userService = new UserServiceImpl();
+    @Override
+    public void init() throws ServletException {
+        UserRepositoryImpl.getInstance();
+        PostRepositoryImpl.getInstance();
 
     }
-
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
     }
@@ -40,6 +44,9 @@ public class LoginController extends HttpServlet {
         }
 
         session.setAttribute("status", status);
-        resp.sendRedirect("timeline.jsp");
+        resp.sendRedirect("login-success.jsp");
+//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/timeline");
+//        requestDispatcher.forward(req,resp);
+//        resp.sendRedirect("timeline.jsp");
     }
 }
