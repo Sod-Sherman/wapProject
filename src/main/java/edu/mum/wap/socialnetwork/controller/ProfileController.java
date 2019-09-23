@@ -28,9 +28,8 @@ public class ProfileController extends HttpServlet {
         String emailInput = req.getParameter("email");
         String locationInput = req.getParameter("location");
         String passwordInput = req.getParameter("password");
-        String repeatPasswordInput = req.getParameter("repeatPassword");
 
-        User profileUser = new User(firstNameInput, lastNameInput, usernameInput, phoneInput, emailInput, locationInput, passwordInput, repeatPasswordInput);
+        User profileUser = new User(firstNameInput, lastNameInput, usernameInput, phoneInput, emailInput, locationInput, passwordInput);
 
         String statusProfile = "UnSuccess";
 
