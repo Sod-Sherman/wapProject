@@ -36,7 +36,8 @@
                         <td>${ad.imgUrl}</td>
                         <td>${ad.postedDate}</td>
                         <td>${ad.location}</td>
-                        <td><button class="btn btn-secondary my-2 my-sm-0" type="submit">Edit</button></td>
+                        <td><a class="btn btn-secondary my-2 my-sm-0" href="ads_edit?ads_id=${ad.id}">Edit</a></td>
+
                     </tr>
                 </c:forEach>
                 </tbody>
