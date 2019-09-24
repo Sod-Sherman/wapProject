@@ -34,15 +34,17 @@ public class UserController extends HttpServlet {
 
         User bean = new User(firstNameInput, lastNameInput, usernameInput, passwordInput, emailInput);
 
+        userService.getAllUsers().add(bean);
 
         String statusMsg = "UnSuccess";
-        if(userService.addUser(bean)) {
+        if (userService.addUser(bean)) {
             statusMsg = "Success";
             session.setAttribute("loggedInUser", bean);
         }
         session.setAttribute("statusMsg", statusMsg);
 
-        resp.sendRedirect("signup-success.jsp");
+
+        resp.sendRedirect("profile.jsp");
 
     }
 

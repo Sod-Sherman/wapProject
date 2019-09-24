@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: user
-  Date: 2019-09-23
-  Time: 15:26
+  User: sdblg
+  Date: 9/23/2019
+  Time: 10:02 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,6 +26,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
+<p>${statusProfile}</p>
 
 <body>
 <hr>
@@ -84,15 +86,14 @@
 
                             <div class="col-xs-6">
                                 <label for="firstName"><h4>First name</h4></label>
-                                <%--<input type="text" class="form-control" name="first_name" id="firstName" placeholder="firstname&lt;%&ndash;${loggedInUser.firstName}&ndash;%&gt;" title="enter your first name if any.">--%>
-                                <label type="text" id="firstName"></label>
+                                <input type="text" class="form-control" name="first_name" id="firstName" placeholder="${loggedInUser.firstName}" title="enter your first name if any.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="lastName"><h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="lastName" placeholder="lastname<%--${loggedInUser.lastName}--%>" title="enter your last name if any.">
+                                <input type="text" class="form-control" name="last_name" id="lastName" placeholder="${loggedInUser.lastName}" title="enter your last name if any.">
                             </div>
                         </div>
 
@@ -100,7 +101,7 @@
 
                             <div class="col-xs-6">
                                 <label for="username"><h4>Username</h4></label>
-                                <input type="text" class="form-control" name="username" id="username" placeholder="username<%--${loggedInUser.username}--%>" title="enter your username if any.">
+                                <input type="text" class="form-control" name="username" id="username" placeholder="${loggedInUser.username}" title="enter your username if any.">
                             </div>
                         </div>
 
@@ -120,8 +121,8 @@
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="email"><h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                                <label for="location"><h4>Location</h4></label>
+                                <input type="text" class="form-control" id="location" placeholder="somewhere" title="enter a location">
                             </div>
                         </div>
                         <div class="form-group">
@@ -150,7 +151,6 @@
                     <hr>
 
                 </div><!--/tab-pane-->
-
                 <div class="tab-pane" id="messages">
 
                     <h2></h2>
@@ -286,8 +286,6 @@
                                 <input type="password" class="form-control" name="password2" id="password2rep3" placeholder="password2" title="enter your password2.">
                             </div>
                         </div>
-
-
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
@@ -306,7 +304,6 @@
 <script>
     $(document).ready(function() {
 
-
         var readURL = function(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -319,20 +316,15 @@
             }
         }
 
-            <p>${status}</p>
-            <p>${loggedInUser.firstName}</p>
 
         $(".file-upload").on('change', function(){
             readURL(this);
-
         });
-
     });
-
-
 </script>
 
-
+<p>${statusProfile}</p>
+<p>${loggedInUser.username}</p>
 
 </body>
 </html>

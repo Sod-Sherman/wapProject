@@ -23,7 +23,6 @@ public class LoginController extends HttpServlet {
     public void init() throws ServletException {
         UserRepositoryImpl.getInstance();
         PostRepositoryImpl.getInstance();
-
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -66,8 +65,6 @@ public class LoginController extends HttpServlet {
         } else {
             rd = req.getRequestDispatcher("/timeline");
         }
-
-
         rd.forward(req, resp);
 
     }

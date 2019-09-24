@@ -27,6 +27,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
+<p>${statusProfile}</p>
+
 <body>
 <hr>
 <div class="container bootstrap snippet">
@@ -84,14 +86,14 @@
 
                             <div class="col-xs-6">
                                 <label for="firstName"><h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="firstName" placeholder="firstname<%--${loggedInUser.firstName}--%>" title="enter your first name if any.">
+                                <input type="text" class="form-control" name="first_name" id="firstName" placeholder="${loggedInUser.firstName}" title="enter your first name if any.">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
                                 <label for="lastName"><h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="lastName" placeholder="lastname<%--${loggedInUser.lastName}--%>" title="enter your last name if any.">
+                                <input type="text" class="form-control" name="last_name" id="lastName" placeholder="${loggedInUser.lastName}" title="enter your last name if any.">
                             </div>
                         </div>
 
@@ -99,7 +101,7 @@
 
                             <div class="col-xs-6">
                                 <label for="username"><h4>Username</h4></label>
-                                <input type="text" class="form-control" name="username" id="username" placeholder="username<%--${loggedInUser.username}--%>" title="enter your username if any.">
+                                <input type="text" class="form-control" name="username" id="username" placeholder="${loggedInUser.username}" title="enter your username if any.">
                             </div>
                         </div>
 
@@ -302,7 +304,6 @@
 <script>
     $(document).ready(function() {
 
-
         var readURL = function(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -321,6 +322,9 @@
         });
     });
 </script>
+
+<p>${statusProfile}</p>
+<p>${loggedInUser.username}</p>
 
 </body>
 </html>
