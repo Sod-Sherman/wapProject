@@ -8,6 +8,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<head>
+    <style>
+        a {
+            color: #0254EB
+        }
+        a:visited {
+            color: #0254EB
+        }
+        a.morelink {
+            text-decoration:none;
+            outline: none;
+        }
+        .morecontent span {
+            display: none;
+        }
+        .comment {
+            /*width: 400px;*/
+            /*background-color: #f0f0f0;*/
+            /*margin: 10px;*/
+        }
+    </style>
+</head>
 <body>
 <%@ include file="WEB-INF/fragment/header.jsp" %>
 <div class="container">
@@ -17,17 +39,18 @@
     <c:forEach var="post" items="${userPosts}">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
-                <c:if test="${post.imgUrl != null}">
+                <c:if test="${!post.imgUrl.isEmpty()}">
                     <div class="col-md-4">
                         <img src="${post.imgUrl}" class="card-img" alt="...">
                     </div>
                 </c:if>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <p class="card-text">${post.content}</p>
+                        <p class="comment more card-text">${post.content}</p>
                         <p class="card-text"><small class="text-muted">Posted:
-                                <a href="profile"> ${post.user.fullName}</a>
-                                ${post.postedDate}</small></p>
+                                <a href="profile.jsp"> ${post.user.fullName}</a>
+                                ${post.postedDate} <a href="follow"> Follow</a></small>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -37,6 +60,7 @@
 
 
 <%@include file="WEB-INF/fragment/footer.jsp" %>
+<script src="js/timeline.js" type="text/javascript"></script>
 </body>
 </html>
 

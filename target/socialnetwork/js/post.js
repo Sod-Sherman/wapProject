@@ -32,7 +32,9 @@ $(document).ready(function () {
 
                 $("#result").text("Success!");
                 console.log("SUCCESS : ", data);
-                $("#btnSubmit").prop("disabled", false);
+                $("#btnSubmit").prop("disabled", true);
+
+                window.location.href = "timeline";
 
             },
             error: function (e) {

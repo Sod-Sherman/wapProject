@@ -1,4 +1,4 @@
-package edu.mum.wap.socialnetwork.controller;
+package edu.mum.wap.socialnetwork.controller.sod;
 
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
@@ -33,26 +33,7 @@ public class PostController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String content = request.getParameter("textArea1");
-        String imgUrl = "";
-        String uploadPath = filePath;
-        System.out.println("uploadPath = " + uploadPath);
-        String fileName;
-        for (Part part : request.getParts()) {
-            if (part != null && !getFileName(part).contains(DEFAULT_FILENAME)) { 
-                fileName = getFileName(part);
-                imgUrl = "images/post/" + fileName;
-                part.write(uploadPath + File.separator + fileName);
-            }
-        }
-
-        User user = (User) request.getSession().getAttribute("loggedInUser");
-        UserService userService = new UserServiceImpl();
-
-        Post newPost = new Post(content, imgUrl, user);
-        userService.addPost(user, newPost);
-        System.out.println(newPost + "\n" + user);
-        response.sendRedirect("timeline");
+        doGet(request, response);
     }
 
     private String getFileName(Part part) {
@@ -65,9 +46,29 @@ public class PostController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, java.io.IOException {
+        String content = request.getParameter("textArea1");
+        String imgUrl = "";
+        String uploadPath = filePath;
+        System.out.println("uploadPath = " + uploadPath);
+        String fileName;
+        for (Part part : request.getParts()) {
+            if (part != null && !getFileName(part).contains(DEFAULT_FILENAME)) {
+                fileName = getFileName(part);
+                if(!fileName.isEmpty()){
+                    imgUrl = "images/post/" + fileName;
+                    part.write(uploadPath + File.separator + fileName);
+                }
 
-        throw new ServletException("GET method used with " +
-                getClass().getName() + ": POST method required.");
+            }
+        }
+
+        User user = (User) request.getSession().getAttribute("loggedInUser");
+        UserService userService = new UserServiceImpl();
+
+        Post newPost = new Post(content, imgUrl, user);
+        userService.addPost(user, newPost);
+        System.out.println(newPost + "\n" + user);
+        response.sendRedirect("timeline.jsp");
     }
 }
 
