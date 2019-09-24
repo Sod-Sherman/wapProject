@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
             if (tempUser.getUsername().equalsIgnoreCase("admin")) return 2; // admin user
             //if(tempUser.getPassword().equalsIgnoreCase("pass"))
             return 1; // general user
+
         }
         return 0; //mismatch password or username
     }
