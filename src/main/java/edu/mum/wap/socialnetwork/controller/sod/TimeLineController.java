@@ -1,14 +1,11 @@
-package edu.mum.wap.socialnetwork.controller;
+package edu.mum.wap.socialnetwork.controller.sod;
 
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
-import edu.mum.wap.socialnetwork.repository.PostRepositoryImpl;
-import edu.mum.wap.socialnetwork.repository.UserRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.PostService;
 import edu.mum.wap.socialnetwork.service.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
-
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
