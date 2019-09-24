@@ -11,7 +11,9 @@
 <body>
 <%@ include file="WEB-INF/fragment/header.jsp" %>
 <div class="container">
-
+<div>
+    <a href="post.jsp">Create Post</a>
+</div>
     <c:forEach var="post" items="${userPosts}">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
@@ -24,7 +26,7 @@
                     <div class="card-body">
                         <p class="card-text">${post.content}</p>
                         <p class="card-text"><small class="text-muted">Posted:
-                                <a href="/profile?username=${post.user.username}"> ${post.user.fullName}</a>
+                                <a href="/profile"> ${post.user.fullName}</a>
                                 ${post.postedDate}</small></p>
                     </div>
                 </div>

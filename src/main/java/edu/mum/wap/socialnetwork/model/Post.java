@@ -10,6 +10,12 @@ public class Post implements Comparable<Post>{
     private String imgUrl;
     private User user;
 
+    public Post(String content, String imgURL, User user) {
+        this.content = content;
+        this.imgUrl = imgURL;
+        this.user = user;
+    }
+
     public Post(String content, LocalDate postedDate, String imgURL, User user) {
         this.content = content;
         this.postedDate = postedDate;
