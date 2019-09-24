@@ -31,16 +31,47 @@ public class UserServiceImpl implements UserService {
     public Integer updateProfile(User user) {
         User tempUser = userRepository.findByUsername(user.getUsername());
         if (tempUser == null) return 0;
-        if (!tempUser.getUsername().equalsIgnoreCase(user.getUsername()))
-            tempUser.setUsername(user.getUsername());
-        if (!tempUser.getPassword().equals(user.getPassword()))
-            tempUser.setPassword(user.getPassword());
-        if (!tempUser.getFirstName().equals(user.getFirstName()))
+        else{
             tempUser.setFirstName(user.getFirstName());
-        if (!tempUser.getLastName().equals(user.getLastName()))
             tempUser.setLastName(user.getLastName());
-        if (!tempUser.getEmail().equalsIgnoreCase(user.getEmail()))
+            tempUser.setPassword(user.getPassword());
+            tempUser.setPhone(user.getPhone());
             tempUser.setEmail(user.getEmail());
+            tempUser.setLocation(user.getLocation());
+
+        }
+//        if (!tempUser.getUsername().equalsIgnoreCase(user.getUsername()))
+//            tempUser.setUsername(user.getUsername());
+
+//        if(tempUser.getFirstName() == null) return 0;
+//        if (!tempUser.getFirstName().equalsIgnoreCase(user.getFirstName()))
+//            tempUser.setFirstName(user.getFirstName());
+//
+//        if(tempUser.getLastName() == null) return 0;
+//        if (!tempUser.getLastName().equalsIgnoreCase(user.getLastName()))
+//            tempUser.setLastName(user.getLastName());
+//
+//        if(tempUser.getPassword() == null) return 0;
+//        if (!tempUser.getPassword().equalsIgnoreCase(user.getPassword()))
+//            tempUser.setPassword(user.getPassword());
+//
+//        if(tempUser.getPhone() == null){
+//            System.out.println(tempUser.getPhone() + "failed");
+//            System.out.print(user.getPhone());
+//            return 0;
+//        }
+//        if(!tempUser.getPhone().equalsIgnoreCase(user.getPhone()))
+//            tempUser.setPhone(user.getPhone());
+//
+//        if(tempUser.getEmail() == null) return 0;
+//        if (!tempUser.getEmail().equalsIgnoreCase(user.getEmail()))
+//            tempUser.setEmail(user.getEmail());
+//
+//        if(tempUser.getLocation() == null) return 0;
+//        if(!tempUser.getLocation().equalsIgnoreCase(user.getLocation()))
+//            tempUser.setLocation(user.getLocation());
+
+        userRepository.saveUser(tempUser);
 
         return 1;
     }

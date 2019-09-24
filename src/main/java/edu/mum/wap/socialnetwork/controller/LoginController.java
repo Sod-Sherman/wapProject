@@ -55,7 +55,7 @@ public class LoginController extends HttpServlet {
                     if (returnValue == 2)
                         rd = req.getRequestDispatcher("admin.jsp");
                     else
-                        rd = req.getRequestDispatcher("/timeline");
+                        rd = req.getRequestDispatcher("timeline");
                 } else {
                     status = "password or username incorrect";
                     session.setAttribute("status", status);

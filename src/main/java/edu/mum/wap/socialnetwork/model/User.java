@@ -17,13 +17,23 @@ public class User {
     private String email;
     private Boolean active = true;
 
-    private List<User> followers;
-    private List<Post> posts;
+    private List<User> followers =  new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
     private String location;
     private String phone;
 
 
     public User() {
+    }
+
+    //Puujgee Constructor
+    public User(String firstName, String lastName, String password, String email, String location, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+        this.location = location;
+        this.phone = phone;
     }
 
     public User(String firstName, String lastName, String username, String password, String email) {
@@ -38,15 +48,6 @@ public class User {
 
     }
 
-    public User(String firstName, String lastName, String username, String password, String email, String location, String phone) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.location = location;
-        this.phone = phone;
-    }
 
     public Integer getId() {
         return id;
