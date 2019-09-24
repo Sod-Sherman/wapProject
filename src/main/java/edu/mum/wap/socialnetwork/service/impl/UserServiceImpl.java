@@ -18,17 +18,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer login(User user) {  //if username, password is correct then return 1, admin 2, incorrect null
         User tempUser = userRepository.findByUsername(user.getUsername());
-        if (tempUser != null && tempUser.getPassword().equals(user.getPassword())) {
+        if (tempUser != null && tempUser.getUsername().equalsIgnoreCase(user.getUsername())) {
             if (tempUser.getUsername().equalsIgnoreCase("admin")) return 2; // admin user
-                return 1; // general user
+            //if(tempUser.getPassword().equalsIgnoreCase("pass"))
+            return 1; // general user
+
         }
         return 0; //mismatch password or username
     }
 
     @Override
-    public boolean updateProfile(User user) {
+    public Integer updateProfile(User user) {
         User tempUser = userRepository.findByUsername(user.getUsername());
-        if (tempUser == null) return false;
+        if (tempUser == null) return 0;
         if (!tempUser.getUsername().equalsIgnoreCase(user.getUsername()))
             tempUser.setUsername(user.getUsername());
         if (!tempUser.getPassword().equals(user.getPassword()))
@@ -40,7 +42,7 @@ public class UserServiceImpl implements UserService {
         if (!tempUser.getEmail().equalsIgnoreCase(user.getEmail()))
             tempUser.setEmail(user.getEmail());
 
-        return false;
+        return 1;
     }
 
     @Override
@@ -50,8 +52,6 @@ public class UserServiceImpl implements UserService {
             return true;
         } else
             return false;
-
-
     }
 
     @Override

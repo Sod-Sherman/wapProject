@@ -21,7 +21,7 @@ public class User {
     private List<Post> posts;
     private String location;
     private String phone;
-    private String repeatPassword;
+
 
     public User() {
     }
@@ -38,7 +38,7 @@ public class User {
 
     }
 
-    public User(String firstName, String lastName, String username, String password, String email, String location, String phone, String repeatPassword) {
+    public User(String firstName, String lastName, String username, String password, String email, String location, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -46,7 +46,6 @@ public class User {
         this.email = email;
         this.location = location;
         this.phone = phone;
-        this.repeatPassword = repeatPassword;
     }
 
     public Integer getId() {
@@ -135,14 +134,6 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getRepeatPassword() {
-        return repeatPassword;
-    }
-
-    public void setRepeatPassword(String repeatPassword) {
-        this.repeatPassword = repeatPassword;
     }
 
     public boolean validate(){
