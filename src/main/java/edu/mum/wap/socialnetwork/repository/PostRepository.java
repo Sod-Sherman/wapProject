@@ -8,6 +8,7 @@ import java.util.List;
 public interface PostRepository {
 
     public abstract List<Post> findRecentPostsByUsername(String username);
+    public abstract List<Post> findAllActiveRecentPosts();
     public abstract void addPost(User user, Post post);
     public abstract List<Post> findAllPosts();
 }

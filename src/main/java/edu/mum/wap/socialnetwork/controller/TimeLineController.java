@@ -45,7 +45,8 @@ public class TimeLineController extends HttpServlet {
             } else {
                 loggedInUser = (User) session.getAttribute("loggedInUser");
 
-                List<Post> posts = userService.getPosts(loggedInUser);
+//                List<Post> posts = userService.getPosts(loggedInUser);
+                List<Post> posts = userService.getAllPosts();
                 if(posts == null) posts.add(postService.getEmptyPost());
                 session.setAttribute("userPosts", posts);
                 RequestDispatcher rd = req.getRequestDispatcher("timeline.jsp");

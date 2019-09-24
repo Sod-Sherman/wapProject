@@ -1,6 +1,7 @@
 package edu.mum.wap.socialnetwork.service;
 
 import edu.mum.wap.socialnetwork.model.Post;
+import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.repository.PostRepository;
 import edu.mum.wap.socialnetwork.repository.PostRepositoryImpl;
 
@@ -20,5 +21,13 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<Post> getAllPosts() {
         return postRepository.findAllPosts();
+    }
+
+    @Override
+    public List<Post> getAllActiveFollowedPosts(User user) {
+        List<Post> result = postRepository.findAllActiveRecentPosts();
+//        result = result.stream()
+//                .filter(post -> post.getUser().getFollowers().contains(user.getFollowers()))
+        return null;
     }
 }

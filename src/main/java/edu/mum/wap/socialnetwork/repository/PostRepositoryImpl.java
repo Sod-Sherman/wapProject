@@ -42,9 +42,11 @@ public final class PostRepositoryImpl implements PostRepository {
         puujgeePosts.add(puujgeePost);
 
     }
+
     public static PostRepositoryImpl getInstance() {
         return INSTANCE;
     }
+
     @Override
     public List<Post> findRecentPostsByUsername(String username) {
         if (username == null) return null;
@@ -52,6 +54,16 @@ public final class PostRepositoryImpl implements PostRepository {
         for (Post post : posts) {
             if (username.equalsIgnoreCase(post.getUser().getUsername()))
                 result.add(post);
+        }
+        Collections.sort(result);
+        return result;
+    }
+
+    @Override
+    public List<Post> findAllActiveRecentPosts() {
+        List<Post> result = new ArrayList<>();
+        for (Post post : posts) {
+            if (post.getActive()) result.add(post);
         }
         Collections.sort(result);
         return result;

@@ -56,10 +56,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean addPost(User user, Post post) {
-        // ToDo
-
-
-        return false;
+        if(user == null || post == null) return false;
+        postRepository.addPost(user,post);
+        List<Post> posts = user.getPosts();
+        posts.add(post);
+        userRepository.saveUser(user);
+        return true;
 
     }
 

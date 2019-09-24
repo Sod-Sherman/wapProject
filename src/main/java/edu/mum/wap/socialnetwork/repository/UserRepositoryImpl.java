@@ -43,12 +43,20 @@ public final class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void saveUser(User user) {
+        User tUser = findByUsername(user.getUsername());
+        deleteUser(tUser);
         users.add(user);
     }
 
     @Override
     public void deleteUser(User user) {
-        deactivateUser(user);
+        User tUser = findByUsername(user.getUsername());
+        List<User> users1 = new ArrayList<>();
+        for(User iUser: users){
+            if(!iUser.getUsername().equalsIgnoreCase(tUser.getUsername()))
+                users1.add(iUser);
+        }
+        this.users = users1;
     }
 
     @Override
