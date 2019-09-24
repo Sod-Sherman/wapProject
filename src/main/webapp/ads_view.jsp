@@ -34,9 +34,9 @@
                             <div class="form-group">
                                 <select class="custom-select" name="location">
                                     <option selected="">Choose location group</option>
-                                    <option value="1">USA</option>
-                                    <option value="2">China</option>
-                                    <option value="3">Mongolia</option>
+                                    <option value="USA">USA</option>
+                                    <option value="China">China</option>
+                                    <option value="Mongolia">Mongolia</option>
                                 </select>
                             </div>
                         </fieldset>

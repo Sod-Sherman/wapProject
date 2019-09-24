@@ -1,6 +1,7 @@
 package edu.mum.wap.socialnetwork.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Ads implements Comparable<Ads>{
     private Integer id;
@@ -16,12 +17,17 @@ public class Ads implements Comparable<Ads>{
     private Integer ageRangeMin;
     private Integer ageRangeMax;
 
-    public Ads(Integer id, String article, String content, String url, String imgUrl){
+    public Ads(Boolean active, Integer id, String article, String content, String url, String imgUrl, LocalDate postedDate, String location, int ageRangeMax, int duration){
+        this.active = active;
         this.id = id;
         this.article = article;
         this.content = content;
         this.url = url;
         this.imgUrl = imgUrl;
+        this.postedDate=postedDate;
+        this.location = location;
+        this.ageRangeMax = ageRangeMax;
+        this.duration = duration;
     }
 
     public String getArticle() {
@@ -86,6 +92,10 @@ public class Ads implements Comparable<Ads>{
 
     public LocalDate getPostedDate() {
         return postedDate;
+    }
+
+    public void setPostedDate(LocalDate postedDate) {
+        this.postedDate = postedDate;
     }
 
     public Integer getDuration() {
