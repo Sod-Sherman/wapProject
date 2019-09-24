@@ -20,19 +20,13 @@ import java.io.IOException;
 @MultipartConfig
 public class PostController extends HttpServlet {
 
-    private boolean isMultipart;
     private String filePath;
-    private int maxFileSize = 50 * 1024;
-    private int maxMemSize = 4 * 1024;
-    private File file;
     private final String DEFAULT_FILENAME = "noname";
     private Integer fileNameCounter = 0;
 
     public void init() {
         // Get the file location where it would be stored.
         filePath = getServletContext().getInitParameter("file-upload");
-
-
     }
 
 
@@ -40,17 +34,14 @@ public class PostController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String content = request.getParameter("textArea1");
-        System.out.println("content = " + content);
         String imgUrl = "";
-        String UPLOAD_DIRECTORY = filePath;
-        String uploadPath = UPLOAD_DIRECTORY;
+        String uploadPath = filePath;
         System.out.println("uploadPath = " + uploadPath);
         String fileName;
         for (Part part : request.getParts()) {
-            fileName = getFileName(part);
-            if (!fileName.contains(DEFAULT_FILENAME)) {
+            if (part != null && !getFileName(part).contains(DEFAULT_FILENAME)) { 
+                fileName = getFileName(part);
                 imgUrl = "images/post/" + fileName;
-                System.out.println("part = " + part.getSubmittedFileName());
                 part.write(uploadPath + File.separator + fileName);
             }
         }
@@ -62,7 +53,6 @@ public class PostController extends HttpServlet {
         userService.addPost(user, newPost);
         System.out.println(newPost + "\n" + user);
         response.sendRedirect("timeline");
-
     }
 
     private String getFileName(Part part) {
