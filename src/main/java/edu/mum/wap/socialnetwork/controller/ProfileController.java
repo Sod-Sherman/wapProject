@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 public class ProfileController extends HttpServlet {
     UserService userService = new UserServiceImpl();
 
+
     public ProfileController() {
     }
 
@@ -54,7 +55,7 @@ public class ProfileController extends HttpServlet {
             rd = req.getRequestDispatcher("login.jsp");
         }
 
-        //System.out.println("test");
+
         rd.forward(req, resp);
     }
 

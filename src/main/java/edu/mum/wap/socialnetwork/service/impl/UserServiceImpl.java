@@ -38,6 +38,7 @@ public class UserServiceImpl implements UserService {
             tempUser.setPhone(user.getPhone());
             tempUser.setEmail(user.getEmail());
             tempUser.setLocation(user.getLocation());
+
         }
 //        if (!tempUser.getUsername().equalsIgnoreCase(user.getUsername()))
 //            tempUser.setUsername(user.getUsername());
