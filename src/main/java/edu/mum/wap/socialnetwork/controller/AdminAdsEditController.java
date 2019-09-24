@@ -1,0 +1,55 @@
+package edu.mum.wap.socialnetwork.controller;
+
+import edu.mum.wap.socialnetwork.model.Ads;
+import edu.mum.wap.socialnetwork.service.AdsService;
+import edu.mum.wap.socialnetwork.service.impl.AdsServiceImpl;
+import java.io.IOException;
+import java.time.LocalDate;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet({"/ads_edit"})
+public class AdminAdsEditController extends HttpServlet {
+    AdsService adsService = new AdsServiceImpl();
+
+    public AdminAdsEditController() {
+    }
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        RequestDispatcher rd = null;
+
+        int adsId = Integer.parseInt(req.getParameter("ads_id"));
+        Ads tempAds = adsService.findByAdsId(adsId);
+
+        Ads editAds = (Ads) session.getAttribute("editAds");
+
+//
+//        if(editAds != null){
+//            req.setAttribute("editAds", editAds);
+//
+//            Ads tempAds = new Ads(req.getParameter("article"));
+         //   adsService.updateAds(tempAds);
+//
+////
+            tempAds.setActive( Boolean.parseBoolean(req.getParameter("active")));
+            tempAds.setArticle(req.getParameter("article"));
+            tempAds.setContent(req.getParameter("content"));
+            tempAds.setUrl(req.getParameter("url"));
+            tempAds.setImgUrl(req.getParameter("imgURL"));
+            tempAds.setLocation(req.getParameter("location"));
+            tempAds.setAgeRangeMax(Integer.parseInt(req.getParameter("age")));
+            tempAds.setDuration(Integer.parseInt(req.getParameter("duration")));
+
+            rd.forward(req,resp);
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       this.doGet(req,resp);
+    }
+}

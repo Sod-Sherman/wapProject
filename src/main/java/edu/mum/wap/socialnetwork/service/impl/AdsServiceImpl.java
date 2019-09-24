@@ -21,11 +21,21 @@ public class AdsServiceImpl implements AdsService {
     }
 
     @Override
-    public void updateAds(Ads ad) {
+    public Boolean updateAds(Ads ad) {
         Ads tempAd = adsRepository.findByAdsId(ad.getId());
-        if(tempAd == null) return;
-        if(!tempAd.getContent().equalsIgnoreCase(ad.getContent()))
+        if(tempAd == null) return false;
+        else {
+            tempAd.setActive(ad.isActive());
+            tempAd.setArticle(ad.getArticle());
             tempAd.setContent(ad.getContent());
+            tempAd.setUrl(ad.getUrl());
+            tempAd.setImgUrl(ad.getImgUrl());
+            tempAd.setLocation(ad.getLocation());
+            tempAd.setAgeRangeMax(ad.getAgeRangeMax());
+            tempAd.setDuration(ad.getDuration());
+        }
+        adsRepository.saveAds(tempAd);
+        return true;
     }
 
     @Override
