@@ -10,7 +10,8 @@ $(document).ready(function () {
 
         // Create an FormData object
         var data = new FormData(form);
-        data.append("CustomField", $('#textarea').val());
+        data.append("textArea1", $('#textarea').val());
+        console.log(data);
 
         // If you want to add an extra field for the FormData
         //data.append("CustomField", "This is some extra data, testing");
@@ -29,14 +30,14 @@ $(document).ready(function () {
             timeout: 600000,
             success: function (data) {
 
-                $("#result").text(data);
+                $("#result").text("Success!");
                 console.log("SUCCESS : ", data);
                 $("#btnSubmit").prop("disabled", false);
 
             },
             error: function (e) {
 
-                $("#result").text(e.responseText);
+                 $("#result").text(e.responseText);
                 console.log("ERROR : ", e);
                 $("#btnSubmit").prop("disabled", false);
 
