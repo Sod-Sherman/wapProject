@@ -1,6 +1,6 @@
 package edu.mum.wap.socialnetwork.controller;
 
-import edu.mum.wap.socialnetwork.repository.AdsRepositoryImpl;
+import edu.mum.wap.socialnetwork.repository.impl.AdsRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.AdsService;
 import edu.mum.wap.socialnetwork.service.impl.AdsServiceImpl;
 

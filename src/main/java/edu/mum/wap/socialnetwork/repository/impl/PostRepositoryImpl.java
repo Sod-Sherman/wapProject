@@ -1,6 +1,8 @@
-package edu.mum.wap.socialnetwork.repository;
+package edu.mum.wap.socialnetwork.repository.impl;
 
 import edu.mum.wap.socialnetwork.model.*;
+import edu.mum.wap.socialnetwork.repository.PostRepository;
+import edu.mum.wap.socialnetwork.repository.UserRepository;
 
 
 import java.time.LocalDate;
@@ -35,8 +37,6 @@ public final class PostRepositoryImpl implements PostRepository {
         Post puujgeePost = new Post("Whenever I hear an idea for what we can do to keep global warming in check—whether it’s over a conference table or a cheeseburger—I always ask this question: “What’s your plan for steel?” I know it sounds like an odd thing to say, but it opens the door to an important subject.",
                 LocalDate.of(2019, 9, 22), "https://external-ort2-1.xx.fbcdn.net/safe_image.php?d=AQAl4W7u2Re62WqJ&w=540&h=282&url=https%3A%2F%2Fwww.gatesnotes.com%2F-%2Fmedia%2FImages%2FArticles%2FEnergy%2FA-question-to-ask-about-every-climate-plan%2Fenergy-manufacturing_2019_article-hero_1200px_v2.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_hash=AQCGwLSvFlNlfwhe", puujgee);
         puujgeePost.setId(Math.random());
-
-
 
 
         this.posts = new ArrayList<Post>(Arrays.asList(sodPost, turPost, puujgeePost, sodPost1));
@@ -75,6 +75,7 @@ public final class PostRepositoryImpl implements PostRepository {
             if (post.getActive()) result.add(post);
         }
         Collections.sort(result);
+        //System.out.println("Posts by ordered: = " + result);
         return result;
     }
 

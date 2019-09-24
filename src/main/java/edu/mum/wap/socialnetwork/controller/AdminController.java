@@ -3,7 +3,7 @@ package edu.mum.wap.socialnetwork.controller;
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.service.PostService;
-import edu.mum.wap.socialnetwork.service.PostServiceImpl;
+import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 

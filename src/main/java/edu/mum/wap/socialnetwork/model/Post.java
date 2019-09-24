@@ -3,7 +3,7 @@ package edu.mum.wap.socialnetwork.model;
 import java.time.LocalDate;
 
 public class Post implements Comparable<Post>{
-    private Double id;
+    private Double id = Math.random();
     private String content;
     private Boolean active = true;
     private LocalDate postedDate = LocalDate.now();
@@ -74,7 +74,7 @@ public class Post implements Comparable<Post>{
 
     @Override
     public int compareTo(Post o) {
-        return getPostedDate().compareTo(o.getPostedDate());
+        return o.getPostedDate().compareTo(this.getPostedDate());
     }
 
     @Override

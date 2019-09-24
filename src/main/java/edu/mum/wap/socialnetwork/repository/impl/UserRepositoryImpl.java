@@ -1,6 +1,7 @@
-package edu.mum.wap.socialnetwork.repository;
+package edu.mum.wap.socialnetwork.repository.impl;
 
 import edu.mum.wap.socialnetwork.model.*;
+import edu.mum.wap.socialnetwork.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;

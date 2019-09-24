@@ -48,8 +48,8 @@
                     <div class="card-body">
                         <p class="comment more card-text">${post.content}</p>
                         <p class="card-text"><small class="text-muted">Posted:
-                                <a href="profile.jsp"> ${post.user.fullName}</a>
-                                ${post.postedDate} <a href="follow"> Follow</a></small>
+                            <a href="profile.jsp"> <span id="fullNameOfPoster">${post.user.fullName}</span></a>
+                                ${post.postedDate} <a id="follow" href="#"> Follow</a></small>
                         </p>
                     </div>
                 </div>
@@ -60,7 +60,10 @@
 
 
 <%@include file="WEB-INF/fragment/footer.jsp" %>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="js/timeline.js" type="text/javascript"></script>
+<script src="js/follow.js" type="text/javascript"></script>
+
 </body>
 </html>
 

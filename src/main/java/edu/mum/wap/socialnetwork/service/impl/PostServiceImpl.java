@@ -1,9 +1,10 @@
-package edu.mum.wap.socialnetwork.service;
+package edu.mum.wap.socialnetwork.service.impl;
 
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.repository.PostRepository;
-import edu.mum.wap.socialnetwork.repository.PostRepositoryImpl;
+import edu.mum.wap.socialnetwork.repository.impl.PostRepositoryImpl;
+import edu.mum.wap.socialnetwork.service.PostService;
 
 import java.time.LocalDate;
 import java.util.List;

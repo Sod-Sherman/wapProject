@@ -1,13 +1,14 @@
-package edu.mum.wap.socialnetwork.repository;
+package edu.mum.wap.socialnetwork.repository.impl;
 
 import edu.mum.wap.socialnetwork.model.Ads;
+import edu.mum.wap.socialnetwork.repository.AdsRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AdsRepositoryImpl implements AdsRepository{
+public class AdsRepositoryImpl implements AdsRepository {
 
     private List<Ads> adsList;
     private static final AdsRepositoryImpl INSTANCE = new AdsRepositoryImpl();

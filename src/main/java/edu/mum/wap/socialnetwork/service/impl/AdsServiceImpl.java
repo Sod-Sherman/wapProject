@@ -2,7 +2,7 @@ package edu.mum.wap.socialnetwork.service.impl;
 
 import edu.mum.wap.socialnetwork.model.Ads;
 import edu.mum.wap.socialnetwork.repository.AdsRepository;
-import edu.mum.wap.socialnetwork.repository.AdsRepositoryImpl;
+import edu.mum.wap.socialnetwork.repository.impl.AdsRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.AdsService;
 
 import java.util.List;
