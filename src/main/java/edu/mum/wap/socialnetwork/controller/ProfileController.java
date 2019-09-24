@@ -27,6 +27,7 @@ public class ProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         RequestDispatcher rd = null;
+
         String firstNameInput = req.getParameter("name");
         System.out.println(firstNameInput + "name");
         String lastNameInput = req.getParameter("lastName");
