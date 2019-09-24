@@ -11,6 +11,7 @@ public interface AdsRepository {
     abstract void saveAds(Ads ad);
     abstract void deactivateAds(Ads ad);
     abstract List<Ads> getAds();
+    abstract public void update(Ads ads);
 
 
 }

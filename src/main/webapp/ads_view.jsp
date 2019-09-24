@@ -15,7 +15,8 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="col-form-label" for="article">Article</label>
-                            <input type="text" name="article" class="form-control" placeholder="Article will be formatted in BOLD" id="article">
+                            <input type="hidden" name="id" value="${myAds.id}">
+                            <input type="text" name="article" class="form-control" placeholder="Article will be formatted in BOLD" id="article" value="${myAds.article}">
                         </div>
                         <div class="form-group">
                             <label for="exampleTextarea">Content</label>

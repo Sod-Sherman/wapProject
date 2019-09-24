@@ -10,4 +10,5 @@ public interface AdsService {
     public abstract void deactivateAds(Ads ad);
     abstract List<Ads> getAllAds();
     abstract Ads findByAdsId(Integer id);
+    public abstract void update(Ads ads);
 }

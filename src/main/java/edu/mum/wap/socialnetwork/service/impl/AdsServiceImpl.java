@@ -23,6 +23,7 @@ public class AdsServiceImpl implements AdsService {
     @Override
     public Boolean updateAds(Ads ad) {
         Ads tempAd = adsRepository.findByAdsId(ad.getId());
+
         if(tempAd == null) return false;
         else {
             tempAd.setActive(ad.isActive());
@@ -35,6 +36,7 @@ public class AdsServiceImpl implements AdsService {
             tempAd.setDuration(ad.getDuration());
         }
         adsRepository.saveAds(tempAd);
+
         return true;
     }
 
@@ -52,5 +54,10 @@ public class AdsServiceImpl implements AdsService {
     @Override
     public Ads findByAdsId(Integer id) {
         return adsRepository.findByAdsId(id);
+    }
+
+    @Override
+    public void update(Ads ads) {
+        adsRepository.update(ads);
     }
 }

@@ -56,4 +56,15 @@ public class AdsRepositoryImpl implements AdsRepository {
 
     }
     public List<Ads> getAds() {return adsList;}
+
+    @Override
+    public void update(Ads ads){
+        List<Ads> newList = new ArrayList<>();
+        for(Ads a: this.adsList){
+            if(a.getId() != ads.getId())
+                newList.add(a);
+        }
+        newList.add(ads);
+
+    }
 }
