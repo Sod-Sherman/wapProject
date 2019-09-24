@@ -1,10 +1,4 @@
 
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
 @font-face {
   font-family: Poppins-Regular;
   src: url('../fonts/poppins/Poppins-Regular.ttf'); 
@@ -123,7 +117,6 @@ label {
   display: block;
 }
 
-/*---------------------------------------------*/
 button {
 	outline: none !important;
 	border: none;
@@ -148,9 +141,6 @@ iframe {
   line-height: 1.5;
 }
 
-
-/*//////////////////////////////////////////////////////////////////
-[ login ]*/
 
 .limiter {
   width: 100%;
@@ -240,9 +230,6 @@ iframe {
 }
 
 
-/*------------------------------------------------------------------
-[ Input ]*/
-
 .wrap-input100 {
   width: 100%;
   position: relative;
@@ -263,7 +250,6 @@ iframe {
   padding: 0 5px 0 38px;
 }
 
-/*---------------------------------------------*/ 
 .focus-input100 {
   position: absolute;
   display: block;
@@ -337,8 +323,6 @@ iframe {
 }
 
 
-/*==================================================================
-[ Restyle Checkbox ]*/
 
 .contact100-form-checkbox {
   padding-left: 5px;

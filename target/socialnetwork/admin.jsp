@@ -45,7 +45,6 @@
                                 <td>${post.user.username}</td>
                                 <td>${post.content}</td>
                                 <td>${post.postedDate}</td>
-                                <td>${post.active}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
