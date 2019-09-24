@@ -12,7 +12,7 @@ ${statusMsg}
         </div>
         <div class="form-group">
             <label for="file">Example file input</label>
-            <input type="file" class="form-control-file btn-sm" name="file" id="file" size = "50">
+            <input type="file" class="form-control-file btn-sm" name="filename" id="file" size = "50">
         </div>
         <div class="form-group">
             <input type="submit" class="btn-sm btn-primary" id="btnSubmit"/>

@@ -62,7 +62,6 @@
                 </div>
             </div>
             </header>
-            <%@ include file="WEB-INF/fragment/ads.jsp"%>
         </main>
     </div>
 </div>

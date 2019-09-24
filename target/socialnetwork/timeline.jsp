@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <p class="card-text">${post.content}</p>
                         <p class="card-text"><small class="text-muted">Posted:
-                                <a href="/profile"> ${post.user.fullName}</a>
+                                <a href="profile"> ${post.user.fullName}</a>
                                 ${post.postedDate}</small></p>
                     </div>
                 </div>
