@@ -5,6 +5,8 @@ import edu.mum.wap.socialnetwork.repository.AdsRepository;
 import edu.mum.wap.socialnetwork.repository.AdsRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.AdsService;
 
+import java.util.List;
+
 public class AdsServiceImpl implements AdsService {
     private AdsRepository adsRepository = AdsRepositoryImpl.getInstance();
 
@@ -29,6 +31,11 @@ public class AdsServiceImpl implements AdsService {
     @Override
     public void deactivateAds(Ads ad) {
         adsRepository.deactivateAds(ad);
+    }
+
+    @Override
+    public List<Ads> getAllAds() {
+        return adsRepository.getAds();
     }
 
 
