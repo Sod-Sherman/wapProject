@@ -26,7 +26,6 @@ public class AdminPostEditController extends HttpServlet {
             Post tempPost = postService.findPostById(Integer.parseInt(req.getParameter("post_id")));
             if(tempPost.getActive()){
                 tempPost.setActive(false);
-                System.out.println(tempPost.getActive());
             } else {
                 tempPost.setActive(true);
             }

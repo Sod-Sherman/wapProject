@@ -50,7 +50,6 @@ public class AdminAdsAddController extends HttpServlet {
             }
             session.setAttribute("statusMSG", statusMSG);
         } else { //update hiih
-            System.out.println("Edit hiih incomingId = " + incomingId);
             int id = Integer.parseInt(incomingId);
             boolean sta = Boolean.parseBoolean(req.getParameter("active"));
             String art = req.getParameter("article");
