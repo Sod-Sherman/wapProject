@@ -35,7 +35,7 @@
         </form>
     </div>
     <div>
-        <c:if test="${loggedInUser != ''}">
+        <c:if test="${loggedInUser != null}">
             <a href="profile.jsp"> ${loggedInUser.fullName}</a>
             <a href="#" id="logout">Log Out</a>
         </c:if>
