@@ -15,6 +15,15 @@ public class User {
     private String fullName;
     private LocalDate dob;
     private String imgUrl;
+    private String twitter;
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
 
     private String email;
     private Boolean active = true;
