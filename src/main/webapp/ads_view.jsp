@@ -13,10 +13,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="" value="${myAds.active}">
-                            <label class="custom-control-label" for="customSwitch1">Active</label>
-                        </div>
+                        <fieldset>
+                            <legend>Choose Status</legend>
+                            <div class="form-group">
+                                <select class="custom-select" name="active" value="${myAds.active}">
+                                    <option selected="true">Active</option>
+                                    <option value="false">InActive</option>
+                                </select>
+                            </div>
+                        </fieldset>
                         <div class="form-group">
                             <label class="col-form-label" for="article">Article</label>
                             <input type="hidden" name="id" value="${myAds.id}">
@@ -34,10 +39,16 @@
                             <label class="col-form-label" for="url">Product URL</label>
                             <input type="text" class="form-control" name="url" id="url" value="${myAds.url}">
                         </div>
-                        <div class="form-group">
-                            <label class="col-form-label" for="location">Location</label>
-                            <input type="text" class="form-control" name="location"  id="location" value="${myAds.location}">
-                        </div>
+                        <fieldset>
+                            <legend>Choose Location group</legend>
+                            <div class="form-group">
+                                <select class="custom-select" name="location" value="${myAds.location}">
+                                    <option selected="USA">USA</option>
+                                    <option value="China">China</option>
+                                    <option value="Mongolia">Mongolia</option>
+                                </select>
+                            </div>
+                        </fieldset>
                         <div class="form-group">
                             <label class="col-form-label col-form-label-sm">User Age Range</label>
                             <input class="form-control form-control-sm" name="ageRange" type="number" id="rangeMax" placeholder="+/- 5 years of audience" maxlength="40px" value="${myAds.ageRangeMax}">

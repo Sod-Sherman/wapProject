@@ -31,7 +31,7 @@ public class AdminAdsAddController extends HttpServlet {
         HttpSession session = req.getSession();
         LocalDate time = LocalDate.now();
         List<Ads> myAds = adsService.getAllAds();
-
+        boolean status = Boolean.parseBoolean(req.getParameter("active"));
         String article = req.getParameter("article");
         String content = req.getParameter("content");
         String url = req.getParameter("url");
@@ -43,7 +43,7 @@ public class AdminAdsAddController extends HttpServlet {
 
         if ("".equals(incomingId)) {
             int id = myAds.size() + 1;
-            Ads bean = new Ads(true, id, article, content, url, imgUrl, time, location, age, duration);
+            Ads bean = new Ads(status, id, article, content, url, imgUrl, time, location, age, duration);
             String statusMSG = "UN";
             if (adsService.addAds(bean)) {
                 statusMSG = "Success";
@@ -53,7 +53,7 @@ public class AdminAdsAddController extends HttpServlet {
         } else { //update hiih
             System.out.println("Edit hiih incomingId = " + incomingId);
             int id = Integer.parseInt(incomingId);
-            boolean active = true;
+            boolean sta = Boolean.parseBoolean(req.getParameter("active"));
             String art = req.getParameter("article");
             String cont = req.getParameter("content");
             String ur =req.getParameter("url");
@@ -63,7 +63,7 @@ public class AdminAdsAddController extends HttpServlet {
             int af = Integer.parseInt(req.getParameter("ageRange"));
             int dur = (Integer.parseInt(req.getParameter("duration")));
 
-            Ads bean = new Ads(active, id, art, cont, ur, imUr, dat, loc, af, dur);
+            Ads bean = new Ads(sta, id, art, cont, ur, imUr, dat, loc, af, dur);
             adsService.updateAds(bean);
             if(adsService.updateAds(bean)){
                 System.out.println("Succ");

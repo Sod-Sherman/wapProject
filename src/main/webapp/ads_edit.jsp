@@ -13,10 +13,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="" value="${editAds.active}">
-                                <label class="custom-control-label" for="customSwitch1" >Set Active</label>
-                            </div>
+                            <fieldset>
+                                <legend>Choose Status</legend>
+                                <div class="form-group">
+                                    <select class="custom-select" name="active" value="${editAds.active}">
+                                        <option selected="true">Active</option>
+                                        <option value="false">InActive</option>
+                                    </select>
+                                </div>
+                            </fieldset>
                             <div class="form-group">
                                 <label class="col-form-label" for="article">Article</label>
                                 <input type="text" name="article" class="form-control" value="${editAds.article}" id="article">
@@ -37,8 +42,7 @@
                                 <legend>Choose Location group</legend>
                                 <div class="form-group">
                                     <select class="custom-select" name="location" value="${editAds.location}">
-                                        <option selected="">Choose location group</option>
-                                        <option value="USA">USA</option>
+                                        <option selected="USA">USA</option>
                                         <option value="China">China</option>
                                         <option value="Mongolia">Mongolia</option>
                                     </select>
