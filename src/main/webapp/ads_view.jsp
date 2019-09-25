@@ -13,47 +13,46 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="" value="${myAds.active}">
+                            <label class="custom-control-label" for="customSwitch1">Active</label>
+                        </div>
                         <div class="form-group">
                             <label class="col-form-label" for="article">Article</label>
                             <input type="hidden" name="id" value="${myAds.id}">
                             <input type="text" name="article" class="form-control" placeholder="Article will be formatted in BOLD" id="article" value="${myAds.article}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleTextarea">Content</label>
-                            <textarea class="form-control" name="content" id="exampleTextarea" placeholder="Please briefly describe your advertisement" rows="3"></textarea>
+                            <label class="col-form-label" for="content">Content</label>
+                            <input type="text" name="content" class="form-control" placeholder="Content" id="content" value="${myAds.content}">
                         </div>
                         <div class="form-group">
                             <label class="col-form-label" for="imgUrl">Image URL</label>
-                            <input type="text" class="form-control" name="imgURL" placeholder="Picture URL without background attracts more users" id="imgUrl">
+                            <input type="text" class="form-control" name="imgURL" placeholder="Picture URL without background attracts more users" id="imgUrl" value="${myAds.imgUrl}">
                         </div>
                         <div class="form-group">
                             <label class="col-form-label" for="url">Product URL</label>
-                            <input type="text" class="form-control" name="url" placeholder="Once clicked will ..." id="url">
+                            <input type="text" class="form-control" name="url" id="url" value="${myAds.url}">
                         </div>
-                        <fieldset>
-                            <legend>Choose Location group</legend>
-                            <div class="form-group">
-                                <select class="custom-select" name="location">
-                                    <option selected="">Choose location group</option>
-                                    <option value="USA">USA</option>
-                                    <option value="China">China</option>
-                                    <option value="Mongolia">Mongolia</option>
-                                </select>
-                            </div>
-                        </fieldset>
+                        <div class="form-group">
+                            <label class="col-form-label" for="location">Location</label>
+                            <input type="text" class="form-control" name="location"  id="location" value="${myAds.location}">
+                        </div>
                         <div class="form-group">
                             <label class="col-form-label col-form-label-sm">User Age Range</label>
-                            <input class="form-control form-control-sm" name="ageRange" type="number" id="rangeMax" placeholder="+/- 5 years of audience" maxlength="40px">
+                            <input class="form-control form-control-sm" name="ageRange" type="number" id="rangeMax" placeholder="+/- 5 years of audience" maxlength="40px" value="${myAds.ageRangeMax}">
                         </div>
 
                         <div class="form-group">
                             <label class="col-form-label col-form-label-sm">Duration</label>
-                            <input class="form-control form-control-sm" name="duration" type="number" id="duration" width="40px">
+                            <input class="form-control form-control-sm" name="duration" type="number" id="duration" width="40px" value="${myAds.duration}">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-primary">Reset</button>
                     </div>
+                </div>
+            </div>
             </form>
         </main>
     </div>

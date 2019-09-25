@@ -59,12 +59,14 @@ public class AdsRepositoryImpl implements AdsRepository {
 
     @Override
     public void update(Ads ads){
-        List<Ads> newList = new ArrayList<>();
-        for(Ads a: this.adsList){
-            if(a.getId() != ads.getId())
-                newList.add(a);
-        }
-        newList.add(ads);
 
-    }
+        int ind = ads.getId() -1;
+        Ads tempAds = adsList.get(ind);
+        if(adsList.contains(ads)){
+            adsList.set(ind,ads);
+        }else {
+            adsList.set(tempAds.getId()-1,tempAds);
+            }
+        }
+
 }

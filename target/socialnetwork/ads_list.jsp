@@ -19,6 +19,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
+                    <th scope="col">Active</th>
                     <th scope="col">Id</th>
                     <th scope="col">Content</th>
                     <th scope="col">URL</th>
@@ -30,6 +31,7 @@
                 <tbody>
                 <c:forEach var="ad" items="${adsAll}">
                     <tr class="table-primary">
+                        <td>${ad.active}</td>
                         <td>${ad.id}</td>
                         <td>${ad.content}</td>
                         <td>${ad.url}</td>
