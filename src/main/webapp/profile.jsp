@@ -168,7 +168,8 @@
 
                             <div class="col-xs-6">
                                 <label for="repeatPassword"><h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="repeatPassword"
+                                <input type="password" class="form-control" name="repeatPassword" id="repeatPassword"
+                                       <%--value="${loggedInUser.repeatPassword}"--%>
                                        title="enter your password2.">
                             </div>
                         </div>
