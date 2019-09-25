@@ -6,7 +6,7 @@ import edu.mum.wap.socialnetwork.model.User;
 import java.util.List;
 
 public interface PostRepository {
-
+    public abstract Post findPostById(Integer id);
     public abstract List<Post> findRecentPostsByUsername(String username);
     public abstract List<Post> findAllActiveRecentPosts();
     public abstract void addPost(User user, Post post);

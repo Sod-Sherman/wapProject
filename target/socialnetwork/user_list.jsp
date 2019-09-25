@@ -31,7 +31,7 @@
                         <td>${user.id}</td>
                         <td>${user.fullName}</td>
                         <td>${user.active}</td>
-                        <td><button class="btn btn-secondary my-2 my-sm-0" type="submit">Edit</button></td>
+                        <td><a class="btn btn-secondary my-2 my-sm-0" href="user_ban?user_name=${user.username}">Ban/Revoke</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

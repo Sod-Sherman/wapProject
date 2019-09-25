@@ -13,16 +13,20 @@
         a {
             color: #0254EB
         }
+
         a:visited {
             color: #0254EB
         }
+
         a.morelink {
-            text-decoration:none;
+            text-decoration: none;
             outline: none;
         }
+
         .morecontent span {
             display: none;
         }
+
         .comment {
             /*width: 400px;*/
             /*background-color: #f0f0f0;*/
@@ -33,9 +37,9 @@
 <body>
 <%@ include file="WEB-INF/fragment/header.jsp" %>
 <div class="container">
-<div>
-    <a href="post.jsp">Create Post</a>
-</div>
+    <div>
+        <a href="post.jsp">Create Post</a>
+    </div>
     <c:forEach var="post" items="${userPosts}">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
@@ -47,9 +51,15 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <p class="comment more card-text">${post.content}</p>
-                        <p class="card-text"><small class="text-muted">Posted:
-                            <a href="profile.jsp"> <span id="fullNameOfPoster">${post.user.fullName}</span></a>
-                                ${post.postedDate} <a id="follow" href="#"> Follow</a></small>
+                        <p class="card-text">
+                            <small class="text-muted">Posted:
+                                <a href="profile.jsp">
+                                    <span class="fullNameOfPoster">${post.user.fullName}</span>
+                                </a>
+                                    ${post.postedDate}
+                                <a class="follow" href="follow?id=${post.id}">Follow</a>
+                            </small>
+
                         </p>
                     </div>
                 </div>
@@ -62,7 +72,7 @@
 <%@include file="WEB-INF/fragment/footer.jsp" %>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="js/timeline.js" type="text/javascript"></script>
-<script src="js/follow.js" type="text/javascript"></script>
+<%--<script src="js/follow.js" type="text/javascript"></script>--%>
 
 </body>
 </html>

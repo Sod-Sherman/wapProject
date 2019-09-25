@@ -11,11 +11,22 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script>
 
-    $("#logout").click(function () {
-
+    $("#logout").click(function (e) {
+        e.preventDefault();
         alert("Sure?");
         sessionStorage.removeItem("loggedInUser");
         sessionStorage.clear();
+
+        $.post({
+            url: "logout",
+            "logout": "LogOUT",
+            success: function (msg) {
+                if(msg == 'LogOUT'){
+                    window.location.href = 'login.jsp';
+                }
+            }
+        });
+
 
     });
 </script>

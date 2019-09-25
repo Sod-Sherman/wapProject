@@ -31,7 +31,8 @@
                         <td>${post.user.username}</td>
                         <td>${post.content}</td>
                         <td>${post.postedDate}</td>
-                        <td><button class="btn btn-secondary my-2 my-sm-0" type="submit">Edit</button></td>
+                        <td>${post.active}</td>
+                        <td><a class="btn btn-secondary my-2 my-sm-0" href="post_ban?post_id=${post.id}">Ban/Revoke</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

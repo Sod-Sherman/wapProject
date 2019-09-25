@@ -75,11 +75,14 @@
                     </button>
                 </div>
                 <p></p>
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        Signup
-                    </button>
-                </div>
+
+                <form action="signup.jsp" method="post">
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Signup
+                        </button>
+                    </div>
+                </form>
 
                 <div class="text-center p-t-90">
                     <a class="txt1" href="#">
