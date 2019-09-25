@@ -17,10 +17,14 @@
         sessionStorage.removeItem("loggedInUser");
         sessionStorage.clear();
 
-        $.ajax({
-            url: "user",
-            cache: false,
-            "logout": "LogOUT"
+        $.post({
+            url: "logout",
+            "logout": "LogOUT",
+            success: function (msg) {
+                if(msg == 'LogOUT'){
+                    window.location.href = 'login.jsp';
+                }
+            }
         });
 
 

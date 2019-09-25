@@ -57,7 +57,7 @@
                                     <span class="fullNameOfPoster">${post.user.fullName}</span>
                                 </a>
                                     ${post.postedDate}
-                                <a class="follow" href="follow?id=${post.id}"> ${post.id} Follow</a>
+                                <a class="follow" href="follow?id=${post.id}">Follow</a>
                             </small>
 
                         </p>
