@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
+<%@ include file="WEB-INF/fragment/admin_header.jsp"%>
+<body>
 
 
     <link href="static/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -203,54 +207,27 @@
 
 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
+
+        <c:forEach var="ad" items="${adsAll}">
         <div class="carousel-item active">
             <div class="mask flex-center">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h4>Present your <br>
-                                awesome product</h4>
+                            <h4>${ad.article}}</h4>
                             <p>Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
                                 necessitatibus praesentium voluptatum deleniti atque corrupti.</p>
-                            <a href="#">BUY NOW</a></div>
-                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://i.imgur.com/NKvkfTT.png"
-                                                                             class="mx-auto" alt="slide"></div>
+                            <a href="#">BUY NOW</a>
+                        </div>
+                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://i.imgur.com/NKvkfTT.png" class="mx-auto" alt="slide">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <div class="mask flex-center">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h4>Present your <br>
-                                awesome product</h4>
-                            <p>Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
-                                necessitatibus praesentium voluptatum deleniti atque corrupti.</p>
-                            <a href="#">BUY NOW</a></div>
-                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://i.imgur.com/duWgXRs.png"
-                                                                             class="mx-auto" alt="slide"></div>
-                    </div>
-                </div>
-            </div>
+
         </div>
-        <div class="carousel-item">
-            <div class="mask flex-center">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h4>Present your <br>
-                                awesome product</h4>
-                            <p>Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
-                                necessitatibus praesentium voluptatum deleniti atque corrupti.</p>
-                            <a href="#">BUY NOW</a></div>
-                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="https://i.imgur.com/DGkR4OQ.png"
-                                                                             class="mx-auto" alt="slide"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
     </div>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
