@@ -16,19 +16,13 @@ import java.io.IOException;
 public class UserController extends HttpServlet {
     UserService userService = new UserServiceImpl();
 
-    public UserController() {
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
 
-        String logout = req.getParameter("logout");
-        if(logout.equals("LogOUT")){
-            session.invalidate();
-            resp.sendRedirect("login.jsp");
-        }
+
 
 
         String firstNameInput = req.getParameter("firstName");
