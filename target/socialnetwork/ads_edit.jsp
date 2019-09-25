@@ -14,16 +14,16 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
-                                <label class="custom-control-label" for="customSwitch1">Set Active</label>
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="" value="${editAds.active}">
+                                <label class="custom-control-label" for="customSwitch1" >Set Active</label>
                             </div>
                             <div class="form-group">
                                 <label class="col-form-label" for="article">Article</label>
                                 <input type="text" name="article" class="form-control" value="${editAds.article}" id="article">
                             </div>
                             <div class="form-group">
-                                <label for="exampleTextarea">Content</label>
-                                <textarea class="form-control" name="content" id="exampleTextarea" value="${editAds.content}" rows="3"></textarea>
+                                <label class="col-form-label" for="content">Content</label>
+                                <input type="text" name="article" class="form-control" value="${editAds.content}" id="content">
                             </div>
                             <div class="form-group">
                                 <label class="col-form-label" for="imgUrl">Image URL</label>
@@ -36,7 +36,7 @@
                             <fieldset>
                                 <legend>Choose Location group</legend>
                                 <div class="form-group">
-                                    <select class="custom-select" name="location" >
+                                    <select class="custom-select" name="location" value="${editAds.location}">
                                         <option selected="">Choose location group</option>
                                         <option value="USA">USA</option>
                                         <option value="China">China</option>
@@ -46,17 +46,19 @@
                             </fieldset>
                             <div class="form-group">
                                 <label class="col-form-label col-form-label-sm">User Age Range</label>
-                                <input class="form-control form-control-sm" name="ageRange" type="number" id="rangeMax" placeholder="+/- 5 years of audience" maxlength="40px">
+                                <input class="form-control form-control-sm" name="ageRange" type="number" id="rangeMax" placeholder="+/- 5 years of audience" maxlength="40px" value="${editAds.ageRangeMax}">
                             </div>
 
                             <div class="form-group">
                                 <label class="col-form-label col-form-label-sm">Duration</label>
-                                <input class="form-control form-control-sm" name="duration" type="number" id="duration" width="40px">
+                                <input class="form-control form-control-sm" name="duration" type="number" id="duration" width="40px" value="${editAds.duration}">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="reset" class="btn btn-primary">Reset</button>
                         </div>
+                    </div>
+                </div>
             </form>
         </main>
     </div>

@@ -37,14 +37,7 @@ public class AdminAdsEditController extends HttpServlet {
         //   adsService.updateAds(tempAds);
 //
 ////
-//        tempAds.setActive(Boolean.parseBoolean(req.getParameter("active")));
-//        tempAds.setArticle(req.getParameter("article"));
-//        tempAds.setContent(req.getParameter("content"));
-//        tempAds.setUrl(req.getParameter("url"));
-//        tempAds.setImgUrl(req.getParameter("imgURL"));
-//        tempAds.setLocation(req.getParameter("location"));
-//        tempAds.setAgeRangeMax(Integer.parseInt(req.getParameter("age")));
-//        tempAds.setDuration(Integer.parseInt(req.getParameter("duration")));
+//
 //
 //        adsService.updateAds(tempAds);
 

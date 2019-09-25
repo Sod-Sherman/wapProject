@@ -54,10 +54,18 @@ public class AdminAdsAddController extends HttpServlet {
         } else { //update hiih
             System.out.println("Edit hiih incomingId = " + incomingId);
             int id = Integer.parseInt(incomingId);
-            //String active = req.getParameter("active");
+            boolean active = Boolean.parseBoolean(req.getParameter("active"));
+            String art = req.getParameter("article");
+            String cont = req.getParameter("content");
+            String ur =req.getParameter("url");
+            String imUr = req.getParameter("imgURL");
+            String loc = req.getParameter("location");
+            LocalDate dat= LocalDate.now();
+            int af = Integer.parseInt(req.getParameter("ageRange"));
+            int dur = (Integer.parseInt(req.getParameter("duration")));
 
-            Ads bean = new Ads(true, id, article, content, url, imgUrl, time, location, age, duration);
-            adsService.update(bean);
+            Ads bean = new Ads(active, id, art, cont, ur, imUr, dat, loc, af, dur);
+            adsService.updateAds(bean);
         }
 
         resp.sendRedirect("ads_add.jsp");

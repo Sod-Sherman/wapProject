@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AdsServiceImpl implements AdsService {
     private AdsRepository adsRepository = AdsRepositoryImpl.getInstance();
-
+    List<Ads> adsList = adsRepository.getAds();
 
     @Override
     public Boolean addAds(Ads ad) {
@@ -21,23 +21,15 @@ public class AdsServiceImpl implements AdsService {
     }
 
     @Override
-    public Boolean updateAds(Ads ad) {
+    public void updateAds(Ads ad) {
         Ads tempAd = adsRepository.findByAdsId(ad.getId());
 
-        if(tempAd == null) return false;
-        else {
-            tempAd.setActive(ad.isActive());
-            tempAd.setArticle(ad.getArticle());
-            tempAd.setContent(ad.getContent());
-            tempAd.setUrl(ad.getUrl());
-            tempAd.setImgUrl(ad.getImgUrl());
-            tempAd.setLocation(ad.getLocation());
-            tempAd.setAgeRangeMax(ad.getAgeRangeMax());
-            tempAd.setDuration(ad.getDuration());
+        if(adsList.contains(tempAd)){
+            int ind = tempAd.getId() -1;
+            adsList.set(ind, ad);
+        } else {
+            adsRepository.saveAds(tempAd);
         }
-        adsRepository.saveAds(tempAd);
-
-        return true;
     }
 
     @Override
@@ -54,10 +46,5 @@ public class AdsServiceImpl implements AdsService {
     @Override
     public Ads findByAdsId(Integer id) {
         return adsRepository.findByAdsId(id);
-    }
-
-    @Override
-    public void update(Ads ads) {
-        adsRepository.update(ads);
     }
 }
