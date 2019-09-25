@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-form-label" for="content">Content</label>
-                            <input type="text" name="article" class="form-control" placeholder="Content" id="content" value="${myAds.content}">
+                            <input type="text" name="content" class="form-control" placeholder="Content" id="content" value="${myAds.content}">
                         </div>
                         <div class="form-group">
                             <label class="col-form-label" for="imgUrl">Image URL</label>

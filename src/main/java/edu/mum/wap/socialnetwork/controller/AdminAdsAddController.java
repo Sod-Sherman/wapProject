@@ -28,7 +28,6 @@ public class AdminAdsAddController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String incomingId = req.getParameter("id");
-        System.out.println("incomingId = " + incomingId);
         HttpSession session = req.getSession();
         LocalDate time = LocalDate.now();
         List<Ads> myAds = adsService.getAllAds();
@@ -54,7 +53,7 @@ public class AdminAdsAddController extends HttpServlet {
         } else { //update hiih
             System.out.println("Edit hiih incomingId = " + incomingId);
             int id = Integer.parseInt(incomingId);
-            boolean active = Boolean.parseBoolean(req.getParameter("active"));
+            boolean active = true;
             String art = req.getParameter("article");
             String cont = req.getParameter("content");
             String ur =req.getParameter("url");
@@ -66,6 +65,11 @@ public class AdminAdsAddController extends HttpServlet {
 
             Ads bean = new Ads(active, id, art, cont, ur, imUr, dat, loc, af, dur);
             adsService.updateAds(bean);
+            if(adsService.updateAds(bean)){
+                System.out.println("Succ");
+
+            }
+
         }
 
         resp.sendRedirect("ads_add.jsp");

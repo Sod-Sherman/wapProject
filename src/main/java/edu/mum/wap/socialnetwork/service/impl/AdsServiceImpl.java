@@ -21,15 +21,17 @@ public class AdsServiceImpl implements AdsService {
     }
 
     @Override
-    public void updateAds(Ads ad) {
+    public boolean updateAds(Ads ad) {
         Ads tempAd = adsRepository.findByAdsId(ad.getId());
 
         if(adsList.contains(tempAd)){
             int ind = tempAd.getId() -1;
             adsList.set(ind, ad);
+            return true;
         } else {
             adsRepository.saveAds(tempAd);
         }
+        return false;
     }
 
     @Override
