@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="weather/style.css">
+
 </head>
 <body>
 
