@@ -1,8 +1,11 @@
 package edu.mum.wap.socialnetwork.controller.tur;
 
 import edu.mum.wap.socialnetwork.model.Ads;
+import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.service.AdsService;
+import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.AdsServiceImpl;
+import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,29 +15,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/ads")
-public class AdvertisementController extends HttpServlet {
-    AdsService adsService = new AdsServiceImpl();
-
-    public AdvertisementController() {
+@WebServlet("/twit")
+public class TwitController extends HttpServlet {
+    UserService userService = new UserServiceImpl();
+    public TwitController() {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        List<Ads> myAds = adsService.getAllAds();
-        List<Ads> activeAds = new ArrayList<>();
-        for(Ads ad : myAds){
-            if (ad.isActive()){
-                int i = 0;
-                activeAds.set(i, ad);
-                i++;
-            }
+        User myUser = userService.findByUsername(req.getParameter("username"));
+        if(userService.getAllUsers().contains(myUser)){
+            session.setAttribute("loggedInUser",myUser);
         }
-        session.setAttribute("adsAll", activeAds);
-        RequestDispatcher rd = req.getRequestDispatcher("ads.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("twit.jsp");
         rd.forward(req, resp);
     }
 
