@@ -12,6 +12,10 @@
     <title>Title</title>
     <link rel="stylesheet" href="weather/style.css">
 
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClLUXvXjhCsWfw3t2P838TLd-Jnx2Uwro&callback=initMap"
+            type="text/javascript">
+    </script>
+
 </head>
 <body>
 

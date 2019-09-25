@@ -11,4 +11,5 @@ public interface PostRepository {
     public abstract List<Post> findAllActiveRecentPosts();
     public abstract void addPost(User user, Post post);
     public abstract List<Post> findAllPosts();
+    public abstract List<Post> findAllActiveFollowersRecentPosts(User user);
 }

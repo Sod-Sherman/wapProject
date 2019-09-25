@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sdblg
@@ -35,9 +36,9 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10"><h2>Logged in: ${loggedInUser.fullName}</h2></div>
-        <div class="col-sm-2"><a href="timeline" class="pull-right"><img title="Time Line"
-                                                                         class="img-circle img-responsive"
-                                                                         src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a>
+        <div class="col-sm-2"><a href="timeline" class="pull-right">
+            <img title="Time Line" class="img-circle img-responsive"
+                 src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a>
         </div>
     </div>
     <div class="row">
@@ -52,7 +53,7 @@
             </hr><br>
 
             <ul class="list-group">
-                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-muted">My Activity <i class="fa fa-dashboard fa-1x"></i></li>
 
                 <li class="list-group-item text-right"><span
                         class="pull-left"><strong>Posts</strong></span> ${postsNumber}</li>
@@ -73,21 +74,44 @@
         <div class="col-sm-9">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Information</a></li>
-                <li><a data-toggle="tab" href="#editProfile">Edit Profile</a></li>
+                <li><a data-toggle="tab" href="#editProfile">Edit My Profile</a></li>
                 <%--<li><a data-toggle="tab" href="#settings">Menu 2</a></li>--%>
             </ul>
 
-<%---------------------------Information tab-------------------------------------------%>
+            <%---------------------------Information tab-------------------------------------------%>
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
                     <hr>
+                    <c:if test="${followers != null}"><p>My Followers:</p></c:if>
+                    <c:forEach var="follower" items="${followers}">
+                        <ul>
+                            <li>
+                                <a class="fa-anchor" href="follow?idProfile=${follower.id}"> ${follower.fullName}</a>
+                            </li>
+                        </ul>
+                    </c:forEach>
 
-test
+                    <c:if test="${follower != null}"><p>The Follower: ${follower.fullName}'s profile</p>
+
+                        <ul>
+                            <li>
+                                Email: ${follower.email}
+                            </li>
+                            <li>
+                                Posts: ${followerPostsNumber}
+                            </li>
+                            <li>
+                                Followers: ${followersFollowerNumber}
+                            </li>
+
+                        </ul>
+                    </c:if>
+
 
                     <hr>
 
                 </div><!--/tab-pane-->
-<%---------------------------------------------------------------------%>
+                <%--------------------------------------------------------------------------------------%>
                 <div class="tab-pane" id="editProfile">
 
                     <form class="form" method="post" action="profile" id="registrationForm1">
@@ -190,6 +214,8 @@ test
             $(".file-upload").on('change', function () {
                 readURL(this);
             });
+
+
         });
     </script>
 

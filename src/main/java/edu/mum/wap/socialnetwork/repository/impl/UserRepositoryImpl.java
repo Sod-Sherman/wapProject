@@ -13,11 +13,15 @@ public final class UserRepositoryImpl implements UserRepository {
     private static final UserRepositoryImpl INSTANCE = new UserRepositoryImpl();
 
     public UserRepositoryImpl() {
+        User sod = new User("Sodbileg", "Shirmen", "sod", "123", "s@mum.edu");
+        User puujgee = new User("Purevdemberel", "Byambatogtokh", "puujgee", "123", "p@mum.edu");
+        User tur = new User("Turtogtokh", "M.", "tur", "123", "t@mum.edu");
         this.users = new ArrayList<User>(Arrays.asList(
-                new User("Sodbileg", "Shirmen", "sod", "123", "s@mum.edu"),
-                new User("Purevdemberel", "Byambatogtokh", "puujgee", "123", "p@mum.edu"),
-                new User("Turtogtokh", "M.", "tur", "123", "t@mum.edu"),
+                sod, puujgee, tur,
                 new User("Admin", "LastNameAdmin", "admin", "123", "a@mum.edu")));
+        sod.setFollowers(new ArrayList<User>(Arrays.asList(puujgee,tur)));
+        puujgee.setFollowers(new ArrayList<User>(Arrays.asList(sod)));
+
     }
 
     public static UserRepositoryImpl getInstance() {
@@ -26,6 +30,8 @@ public final class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findByUserId(Integer Id) {
+        for(User u: users)
+            if(u.getId() == Id && u.getActive()) return u;
         return null;
     }
 
@@ -33,7 +39,7 @@ public final class UserRepositoryImpl implements UserRepository {
     public User findByUsername(String username) {
         for (User user : users) {
 //            System.out.println(user);
-            if (user.getUsername().equalsIgnoreCase(username)) return user;
+            if (user.getUsername().equalsIgnoreCase(username) && user.getActive()) return user;
         }
         return null;
     }
@@ -71,24 +77,32 @@ public final class UserRepositoryImpl implements UserRepository {
 
     }
 
+    @Override
+    public Boolean isFollower(User user, User follower) {
+        for(User f: user.getFollowers())
+            if(f.getId() == follower.getId())
+                return true;
+        return false;
+    }
+
 
     public List<User> getUsers() {
         return users;
     }
 
     public void addFollower(User follower, User followedUser) {
-        if(isUserInList(follower, users) && isUserInList(followedUser, users)){
+        if (isUserInList(follower, users) && isUserInList(followedUser, users)) {
             List<User> followers = followedUser.getFollowers();
-            if(!isUserInList(follower, followers))
+            if (!isUserInList(follower, followers))
                 followers.add(follower);
         }
     }
 
-    public void deleteFollower(User user, User followedUser){
-        if(isUserInList(user, users) && isUserInList(followedUser, users)){
+    public void deleteFollower(User user, User followedUser) {
+        if (isUserInList(user, users) && isUserInList(followedUser, users)) {
             List<User> newFollowers = null;
-            for (User u: user.getFollowers()){
-                if(!followedUser.getUsername().equalsIgnoreCase(u.getUsername()))
+            for (User u : user.getFollowers()) {
+                if (!followedUser.getUsername().equalsIgnoreCase(u.getUsername()))
                     newFollowers.add(u);
             }
             user.setFollowers(newFollowers);

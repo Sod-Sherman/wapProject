@@ -14,6 +14,7 @@ import java.util.List;
 public final class PostRepositoryImpl implements PostRepository {
     private List<Post> posts;
     private static final PostRepositoryImpl INSTANCE = new PostRepositoryImpl();
+
     public static PostRepositoryImpl getInstance() {
         return INSTANCE;
     }
@@ -57,11 +58,12 @@ public final class PostRepositoryImpl implements PostRepository {
 
     @Override
     public Post findPostById(Integer Id) {
-        for(Post post : posts){
-            if(post.getId()==Id) return post;
+        for (Post post : posts) {
+            if (post.getId() == Id) return post;
         }
         return null;
     }
+
     @Override
     public List<Post> findRecentPostsByUsername(String username) {
         if (username == null) return null;
@@ -71,6 +73,19 @@ public final class PostRepositoryImpl implements PostRepository {
                 result.add(post);
         }
         Collections.sort(result);
+        return result;
+    }
+
+    @Override
+    public List<Post> findAllActiveFollowersRecentPosts(User user) {
+        if (user == null) return null;
+        List<Post> result = new ArrayList<>();
+        for (Post p : findAllActiveRecentPosts()) {
+            for (Integer i = 0; i < user.getFollowers().size(); i++) {
+                if (p.getUser().getId() == user.getFollowers().get(i).getId() || p.getUser().getId()==user.getId())
+                    result.add(p);
+            }
+        }
         return result;
     }
 
@@ -101,14 +116,14 @@ public final class PostRepositoryImpl implements PostRepository {
         return posts;
     }
 
-    public Post getPostById(Integer id){
-        for(Post p: posts){
+    public Post getPostById(Integer id) {
+        for (Post p : posts) {
             System.out.println("p = " + p);
-            if(p.getId().equals(id))
+            if (p.getId().equals(id))
                 return p;
         }
 
-            return null;
+        return null;
     }
 }
 

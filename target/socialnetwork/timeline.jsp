@@ -57,7 +57,13 @@
                                     <span class="fullNameOfPoster">${post.user.fullName}</span>
                                 </a>
                                     ${post.postedDate}
-                                <a class="follow" href="follow?id=${post.id}">Follow</a>
+                                <c:if test="${followed != null}">
+                                    <a class="follow" href="follow?idUnFollow=${post.id}">UnFollow</a>
+                                </c:if>
+                                <c:if test="${followed == null}">
+                                    <a class="follow" href="follow?id=${post.id}">Follow</a>
+                                </c:if>
+
                             </small>
 
                         </p>

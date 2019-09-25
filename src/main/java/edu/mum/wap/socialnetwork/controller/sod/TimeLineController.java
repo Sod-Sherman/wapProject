@@ -2,9 +2,11 @@ package edu.mum.wap.socialnetwork.controller.sod;
 
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
+import edu.mum.wap.socialnetwork.repository.PostRepository;
+import edu.mum.wap.socialnetwork.repository.impl.PostRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.PostService;
-import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
+import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
@@ -31,25 +33,24 @@ public class TimeLineController extends HttpServlet {
 
 
             if (session.getAttribute("loggedInUser") == null) {
-//
-                // tur loggedInUser bga gej uzeye
-//                loggedInUser = userService.findByUsername("sod");
-//                session.setAttribute("loggedInUser", loggedInUser);
-//                System.out.println("Please login first");
                 resp.sendRedirect("/wapProject/login.jsp");
-                //rd = req.getRequestDispatcher("/login.jsp");
-
             } else {
                 loggedInUser = (User) session.getAttribute("loggedInUser");
 
 //                List<Post> posts = userService.getPosts(loggedInUser);
-                List<Post> posts = userService.getAllPosts();
+//                List<Post> posts = userService.getAllPosts();
+                PostRepository postRepository = PostRepositoryImpl.getInstance();
+                List<Post> posts = postRepository.findAllActiveFollowersRecentPosts(loggedInUser);
                 if(posts == null) posts.add(postService.getEmptyPost());
                 session.setAttribute("userPosts", posts);
+
                 RequestDispatcher rd = req.getRequestDispatcher("timeline.jsp");
                 rd.forward(req,resp);
             }
     }
+
+
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

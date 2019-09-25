@@ -80,7 +80,30 @@ function setPositionForWeatherInfo(){
 }
 
 document.getElementById('searchBtn').addEventListener('click', () =>{
-    let searchTerm = document.getElementById('searchInput').value;
-    if(searchTerm)
-        searchWeather(searchTerm);
-})
+        let searchTerm;
+
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                var point = new google.maps.LatLng(lat, long);
+                new google.maps.Geocoder().geocode(
+                    {'latLng': point},
+                    function (res, status) {
+                        var zip = res[0].formatted_address.match(/,\s\w{2}\s(\d{5})/);
+                        searchTerm = zip;
+                        console.log(zip);
+                        $("#location").val(zip);
+                    }
+                );
+            });
+        }
+        //let searchTerm = document.getElementById('searchInput').value;
+         console.log(searchTerm);
+        if(searchTerm)
+            searchWeather(searchTerm);
+}
+
+
+)
+

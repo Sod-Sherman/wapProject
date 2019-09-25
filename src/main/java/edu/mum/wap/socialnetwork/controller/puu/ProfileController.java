@@ -6,7 +6,11 @@
 package edu.mum.wap.socialnetwork.controller.puu;
 
 import edu.mum.wap.socialnetwork.model.User;
+import edu.mum.wap.socialnetwork.repository.UserRepository;
+import edu.mum.wap.socialnetwork.repository.impl.UserRepositoryImpl;
+import edu.mum.wap.socialnetwork.service.PostService;
 import edu.mum.wap.socialnetwork.service.UserService;
+import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
@@ -17,10 +21,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet({"/profile"})
 public class ProfileController extends HttpServlet {
     UserService userService = new UserServiceImpl();
+    UserRepository userRepository = UserRepositoryImpl.getInstance();
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -30,11 +36,14 @@ public class ProfileController extends HttpServlet {
 
         if (loggedInUser != null) {
 
+            List<User> followers = loggedInUser.getFollowers();
+
             req.setAttribute("loggedInUser", loggedInUser);
             req.setAttribute("postsNumber", loggedInUser.getPosts().size());
-            System.out.println("loggedInUser posts = " + loggedInUser.getPosts().size());
-            req.setAttribute("followersNumber", loggedInUser.getFollowers().size());
-            System.out.println("loggedInUser.getFollowers().size() = " + loggedInUser.getFollowers().size());
+            req.setAttribute("followersNumber", followers.size());
+            req.setAttribute("followers", loggedInUser.getFollowers());
+
+
 
             User tempUser = new User(
                     req.getParameter("firstName"),
@@ -52,6 +61,21 @@ public class ProfileController extends HttpServlet {
 
         } else {
             rd = req.getRequestDispatcher("login.jsp");
+        }
+
+        if(req.getParameter("id")!=null){
+            Integer followerId = Integer.parseInt(req.getParameter("id"));
+            if (followerId >= userRepository.findAllUsers().size()) return;
+
+
+            UserService userService = new UserServiceImpl();
+            PostService postService = new PostServiceImpl();
+            User follower = userRepository.findByUserId(followerId);
+            req.setAttribute("follower",follower);
+            req.setAttribute("followersFollowerNumber",follower.getFollowers().size());
+            req.setAttribute("followerPostsNumber",follower.getPosts().size());
+
+            rd = req.getRequestDispatcher("profile.jsp");
         }
 
 
