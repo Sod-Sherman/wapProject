@@ -22,20 +22,19 @@ import java.io.IOException;
 public class ProfileController extends HttpServlet {
     UserService userService = new UserServiceImpl();
 
-
-    public ProfileController() {
-    }
-
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         RequestDispatcher rd = null;
 
         User loggedInUser = (User) session.getAttribute("loggedInUser");
 
-
         if (loggedInUser != null) {
 
             req.setAttribute("loggedInUser", loggedInUser);
+            req.setAttribute("postsNumber", loggedInUser.getPosts().size());
+            System.out.println("loggedInUser posts = " + loggedInUser.getPosts().size());
+            req.setAttribute("followersNumber", loggedInUser.getFollowers().size());
+            System.out.println("loggedInUser.getFollowers().size() = " + loggedInUser.getFollowers().size());
 
             User tempUser = new User(
                     req.getParameter("firstName"),

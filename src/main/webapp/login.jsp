@@ -36,8 +36,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body data-gr-c-s-loaded="true">
-
-<%@ include file="WEB-INF/fragment/header.jsp" %>
 <p>${status}</p>
 <form action="login" method="POST">
 <div class="limiter">
@@ -123,6 +121,5 @@
 </script>
 
 </form>
-<%@include file="WEB-INF/fragment/footer.jsp"%>
 </body>
 </html>

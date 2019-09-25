@@ -53,7 +53,7 @@
                         <p class="comment more card-text">${post.content}</p>
                         <p class="card-text">
                             <small class="text-muted">Posted:
-                                <a href="profile.jsp">
+                                <a href="profile?id=${post.user.id}">
                                     <span class="fullNameOfPoster">${post.user.fullName}</span>
                                 </a>
                                     ${post.postedDate}
