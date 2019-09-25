@@ -22,9 +22,6 @@ public class UserController extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-
-
-
         String firstNameInput = req.getParameter("firstName");
         String lastNameInput = req.getParameter("lastName");
         String usernameInput = req.getParameter("username");

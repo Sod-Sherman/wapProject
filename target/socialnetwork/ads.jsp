@@ -1,5 +1,4 @@
             <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-
                 <div class="carousel-inner">
                     <c:forEach var="ad" items="${adsAll}" varStatus="loop">
                         <div class="carousel-item ${loop.index == 0 ? "active" : ""}" >
@@ -17,7 +16,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </c:forEach>
                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -1,10 +1,7 @@
 package edu.mum.wap.socialnetwork.controller.tur;
 
-import edu.mum.wap.socialnetwork.model.Ads;
 import edu.mum.wap.socialnetwork.model.User;
-import edu.mum.wap.socialnetwork.service.AdsService;
 import edu.mum.wap.socialnetwork.service.UserService;
-import edu.mum.wap.socialnetwork.service.impl.AdsServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
@@ -15,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/twit")
 public class TwitController extends HttpServlet {
@@ -25,12 +21,18 @@ public class TwitController extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        User myUser = userService.findByUsername(req.getParameter("username"));
-        if(userService.getAllUsers().contains(myUser)){
-            session.setAttribute("loggedInUser",myUser);
+        RequestDispatcher rd = null;
+
+        User loggedInUser = (User) req.getSession().getAttribute("loggedInUser");
+        if (loggedInUser != null) {
+            req.setAttribute("twitUserName", loggedInUser.getTwitter());
+            rd = req.getRequestDispatcher("twit.jsp");
         }
-        RequestDispatcher rd = req.getRequestDispatcher("twit.jsp");
+        else {
+            rd = req.getRequestDispatcher("login.jsp");
+        }
         rd.forward(req, resp);
+
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

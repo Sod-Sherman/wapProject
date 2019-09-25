@@ -80,7 +80,7 @@ function setPositionForWeatherInfo(){
 }
 
 document.getElementById('searchBtn').addEventListener('click', () =>{
-        let searchTerm;
+        let searchTerm = '';
 
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -91,19 +91,18 @@ document.getElementById('searchBtn').addEventListener('click', () =>{
                     {'latLng': point},
                     function (res, status) {
                         var zip = res[0].formatted_address.match(/,\s\w{2}\s(\d{5})/);
-                        searchTerm = zip;
-                        console.log(zip);
-                        $("#location").val(zip);
+                        //searchTerm = zip;
+                        console.log(zip[1]);
+                        //$("#location").val(zip);
+                        searchTerm = zip[1];
+                        let cityHeader = document.getElementById('searchInput').value;
+                        if(cityHeader) searchTerm = cityHeader;
+                        console.log(cityHeader);
+                        //if($("#searchInput").val()) searchTerm = $("#searchInput").val();
+                        searchWeather(searchTerm);
                     }
                 );
             });
         }
-        //let searchTerm = document.getElementById('searchInput').value;
-         console.log(searchTerm);
-        if(searchTerm)
-            searchWeather(searchTerm);
-}
-
-
-)
+});
 

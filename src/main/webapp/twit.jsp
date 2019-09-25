@@ -1,7 +1,7 @@
 
 <div style="width: 400px">
     <div style="">
-        <a class="twitter-timeline" href="https://twitter.com/turtogtox?ref_src=twsrc%5Etfw">Tweets by Turtogtokh</a>
+        <a class="twitter-timeline" href="https://twitter.com/${twitUserName}?ref_src=twsrc%5Etfw">Tweets by Turtogtokh</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
     <div style="">

@@ -11,8 +11,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="weather/style.css">
+<script src="https://maps.googleapis.com/maps/api/js">
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClLUXvXjhCsWfw3t2P838TLd-Jnx2Uwro&callback=initMap"
+</script>
+    <script async="false" defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClLUXvXjhCsWfw3t2P838TLd-Jnx2Uwro&callback=initMap"
             type="text/javascript">
     </script>
 
@@ -20,8 +22,9 @@
 <body>
 
 <div id="searchContainer">
-    <input class="searchControll" type="text" placeholder="City Name of Zipcode" id="searchInput">
-    <button class="searchControl" id="searchBtn">Search</button>
+<%--    <input class="searchControll" type="text" placeholder="City Name of Zipcode" id="searchInput">--%>
+    <input hidden id="searchInput" value="${city}">
+    <button class="searchControl" id="searchBtn">Get Weather</button>
 </div>
 <div id="weatherContainer">
     <div id="weatherDescription">
