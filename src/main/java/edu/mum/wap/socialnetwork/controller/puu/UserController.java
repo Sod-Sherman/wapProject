@@ -24,11 +24,20 @@ public class UserController extends HttpServlet {
 
         HttpSession session = req.getSession();
 
+        String logout = req.getParameter("logout");
+        if(logout.equals("LogOUT")){
+            session.invalidate();
+            resp.sendRedirect("login.jsp");
+        }
+
+
         String firstNameInput = req.getParameter("firstName");
         String lastNameInput = req.getParameter("lastName");
         String usernameInput = req.getParameter("username");
         String passwordInput = req.getParameter("password");
         String emailInput = req.getParameter("email");
+
+
 
         User bean = new User(firstNameInput, lastNameInput, usernameInput, passwordInput, emailInput);
 
