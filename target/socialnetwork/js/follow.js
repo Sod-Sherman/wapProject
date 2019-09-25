@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    $("#follow").click(function (event) {
+    $(".follow").click(function (event) {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
-        let data = {"fullNameOfPoster": $('#fullNameOfPoster').text()};
-        // data.append("fullNameOfPoster", $('#fullNameOfPoster').val());
+        let data = {"fullNameOfPoster": $('.fullNameOfPoster').text()};
+        // data.append("fullNameOfPoster", $('.fullNameOfPoster').val());
         console.log(data);
 
         $.ajax({

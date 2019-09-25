@@ -1,9 +1,12 @@
 package edu.mum.wap.socialnetwork.model;
 
 import java.time.LocalDate;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class Post implements Comparable<Post>{
-    private Double id = Math.random();
+public class Post implements Comparable<Post> {
+
+    private static final AtomicInteger uniqueId=new AtomicInteger();
+    private final int id;
     private String content;
     private Boolean active = true;
     private LocalDate postedDate = LocalDate.now();
@@ -11,24 +14,25 @@ public class Post implements Comparable<Post>{
     private User user;
 
     public Post(String content, String imgURL, User user) {
+        this.id = uniqueId.getAndIncrement();
         this.content = content;
         this.imgUrl = imgURL;
         this.user = user;
     }
 
     public Post(String content, LocalDate postedDate, String imgURL, User user) {
+        this.id = uniqueId.getAndIncrement();
         this.content = content;
         this.postedDate = postedDate;
         this.imgUrl = imgURL;
         this.user = user;
     }
 
-    public Double getId() {
-        return id;
-    }
 
-    public void setId(Double id) {
-        this.id = id;
+
+
+    public Integer getId() {
+        return id;
     }
 
     public String getContent() {
@@ -80,11 +84,11 @@ public class Post implements Comparable<Post>{
     @Override
     public String toString() {
         return "Post{" +
-                "content='" + content + '\'' +
+                "id=" + id +
+                ", content='" + content + '\'' +
                 ", active=" + active +
                 ", postedDate=" + postedDate +
                 ", imgUrl='" + imgUrl + '\'' +
-                ", user=" + user +
                 '}';
     }
 }
