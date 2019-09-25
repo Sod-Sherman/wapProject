@@ -3,9 +3,9 @@ package edu.mum.wap.socialnetwork.service.impl;
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.repository.PostRepository;
-import edu.mum.wap.socialnetwork.repository.PostRepositoryImpl;
+import edu.mum.wap.socialnetwork.repository.impl.PostRepositoryImpl;
 import edu.mum.wap.socialnetwork.repository.UserRepository;
-import edu.mum.wap.socialnetwork.repository.UserRepositoryImpl;
+import edu.mum.wap.socialnetwork.repository.impl.UserRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
 
 import java.util.List;
@@ -115,7 +115,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Post> getAllPosts() {
-        return postRepository.findAllPosts();
+        return postRepository.findAllActiveRecentPosts();
     }
 
     @Override

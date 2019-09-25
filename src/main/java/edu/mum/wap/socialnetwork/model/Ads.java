@@ -16,7 +16,9 @@ public class Ads implements Comparable<Ads>{
     private String location;
     private Integer ageRangeMin;
     private Integer ageRangeMax;
-
+    public Ads(String article){
+        this.article =article;
+    }
     public Ads(Boolean active, Integer id, String article, String content, String url, String imgUrl, LocalDate postedDate, String location, int ageRangeMax, int duration){
         this.active = active;
         this.id = id;
@@ -28,6 +30,14 @@ public class Ads implements Comparable<Ads>{
         this.location = location;
         this.ageRangeMax = ageRangeMax;
         this.duration = duration;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getArticle() {

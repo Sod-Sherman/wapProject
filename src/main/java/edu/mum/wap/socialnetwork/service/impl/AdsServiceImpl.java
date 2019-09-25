@@ -2,14 +2,14 @@ package edu.mum.wap.socialnetwork.service.impl;
 
 import edu.mum.wap.socialnetwork.model.Ads;
 import edu.mum.wap.socialnetwork.repository.AdsRepository;
-import edu.mum.wap.socialnetwork.repository.AdsRepositoryImpl;
+import edu.mum.wap.socialnetwork.repository.impl.AdsRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.AdsService;
 
 import java.util.List;
 
 public class AdsServiceImpl implements AdsService {
     private AdsRepository adsRepository = AdsRepositoryImpl.getInstance();
-
+    List<Ads> adsList = adsRepository.getAds();
 
     @Override
     public Boolean addAds(Ads ad) {
@@ -21,11 +21,17 @@ public class AdsServiceImpl implements AdsService {
     }
 
     @Override
-    public void updateAds(Ads ad) {
+    public boolean updateAds(Ads ad) {
         Ads tempAd = adsRepository.findByAdsId(ad.getId());
-        if(tempAd == null) return;
-        if(!tempAd.getContent().equalsIgnoreCase(ad.getContent()))
-            tempAd.setContent(ad.getContent());
+
+        if(adsList.contains(tempAd)){
+            int ind = tempAd.getId() -1;
+            adsList.set(ind, ad);
+            return true;
+        } else {
+            adsRepository.saveAds(tempAd);
+        }
+        return false;
     }
 
     @Override

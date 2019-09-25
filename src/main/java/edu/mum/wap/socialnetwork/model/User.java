@@ -3,8 +3,10 @@ package edu.mum.wap.socialnetwork.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class User {
+    private static final AtomicInteger uniqueId=new AtomicInteger();
     private Integer id;
     private String firstName;
     private String lastName;
@@ -28,6 +30,7 @@ public class User {
 
     //Puujgee Constructor
     public User(String firstName, String lastName, String password, String email, String location, String phone) {
+        this.id = uniqueId.getAndIncrement();
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -37,6 +40,7 @@ public class User {
     }
 
     public User(String firstName, String lastName, String username, String password, String email) {
+        this.id = uniqueId.getAndIncrement();
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -162,14 +166,22 @@ public class User {
         this.imgUrl = imgUrl;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", dob=" + dob +
+                ", imgUrl='" + imgUrl + '\'' +
                 ", email='" + email + '\'' +
                 ", active=" + active +
+                ", location='" + location + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

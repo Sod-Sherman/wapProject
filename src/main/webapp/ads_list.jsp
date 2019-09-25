@@ -19,6 +19,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
+                    <th scope="col">Active</th>
                     <th scope="col">Id</th>
                     <th scope="col">Content</th>
                     <th scope="col">URL</th>
@@ -30,13 +31,15 @@
                 <tbody>
                 <c:forEach var="ad" items="${adsAll}">
                     <tr class="table-primary">
+                        <td>${ad.active}</td>
                         <td>${ad.id}</td>
                         <td>${ad.content}</td>
                         <td>${ad.url}</td>
                         <td>${ad.imgUrl}</td>
                         <td>${ad.postedDate}</td>
                         <td>${ad.location}</td>
-                        <td><button class="btn btn-secondary my-2 my-sm-0" type="submit">Edit</button></td>
+                        <td><a class="btn btn-secondary my-2 my-sm-0" href="ads_edit?ads_id=${ad.id}">Edit</a></td>
+
                     </tr>
                 </c:forEach>
                 </tbody>
