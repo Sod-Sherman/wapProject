@@ -191,6 +191,7 @@ public class User {
                 ", active=" + active +
                 ", location='" + location + '\'' +
                 ", phone='" + phone + '\'' +
+                ", twitter='" + twitter + '\'' +
                 '}';
     }
 }
