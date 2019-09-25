@@ -40,7 +40,6 @@ public class AdminAdsAddController extends HttpServlet {
         int age = Integer.parseInt(req.getParameter("ageRange")) + 5;
         int duration = Integer.parseInt(req.getParameter("duration"));
 
-
         if ("".equals(incomingId)) {
             int id = myAds.size() + 1;
             Ads bean = new Ads(status, id, article, content, url, imgUrl, time, location, age, duration);
@@ -65,15 +64,7 @@ public class AdminAdsAddController extends HttpServlet {
 
             Ads bean = new Ads(sta, id, art, cont, ur, imUr, dat, loc, af, dur);
             adsService.updateAds(bean);
-            if(adsService.updateAds(bean)){
-                System.out.println("Succ");
-
-            }
-
         }
-
         resp.sendRedirect("ads_add.jsp");
-
-
     }
 }

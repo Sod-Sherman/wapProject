@@ -1,8 +1,6 @@
 package edu.mum.wap.socialnetwork.controller.tur;
 
 import edu.mum.wap.socialnetwork.model.Ads;
-import edu.mum.wap.socialnetwork.model.User;
-import edu.mum.wap.socialnetwork.repository.impl.AdsRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.AdsService;
 import edu.mum.wap.socialnetwork.service.impl.AdsServiceImpl;
 
@@ -25,10 +23,6 @@ public class AdvertisementController extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        User tempUser = (User)session.getAttribute("loggedInUser");
-        if (!tempUser.getUsername().equals("admin")) {
-            resp.sendRedirect("login.jsp");
-        }
         List<Ads> myAds = adsService.getAllAds();
         session.setAttribute("adsAll", myAds);
         RequestDispatcher rd = req.getRequestDispatcher("ads.jsp");
@@ -36,6 +30,6 @@ public class AdvertisementController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        this.doGet(req,resp);
     }
 }

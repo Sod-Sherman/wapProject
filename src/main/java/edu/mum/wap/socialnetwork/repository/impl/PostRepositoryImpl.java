@@ -55,7 +55,13 @@ public final class PostRepositoryImpl implements PostRepository {
     }
 
 
-
+    @Override
+    public Post findPostById(Integer Id) {
+        for(Post post : posts){
+            if(post.getId()==Id) return post;
+        }
+        return null;
+    }
     @Override
     public List<Post> findRecentPostsByUsername(String username) {
         if (username == null) return null;
