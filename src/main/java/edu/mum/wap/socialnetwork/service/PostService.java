@@ -12,4 +12,5 @@ public interface PostService {
     public abstract List<Post> getAllPosts();
 
     public abstract List<Post> getAllActiveFollowedPosts(User user);
+    abstract Post findPostById(int id);
 }

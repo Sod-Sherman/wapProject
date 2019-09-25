@@ -31,4 +31,9 @@ public class PostServiceImpl implements PostService {
 //                .filter(post -> post.getUser().getFollowers().contains(user.getFollowers()))
         return null;
     }
+
+    @Override
+    public Post findPostById(int id) {
+        return postRepository.findPostById(id);
+    }
 }

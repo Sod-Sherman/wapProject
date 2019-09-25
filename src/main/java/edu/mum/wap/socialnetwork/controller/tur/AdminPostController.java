@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package edu.mum.wap.socialnetwork.controller.tur;
 
 import edu.mum.wap.socialnetwork.model.Post;
