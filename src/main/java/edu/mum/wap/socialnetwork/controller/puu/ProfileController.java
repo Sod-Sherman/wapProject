@@ -8,9 +8,7 @@ package edu.mum.wap.socialnetwork.controller.puu;
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.repository.UserRepository;
 import edu.mum.wap.socialnetwork.repository.impl.UserRepositoryImpl;
-import edu.mum.wap.socialnetwork.service.PostService;
 import edu.mum.wap.socialnetwork.service.UserService;
-import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
@@ -38,7 +36,7 @@ public class ProfileController extends HttpServlet {
 
             List<User> followers = loggedInUser.getFollowers();
 
-            req.setAttribute("loggedInUser", loggedInUser);
+            //req.setAttribute("loggedInUser", loggedInUser);
             req.setAttribute("postsNumber", loggedInUser.getPosts().size());
             req.setAttribute("followersNumber", followers.size());
             req.setAttribute("followers", loggedInUser.getFollowers());
@@ -67,9 +65,6 @@ public class ProfileController extends HttpServlet {
             Integer followerId = Integer.parseInt(req.getParameter("id"));
             if (followerId >= userRepository.findAllUsers().size()) return;
 
-
-            UserService userService = new UserServiceImpl();
-            PostService postService = new PostServiceImpl();
             User follower = userRepository.findByUserId(followerId);
             req.setAttribute("follower",follower);
             req.setAttribute("followersFollowerNumber",follower.getFollowers().size());
