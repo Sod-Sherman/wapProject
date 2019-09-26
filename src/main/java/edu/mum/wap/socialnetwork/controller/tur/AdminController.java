@@ -1,8 +1,11 @@
 package edu.mum.wap.socialnetwork.controller.tur;
 
+import edu.mum.wap.socialnetwork.model.Ads;
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
+import edu.mum.wap.socialnetwork.service.AdsService;
 import edu.mum.wap.socialnetwork.service.PostService;
+import edu.mum.wap.socialnetwork.service.impl.AdsServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
@@ -20,9 +23,9 @@ import java.util.List;
 
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
-    UserService userService = new UserServiceImpl();
-    PostService postService = new PostServiceImpl();
-
+    private UserService userService = new UserServiceImpl();
+    private PostService postService = new PostServiceImpl();
+    private AdsService adsService = new AdsServiceImpl();
     public AdminController(){
 
     }
@@ -38,6 +41,8 @@ public class AdminController extends HttpServlet {
         List<User> myUsers = userService.getAllUsers();
         session.setAttribute("usersAll", myUsers);
         List<Post> myPosts = postService.getAllPosts();
+        List<Ads> myAds = adsService.getAllAds();
+        session.setAttribute("adsAll", myAds);
         session.setAttribute("postsAll", myPosts);
         //
         // resp.sendRedirect("admin.jsp");

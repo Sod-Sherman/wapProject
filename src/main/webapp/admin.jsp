@@ -30,38 +30,17 @@
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade show active" id="post">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">User name</th>
-                            <th scope="col">Post Content</th>
-                            <th scope="col">Posted Date</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="post" items="${postsAll}">
-                            <tr class="table-primary">
-                                <td>${post.user.username}</td>
-                                <td>${post.content}</td>
-                                <td>${post.postedDate}</td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                    <%@ include file="post_list.jsp"%>
                 </div>
                 <div class="tab-pane fade" id="user">
                   <div>
-                      <p>
-                          table${usersAll}
-                      </p>
+                      <<%@ include file="user_list.jsp"%>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="advertisement">
-                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+                    <%@ include file="ads_list.jsp"%>
                 </div>
             </div>
-                <%@ include file="twit.jsp"%>
             </header>
         </main>
     </div>
