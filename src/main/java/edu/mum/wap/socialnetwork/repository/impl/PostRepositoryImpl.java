@@ -81,8 +81,8 @@ public final class PostRepositoryImpl implements PostRepository {
         if (user == null) return null;
         List<Post> result = new ArrayList<>();
         for (Post p : findAllActiveRecentPosts()) {
-            for (Integer i = 0; i < user.getFollowers().size(); i++) {
-                if (p.getUser().getId() == user.getFollowers().get(i).getId() || p.getUser().getId() == user.getId())
+            for (int i = 0; i < user.getFollowers().size(); i++) {
+                if (p.getUser().getId().equals(user.getFollowers().get(i).getId()) || p.getUser().getId().equals(user.getId()))
                     result.add(p);
             }
         }
@@ -129,15 +129,20 @@ public final class PostRepositoryImpl implements PostRepository {
 
     @Override
     public void addPost(User user, Post post) {
-        if (user == null && post == null) return;
-        if (post.getUser() == null) post.setUser(user);
+        if (user == null || post == null) return;
+
+        if (post.getUser() == null) {
+            post.setUser(user);
+        }
 
         checkHealth(post);
 
         List<Post> postList = user.getPosts();
         postList.add(post);
         user.setPosts(postList);
-        posts.add(post);
+        this.posts.add(post);
+//        System.out.println("All posts = " + posts);
+//        System.out.println("posts.size() = " + posts.size());
     }
 
     @Override

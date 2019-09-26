@@ -7,10 +7,8 @@ import edu.mum.wap.socialnetwork.repository.PostRepository;
 import edu.mum.wap.socialnetwork.repository.impl.PostRepositoryImpl;
 import edu.mum.wap.socialnetwork.service.AdsService;
 import edu.mum.wap.socialnetwork.service.PostService;
-import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.AdsServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
-import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +23,6 @@ import java.util.List;
 @WebServlet("/timeline")
 public class TimeLineController extends HttpServlet {
 
-    private UserService userService = new UserServiceImpl();
     private PostService postService = new PostServiceImpl();
 
     private AdsService adsService = new AdsServiceImpl();
@@ -42,10 +39,9 @@ public class TimeLineController extends HttpServlet {
             } else {
                 loggedInUser = (User) session.getAttribute("loggedInUser");
 
-//                List<Post> posts = userService.getPosts(loggedInUser);
-//                List<Post> posts = userService.getAllPosts();
                 PostRepository postRepository = PostRepositoryImpl.getInstance();
                 List<Post> posts = postRepository.findAllActiveFollowersRecentPosts(loggedInUser);
+//                List<Post> posts = postRepository.findAllActiveRecentPosts();
                 if(posts == null) posts.add(postService.getEmptyPost());
                 req.setAttribute("userPosts", posts);
 
