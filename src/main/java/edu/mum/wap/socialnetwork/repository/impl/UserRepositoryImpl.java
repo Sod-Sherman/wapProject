@@ -12,7 +12,7 @@ public final class UserRepositoryImpl implements UserRepository {
 
     private static final UserRepositoryImpl INSTANCE = new UserRepositoryImpl();
 
-    private UserRepositoryImpl() {
+    public UserRepositoryImpl() {
         User sod = new User("Sodbileg", "Shirmen", "sod", "123", "s@mum.edu");
         User puujgee = new User("Purevdemberel", "Byambatogtokh", "puujgee", "123", "p@mum.edu");
         User tur = new User("Turtogtokh", "M.", "tur", "123", "t@mum.edu");
