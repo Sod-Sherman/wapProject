@@ -74,7 +74,6 @@
     </c:forEach>
 </div>
 
-<%@include file="twit.jsp" %>
 <%@include file="WEB-INF/fragment/footer.jsp" %>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="js/timeline.js" type="text/javascript"></script>
