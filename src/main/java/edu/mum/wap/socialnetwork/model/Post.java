@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Post implements Comparable<Post> {
     private boolean health = true;
     private static final AtomicInteger uniqueId=new AtomicInteger();
-    private final int id;
+    private final Integer id;
     private String content;
     private Boolean active = true;
     private LocalDate postedDate = LocalDate.now();
@@ -27,6 +27,10 @@ public class Post implements Comparable<Post> {
         this.postedDate = postedDate;
         this.imgUrl = imgURL;
         this.user = user;
+    }
+
+    public boolean isHealth() {
+        return health;
     }
 
     public boolean isHealthy() {
@@ -90,7 +94,7 @@ public class Post implements Comparable<Post> {
     @Override
     public String toString() {
         return "Post{" +
-                //"health=" + health +
+                "health=" + health +
                 ", id=" + id +
                 //", content='" + content + '\'' +
                 ", active=" + active +

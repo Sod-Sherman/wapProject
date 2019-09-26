@@ -21,3 +21,8 @@ target/socialnetwork/WEB-INF/classes/edu/mum/wap/socialnetwork/controller/tur/Ad
 target/socialnetwork/WEB-INF/classes/edu/mum/wap/socialnetwork/model/Post.class
 target/socialnetwork/WEB-INF/classes/edu/mum/wap/socialnetwork/repository/impl/PostRepositoryImpl.class
 target/socialnetwork/WEB-INF/classes/edu/mum/wap/socialnetwork/repository/impl/UserRepositoryImpl.class
+target/classes/edu/mum/wap/socialnetwork/model/Post.class
+target/classes/edu/mum/wap/socialnetwork/repository/impl/PostRepositoryImpl.class
+target/socialnetwork.war
+target/socialnetwork/WEB-INF/classes/edu/mum/wap/socialnetwork/model/Post.class
+target/socialnetwork/WEB-INF/classes/edu/mum/wap/socialnetwork/repository/impl/PostRepositoryImpl.class
