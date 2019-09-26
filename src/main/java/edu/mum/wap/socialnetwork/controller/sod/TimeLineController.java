@@ -40,8 +40,8 @@ public class TimeLineController extends HttpServlet {
                 loggedInUser = (User) session.getAttribute("loggedInUser");
 
                 PostRepository postRepository = PostRepositoryImpl.getInstance();
-                List<Post> posts = postRepository.findAllActiveFollowersRecentPosts(loggedInUser);
-//                List<Post> posts = postRepository.findAllActiveRecentPosts();
+//                List<Post> posts = postRepository.findAllActiveFollowersRecentPosts(loggedInUser);
+                List<Post> posts = postRepository.findAllActiveRecentPosts();
                 if(posts == null) posts.add(postService.getEmptyPost());
                 req.setAttribute("userPosts", posts);
 

@@ -90,13 +90,13 @@ public class Post implements Comparable<Post> {
     @Override
     public String toString() {
         return "Post{" +
-                "health=" + health +
+                //"health=" + health +
                 ", id=" + id +
-                ", content='" + content + '\'' +
+                //", content='" + content + '\'' +
                 ", active=" + active +
                 ", postedDate=" + postedDate +
-                ", imgUrl='" + imgUrl + '\'' +
-                ", user=" + user +
+                //", imgUrl='" + imgUrl + '\'' +
+                //", user=" + user +
                 '}';
     }
 }

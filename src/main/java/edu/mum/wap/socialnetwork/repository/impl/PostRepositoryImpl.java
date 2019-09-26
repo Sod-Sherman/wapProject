@@ -102,12 +102,19 @@ public final class PostRepositoryImpl implements PostRepository {
         sodPosts.add(sodPost3);
         sodPosts.add(sodPost4);
 
+        sod.setPosts(sodPosts);
+        this.posts.addAll(sodPosts);
+
+
         List<Post> turPosts = tur.getPosts();
         turPosts.add(turPost);
         turPosts.add(turPost1);
         turPosts.add(turPost2);
         turPosts.add(turPost3);
         turPosts.add(turPost4);
+
+        tur.setPosts(turPosts);
+        this.posts.addAll(turPosts);
 
         List<Post> puujgeePosts = puujgee.getPosts();
         puujgeePosts.add(puujgeePost);
@@ -122,8 +129,10 @@ public final class PostRepositoryImpl implements PostRepository {
         puujgeePosts.add(puujgeePost9);
         puujgeePosts.add(puujgeePost10);
 
-    }
+        puujgee.setPosts(puujgeePosts);
+        this.posts.addAll(puujgeePosts);
 
+    }
 
     @Override
     public Post findPostById(Integer Id) {
@@ -192,7 +201,7 @@ public final class PostRepositoryImpl implements PostRepository {
             if (post.getActive()) result.add(post);
         }
         Collections.sort(result);
-        //System.out.println("Posts by ordered: = " + result);
+        System.out.println("Posts by ordered: = " + result);
         return result;
     }
 
