@@ -18,6 +18,7 @@ public final class UserRepositoryImpl implements UserRepository {
         User tur = new User("Turtogtokh", "M.", "tur", "123", "t@mum.edu");
         tur.setTwitter("turtogtox");
         sod.setTwitter("shsodbileg");
+        puujgee.setTwitter("shsodbileg");
         this.users = new ArrayList<User>(Arrays.asList(
                 sod, puujgee, tur,
                 new User("Admin", "LastNameAdmin", "admin", "123", "a@mum.edu")));

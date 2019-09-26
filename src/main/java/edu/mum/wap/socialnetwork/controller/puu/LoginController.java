@@ -41,7 +41,6 @@ public class LoginController extends HttpServlet {
             if ("".equals(usernameInput) || usernameInput == null)
                 rd = req.getRequestDispatcher("login.jsp");
             else {
-
                 User newUser = new User();
                 newUser.setUsername(usernameInput);
                 newUser.setPassword(passwordInput);

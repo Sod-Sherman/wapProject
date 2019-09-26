@@ -34,6 +34,7 @@ function init(resultFromServer) {
         case 'Drizzle':
         case 'Mist':
             document.getElementById("weatherContainer").style.backgroundImage = 'url("images/rain.jpg")';
+            document.getElementById("weatherContainer").style.color = 'white';
             break;
 
         case 'Thunderstorm':
