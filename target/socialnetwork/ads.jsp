@@ -1,16 +1,16 @@
 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
-        <c:forEach var="ad" items="${adsAll}" varStatus="loop">
+        <c:forEach var="user" items="${adsAll}" varStatus="loop">
             <div class="carousel-item ${loop.index == 0 ? "active" : ""}" >
                 <div class="mask flex-center">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-md-7 col-12 order-md-1 order-2">
-                                <h4>${ad.article}</h4>
-                                <p>${ad.content}</p>
-                                <a href="${ad.url}">BUY NOW</a></div>
+                                <h4>${user.article}</h4>
+                                <p>${user.content}</p>
+                                <a href="${user.url}">BUY NOW</a></div>
                             <div class="col-md-5 col-12 order-md-2 order-1">
-                                <img src="${ad.imgUrl}" class="mx-auto" alt="slide"></div>
+                                <img src="${user.imgUrl}" class="mx-auto" alt="slide"></div>
                         </div>
 
                     </div>

@@ -12,16 +12,19 @@ public final class UserRepositoryImpl implements UserRepository {
 
     private static final UserRepositoryImpl INSTANCE = new UserRepositoryImpl();
 
-    public UserRepositoryImpl() {
+    private UserRepositoryImpl() {
         User sod = new User("Sodbileg", "Shirmen", "sod", "123", "s@mum.edu");
         User puujgee = new User("Purevdemberel", "Byambatogtokh", "puujgee", "123", "p@mum.edu");
         User tur = new User("Turtogtokh", "M.", "tur", "123", "t@mum.edu");
+
         tur.setTwitter("turtogtox");
         sod.setTwitter("shsodbileg");
         puujgee.setTwitter("shsodbileg");
+
         this.users = new ArrayList<User>(Arrays.asList(
                 sod, puujgee, tur,
                 new User("Admin", "LastNameAdmin", "admin", "123", "a@mum.edu")));
+
         sod.setFollowers(new ArrayList<User>(Arrays.asList(puujgee, tur)));
         puujgee.setFollowers(new ArrayList<User>(Arrays.asList(sod)));
 
@@ -34,7 +37,7 @@ public final class UserRepositoryImpl implements UserRepository {
     @Override
     public User findByUserId(Integer Id) {
         for (User u : users)
-            if (u.getId() == Id && u.getActive()) return u;
+            if (u.getId().equals(Id) && u.getActive()) return u;
         return null;
     }
 
@@ -84,7 +87,7 @@ public final class UserRepositoryImpl implements UserRepository {
     @Override
     public Boolean isFollower(User user, User follower) {
         for (User f : user.getFollowers())
-            if (f.getId() == follower.getId())
+            if (f.getId().equals(follower.getId()))
                 return true;
         return false;
     }
@@ -94,12 +97,15 @@ public final class UserRepositoryImpl implements UserRepository {
         return users;
     }
 
-    public void addFollower(User follower, User followedUser) {
-        if (isUserInList(follower, users) && isUserInList(followedUser, users)) {
+    public void addFollower(User user, User followedUser) {
+        if(user.getId().equals(followedUser.getId())) return;
+        System.out.println(followedUser.getFollowers());
             List<User> followers = followedUser.getFollowers();
-            if (!isUserInList(follower, followers))
-                followers.add(follower);
-        }
+            if (!isUserInList(user, followers))
+                followers.add(user);
+            followedUser.setFollowers(followers);
+        System.out.println(followedUser.getFollowers());
+
     }
 
     public void deleteFollower(User user, User followedUser) {
@@ -110,6 +116,7 @@ public final class UserRepositoryImpl implements UserRepository {
                     newFollowers.add(u);
             }
             user.setFollowers(newFollowers);
+
         }
 
     }

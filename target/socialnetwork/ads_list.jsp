@@ -29,16 +29,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="ad" items="${adsAll}">
+                <c:forEach var="user" items="${adsAll}">
                     <tr class="table-primary">
-                        <td>${ad.active}</td>
-                        <td>${ad.id}</td>
-                        <td>${ad.content}</td>
-                        <td>${ad.url}</td>
-                        <td>${ad.imgUrl}</td>
-                        <td>${ad.postedDate}</td>
-                        <td>${ad.location}</td>
-                        <td><a class="btn btn-secondary my-2 my-sm-0" href="ads_edit?ads_id=${ad.id}">Edit</a></td>
+                        <td>${user.active}</td>
+                        <td>${user.id}</td>
+                        <td>${user.content}</td>
+                        <td>${user.url}</td>
+                        <td>${user.imgUrl}</td>
+                        <td>${user.postedDate}</td>
+                        <td>${user.location}</td>
+                        <td><a class="btn btn-secondary my-2 my-sm-0" href="ads_edit?ads_id=${user.id}">Edit</a></td>
 
                     </tr>
                 </c:forEach>

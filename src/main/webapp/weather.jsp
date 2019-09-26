@@ -8,6 +8,8 @@
 <%--    <input class="searchControll" type="text" placeholder="City Name of Zipcode" id="searchInput">--%>
     <input hidden id="searchInput" value="${city}">
     <button class="searchControl" id="searchBtn" style="display: none">Get Weather</button>
+    <a href = "userlist">User Lists</a>
+
 </div>
 <div id="weatherContainer">
     <div id="weatherDescription">
@@ -93,11 +95,11 @@
         vertical-align: 25%;
     }
 
-    .bottom-details {
-        display: block;
-        font-size: 24px;
-        text-align: right;
-    }
+    /*.bottom-details {*/
+    /*    display: block;*/
+    /*    font-size: 24px;*/
+    /*    text-align: right;*/
+    /*}*/
 
     hr {
         margin-bottom: 20px;

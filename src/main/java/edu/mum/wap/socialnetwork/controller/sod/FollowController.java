@@ -31,6 +31,8 @@ public class FollowController extends HttpServlet {
         User loggedInUser = (User) req.getSession().getAttribute("loggedInUser");
         if (loggedInUser == null) resp.sendRedirect("login.jsp");
 
+
+
         if (req.getParameter("id") != null) { //add follower
             Integer id = Integer.parseInt(req.getParameter("id"));
             if (id >= userRepository.findAllUsers().size()) return;

@@ -47,8 +47,6 @@ public final class PostRepositoryImpl implements PostRepository {
         Post turPost = new Post("Today, one of the biggest challenges facing Alzheimer’s researchers is finding patients who can benefit from novel therapies before it’s too late. AI is showing a lot of promise in helping to detect Alzheimer’s far earlier than current methods. I'm eager to see how it could change how we better understand and fight the disease.",
                 LocalDate.of(2019, 9, 10), "https://external-ort2-1.xx.fbcdn.net/safe_image.php?d=AQCBV-qYsqZM5Hy7&w=540&h=282&url=https%3A%2F%2Fwww.statnews.com%2Fwp-content%2Fuploads%2F2019%2F08%2Fdom-brain-1024x576.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_hash=AQAF-ZJxpLw_rgYI", tur);
 
-        Post turPost1 = new Post("The docuseries about my life and work is out today. I hope you’ll check it out on Netflix — and then read some of the stories that didn’t make the cut on my blog.",
-                LocalDate.of(2019, 8, 31), "images/post/safe_image.jpg", tur);
 
         Post turPost2 = new Post("Just 1% of English residents are responsible for nearly a fifth of all flights abroad, according to previously unpublished statistics.",
                 LocalDate.of(2019, 7, 28), "images/post/4288.jpg", tur);
@@ -96,7 +94,6 @@ public final class PostRepositoryImpl implements PostRepository {
 
         List<Post> turPosts = tur.getPosts();
         turPosts.add(turPost);
-        turPosts.add(turPost1);
         turPosts.add(turPost2);
         turPosts.add(turPost3);
         turPosts.add(turPost4);
