@@ -175,6 +175,7 @@
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
+                                <input hidden type="text" name="UpdateProfileSubmitClicked" value="YES"/>
                                 <button class="btn btn-lg btn-success" type="submit"><i
                                         class="glyphicon glyphicon-ok-sign"></i> Save
                                 </button>
