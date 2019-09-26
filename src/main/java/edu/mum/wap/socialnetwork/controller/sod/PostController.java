@@ -5,6 +5,7 @@ import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -30,12 +31,6 @@ public class PostController extends HttpServlet {
     }
 
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        doGet(request, response);
-    }
-
     private String getFileName(Part part) {
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("filename"))
@@ -46,6 +41,7 @@ public class PostController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, java.io.IOException {
+
         String content = request.getParameter("textArea1");
         String imgUrl = "";
         String uploadPath = filePath;
@@ -54,7 +50,7 @@ public class PostController extends HttpServlet {
         for (Part part : request.getParts()) {
             if (part != null && !getFileName(part).contains(DEFAULT_FILENAME)) {
                 fileName = getFileName(part);
-                if(!fileName.isEmpty()){
+                if (!fileName.isEmpty()) {
                     imgUrl = "images/post/" + fileName;
                     part.write(uploadPath + File.separator + fileName);
                 }
@@ -68,7 +64,14 @@ public class PostController extends HttpServlet {
         Post newPost = new Post(content, imgUrl, user);
         userService.addPost(user, newPost);
         System.out.println(newPost + "\n" + user);
-        response.sendRedirect("timeline.jsp");
+
+        RequestDispatcher rd = request.getRequestDispatcher("timeline.jsp");
+        rd.forward(request,response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }
 

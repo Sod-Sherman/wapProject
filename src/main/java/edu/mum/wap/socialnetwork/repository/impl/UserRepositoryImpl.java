@@ -21,7 +21,7 @@ public final class UserRepositoryImpl implements UserRepository {
         this.users = new ArrayList<User>(Arrays.asList(
                 sod, puujgee, tur,
                 new User("Admin", "LastNameAdmin", "admin", "123", "a@mum.edu")));
-        sod.setFollowers(new ArrayList<User>(Arrays.asList(puujgee,tur)));
+        sod.setFollowers(new ArrayList<User>(Arrays.asList(puujgee, tur)));
         puujgee.setFollowers(new ArrayList<User>(Arrays.asList(sod)));
 
     }
@@ -32,8 +32,8 @@ public final class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findByUserId(Integer Id) {
-        for(User u: users)
-            if(u.getId() == Id && u.getActive()) return u;
+        for (User u : users)
+            if (u.getId() == Id && u.getActive()) return u;
         return null;
     }
 
@@ -55,7 +55,8 @@ public final class UserRepositoryImpl implements UserRepository {
     @Override
     public void saveUser(User user) {
         User tUser = findByUsername(user.getUsername());
-        deleteUser(tUser);
+        if (tUser != null)
+            deleteUser(tUser);
         users.add(user);
     }
 
@@ -81,8 +82,8 @@ public final class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Boolean isFollower(User user, User follower) {
-        for(User f: user.getFollowers())
-            if(f.getId() == follower.getId())
+        for (User f : user.getFollowers())
+            if (f.getId() == follower.getId())
                 return true;
         return false;
     }

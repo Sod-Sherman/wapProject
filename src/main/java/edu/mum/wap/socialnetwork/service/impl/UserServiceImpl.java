@@ -18,11 +18,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer login(User user) {  //if username, password is correct then return 1, admin 2, incorrect null
         User tempUser = userRepository.findByUsername(user.getUsername());
-        if (tempUser != null && tempUser.getUsername().equalsIgnoreCase(user.getUsername())) {
+        System.out.println("tempUser = " + tempUser);
+        if (tempUser != null && tempUser.getPassword().equals(user.getPassword())) {
             if (tempUser.getUsername().equalsIgnoreCase("admin")) return 2; // admin user
-            //if(tempUser.getPassword().equalsIgnoreCase("pass"))
-            return 1; // general user
-
+            if (tempUser.getUsername().equalsIgnoreCase(user.getUsername()))
+                return 1; // general user
         }
         return 0; //mismatch password or username
     }
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     public Integer updateProfile(User user) {
         User tempUser = userRepository.findByUsername(user.getUsername());
         if (tempUser == null) return 0;
-        else{
+        else {
             tempUser.setFirstName(user.getFirstName());
             tempUser.setLastName(user.getLastName());
             tempUser.setPassword(user.getPassword());
@@ -87,8 +87,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean addPost(User user, Post post) {
-        if(user == null || post == null) return false;
-        postRepository.addPost(user,post);
+        if (user == null || post == null) return false;
+        postRepository.addPost(user, post);
         List<Post> posts = user.getPosts();
         posts.add(post);
         userRepository.saveUser(user);
@@ -97,8 +97,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deactivateUser(User user)
-    {
+    public void deactivateUser(User user) {
         userRepository.deactivateUser(user);
     }
 
@@ -126,7 +125,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Post> getPostsFollower(User user) {
-        if(user == null) return null;
+        if (user == null) return null;
         return postRepository.findRecentPostsByUsername(user.getUsername());
     }
 

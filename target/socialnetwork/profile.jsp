@@ -75,11 +75,11 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Information</a></li>
                 <li><a data-toggle="tab" href="#editProfile">Edit My Profile</a></li>
-                <%--<li><a data-toggle="tab" href="#settings">Menu 2</a></li>--%>
             </ul>
 
             <%---------------------------Information tab-------------------------------------------%>
             <div class="tab-content">
+
                 <div class="tab-pane active" id="home">
                     <hr>
                     <c:if test="${followers != null}"><p>My Followers:</p></c:if>
@@ -107,7 +107,6 @@
                         </ul>
                     </c:if>
 
-
                     <hr>
 
                 </div><!--/tab-pane-->
@@ -119,7 +118,7 @@
                             <div class="col-xs-6">
                                 <label for="firstName"><h4>First name</h4></label>
                                 <input type="text" class="form-control" name="firstName" id="firstName"
-                                       value="${loggedInUser.firstName}"
+                                       value="${loggedInUser.firstName}" placeholder="${loggedInUser.firstName}"
                                        title="enter your first name if any.">
                             </div>
                         </div>
@@ -169,13 +168,14 @@
                             <div class="col-xs-6">
                                 <label for="repeatPassword"><h4>Verify</h4></label>
                                 <input type="password" class="form-control" name="repeatPassword" id="repeatPassword"
-                                       <%--value="${loggedInUser.repeatPassword}"--%>
+
                                        title="enter your password2.">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
+                                <input hidden type="text" name="UpdateProfileSubmitClicked" value="YES"/>
                                 <button class="btn btn-lg btn-success" type="submit"><i
                                         class="glyphicon glyphicon-ok-sign"></i> Save
                                 </button>

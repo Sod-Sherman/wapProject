@@ -8,9 +8,7 @@ package edu.mum.wap.socialnetwork.controller.puu;
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.repository.UserRepository;
 import edu.mum.wap.socialnetwork.repository.impl.UserRepositoryImpl;
-import edu.mum.wap.socialnetwork.service.PostService;
 import edu.mum.wap.socialnetwork.service.UserService;
-import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
@@ -38,42 +36,53 @@ public class ProfileController extends HttpServlet {
 
             List<User> followers = loggedInUser.getFollowers();
 
-            req.setAttribute("loggedInUser", loggedInUser);
+            //req.setAttribute("loggedInUser", loggedInUser);
             req.setAttribute("postsNumber", loggedInUser.getPosts().size());
             req.setAttribute("followersNumber", followers.size());
             req.setAttribute("followers", loggedInUser.getFollowers());
 
+            if (req.getParameter("UpdateProfileSubmitClicked") != null) {
 
 
-            User tempUser = new User(
-                    req.getParameter("firstName"),
-                    req.getParameter("lastName"),
-                    req.getParameter("password"),
-                    req.getParameter("email"),
-                    req.getParameter("location"),
-                    req.getParameter("phone"));
 
-            tempUser.setUsername(loggedInUser.getUsername());
 
-            userService.updateProfile(tempUser);
+//update profile
+                String fName = req.getParameter("firstName");
+                if(!fName.equals("")) loggedInUser.setFirstName(fName);
 
+                String lName = req.getParameter("lastName");
+                if(!lName.equals("")) loggedInUser.setLastName(lName);
+
+                String passInput = req.getParameter("password");
+                if(!passInput.equals("")) loggedInUser.setPassword(passInput);
+
+                String emailInput = req.getParameter("email");
+                if(!emailInput.equals("")) loggedInUser.setEmail(emailInput);
+
+                String locationInput = req.getParameter("location");
+                if(!locationInput.equals("")) loggedInUser.setLocation(locationInput);
+
+                String phoneInput = req.getParameter("phone");
+                if(!phoneInput.equals("")) loggedInUser.setPhone(phoneInput);
+
+
+                userService.updateProfile(loggedInUser);
+//update end
+            }
             rd = req.getRequestDispatcher("profile.jsp");
 
         } else {
             rd = req.getRequestDispatcher("login.jsp");
         }
 
-        if(req.getParameter("id")!=null){
+        if (req.getParameter("id") != null) {
             Integer followerId = Integer.parseInt(req.getParameter("id"));
             if (followerId >= userRepository.findAllUsers().size()) return;
 
-
-            UserService userService = new UserServiceImpl();
-            PostService postService = new PostServiceImpl();
             User follower = userRepository.findByUserId(followerId);
-            req.setAttribute("follower",follower);
-            req.setAttribute("followersFollowerNumber",follower.getFollowers().size());
-            req.setAttribute("followerPostsNumber",follower.getPosts().size());
+            req.setAttribute("follower", follower);
+            req.setAttribute("followersFollowerNumber", follower.getFollowers().size());
+            req.setAttribute("followerPostsNumber", follower.getPosts().size());
 
             rd = req.getRequestDispatcher("profile.jsp");
         }

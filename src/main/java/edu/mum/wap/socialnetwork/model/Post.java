@@ -1,9 +1,6 @@
 package edu.mum.wap.socialnetwork.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Post implements Comparable<Post> {
@@ -93,11 +90,13 @@ public class Post implements Comparable<Post> {
     @Override
     public String toString() {
         return "Post{" +
-                "id=" + id +
+                "health=" + health +
+                ", id=" + id +
                 ", content='" + content + '\'' +
                 ", active=" + active +
                 ", postedDate=" + postedDate +
                 ", imgUrl='" + imgUrl + '\'' +
+                ", user=" + user +
                 '}';
     }
 }

@@ -34,15 +34,14 @@ public class LoginController extends HttpServlet {
         HttpSession session = req.getSession();
         RequestDispatcher rd = null;
 
+        String usernameInput = req.getParameter("username");
+        String passwordInput = req.getParameter("password");
+
         if (session.getAttribute("loggedInUser") == null) {
-
-            String usernameInput = req.getParameter("username");
-
             if ("".equals(usernameInput) || usernameInput == null)
                 rd = req.getRequestDispatcher("login.jsp");
             else {
 
-                String passwordInput = req.getParameter("password");
                 User newUser = new User();
                 newUser.setUsername(usernameInput);
                 newUser.setPassword(passwordInput);
