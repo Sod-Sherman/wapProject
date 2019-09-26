@@ -21,25 +21,27 @@ function searchWeather(searchTerm) {
 function init(resultFromServer) {
     switch (resultFromServer.weather[0].main) {
         case 'Clear':
-            document.body.style.backgroundImage = 'url("images/clear.jpg")';
+            document.getElementById("weatherContainer").style.backgroundImage = 'url("images/clear.jpg")';
             break;
 
         case 'Clouds':
-            document.body.style.backgroundImage = 'url("images/cloudy.jpg")';
+            document.getElementById("weatherContainer").style.backgroundImage = 'url("images/cloudy.jpg")';
+            document.getElementById("weatherContainer").style.color = 'white';
+
             break;
 
         case 'Rain':
         case 'Drizzle':
         case 'Mist':
-            document.body.style.backgroundImage = 'url("images/rain.jpg")';
+            document.getElementById("weatherContainer").style.backgroundImage = 'url("images/rain.jpg")';
             break;
 
         case 'Thunderstorm':
-            document.body.style.backgroundImage = 'url("images/storm.jpg")';
+            document.getElementById("weatherContainer").style.backgroundImage = 'url("images/storm.jpg")';
             break;
 
         case 'Snow':
-            document.body.style.backgroundImage = 'url("images/snow.jpg")';
+            document.getElementById("weatherContainer").style.backgroundImage = 'url("images/snow.jpg")';
             break;
 
         default:
@@ -74,8 +76,8 @@ function setPositionForWeatherInfo(){
     let weatherContainerHeight = weatherContainer.clientHeight;
     let weatherContainerWidth = weatherContainer.clientWidth;
 
-    weatherContainer.style.left = `calc(50% - ${weatherContainerWidth/2}px)`;
-    weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/1.3}px)`;
+    //weatherContainer.style.left = `calc(50% - ${weatherContainerWidth/2}px)`;
+    //weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/1.3}px)`;
     weatherContainer.style.visibility = 'visible';
 }
 

@@ -1,30 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2019-09-24
-  Time: 21:46
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="weather/style.css">
-<script src="https://maps.googleapis.com/maps/api/js">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-</script>
-    <script async="false" defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClLUXvXjhCsWfw3t2P838TLd-Jnx2Uwro&callback=initMap"
-            type="text/javascript">
-    </script>
+<%--<script src="https://maps.googleapis.com/maps/api/js"></script>--%>
 
-</head>
-<body>
 
 <div id="searchContainer">
 <%--    <input class="searchControll" type="text" placeholder="City Name of Zipcode" id="searchInput">--%>
     <input hidden id="searchInput" value="${city}">
-    <button class="searchControl" id="searchBtn">Get Weather</button>
+    <button class="searchControl" id="searchBtn" style="display: none">Get Weather</button>
 </div>
 <div id="weatherContainer">
     <div id="weatherDescription">
@@ -39,11 +22,10 @@
         <div id="humidity" class="bottom-details"></div>
     </div>
 </div>
-<script src="weather/script.js"></script>
 
 <style>
-    body {
-        background-image: url('/images/default.jpg');
+    .weather_container {
+        background-image: url('images/default.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -59,6 +41,8 @@
         border-radius: 10px;
         position: absolute;
         visibility: hidden;
+        background-position: center;
+        background-size: cover;
     }
 
     #weatherContainer h1 {
@@ -118,11 +102,14 @@
     hr {
         margin-bottom: 20px;
     }
-
-
-
-
 </style>
 
-</body>
-</html>
+<script async="false" defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClLUXvXjhCsWfw3t2P838TLd-Jnx2Uwro" type="text/javascript"></script>
+
+<script src="weather/script.js"></script>
+
+<script>
+    $(function() {
+        $("#searchBtn").click();
+    });
+</script>

@@ -1,11 +1,14 @@
 package edu.mum.wap.socialnetwork.controller.sod;
 
+import edu.mum.wap.socialnetwork.model.Ads;
 import edu.mum.wap.socialnetwork.model.Post;
 import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.repository.PostRepository;
 import edu.mum.wap.socialnetwork.repository.impl.PostRepositoryImpl;
+import edu.mum.wap.socialnetwork.service.AdsService;
 import edu.mum.wap.socialnetwork.service.PostService;
 import edu.mum.wap.socialnetwork.service.UserService;
+import edu.mum.wap.socialnetwork.service.impl.AdsServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.PostServiceImpl;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
@@ -24,6 +27,8 @@ public class TimeLineController extends HttpServlet {
 
     private UserService userService = new UserServiceImpl();
     private PostService postService = new PostServiceImpl();
+
+    private AdsService adsService = new AdsServiceImpl();
 
 
     @Override
@@ -44,11 +49,40 @@ public class TimeLineController extends HttpServlet {
                 if(posts == null) posts.add(postService.getEmptyPost());
                 req.setAttribute("userPosts", posts);
 
+                handleWeather(req);
+
+                handleTwitterEmbed(req);
+
+                handleAdsBanner(req);
+
                 RequestDispatcher rd = req.getRequestDispatcher("timeline.jsp");
                 rd.forward(req,resp);
             }
     }
 
+    protected void handleWeather(HttpServletRequest req) {
+        User loggedInUser = (User) req.getSession().getAttribute("loggedInUser");
+        String city = loggedInUser.getLocation();
+        req.setAttribute("city", city);
+    }
+
+    protected void handleTwitterEmbed(HttpServletRequest req) {
+        User loggedInUser = (User) req.getSession().getAttribute("loggedInUser");
+        req.setAttribute("twitUserName", loggedInUser.getTwitter());
+    }
+
+    protected void handleAdsBanner(HttpServletRequest req) {
+        List<Ads> myAds = adsService.getAllAds();
+//        List<Ads> activeAds = new ArrayList<>();
+//        for(Ads ad : myAds){
+//            if (ad.isActive()){
+//                int i = 0;
+//                activeAds.set(i, ad);
+//                i++;
+//            }
+//        }
+        req.setAttribute("adsAll", myAds);
+    }
 
 
 
