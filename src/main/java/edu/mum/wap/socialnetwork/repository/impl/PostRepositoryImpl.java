@@ -122,7 +122,6 @@ public final class PostRepositoryImpl implements PostRepository {
         puujgeePosts.add(puujgeePost9);
         puujgeePosts.add(puujgeePost10);
 
-
     }
 
 
