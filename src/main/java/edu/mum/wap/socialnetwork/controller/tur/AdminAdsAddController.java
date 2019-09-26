@@ -49,7 +49,7 @@ public class AdminAdsAddController extends HttpServlet {
                 session.setAttribute("newAds", bean);
             }
             session.setAttribute("statusMSG", statusMSG);
-        } else { //update hiih
+        } else {
             int id = Integer.parseInt(incomingId);
             boolean sta = Boolean.parseBoolean(req.getParameter("active"));
             String art = req.getParameter("article");

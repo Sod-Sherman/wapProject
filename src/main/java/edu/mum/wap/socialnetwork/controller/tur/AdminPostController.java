@@ -19,8 +19,8 @@ import java.util.List;
 
 @WebServlet({"/post_list"})
 public class AdminPostController extends HttpServlet {
-    UserService userService = new UserServiceImpl();
-    PostService postService = new PostServiceImpl();
+    private UserService userService = new UserServiceImpl();
+    private PostService postService = new PostServiceImpl();
 
     public AdminPostController() {
     }
