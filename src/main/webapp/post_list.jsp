@@ -19,21 +19,30 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
+                    <th colspan="2">Unhealthy posts</th>
+                </tr>
+                </thead>
+                <thead>
+                <tr>
                     <th scope="col">User name</th>
                     <th scope="col">Post Content</th>
                     <th scope="col">Posted Date</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Health</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="post" items="${postsAll}">
-                    <tr class="table-primary">
-                        <td>${post.user.username}</td>
-                        <td>${post.content}</td>
-                        <td>${post.postedDate}</td>
-                        <td>${post.active}</td>
-                        <td><a class="btn btn-secondary my-2 my-sm-0" href="post_ban?post_id=${post.id}">Ban/Revoke</a></td>
-                    </tr>
+                    <c:if test="${!post.isHealthy()}">
+                        <tr class="table-primary">
+                            <td>${post.user.username}</td>
+                            <td>${post.content}</td>
+                            <td>${post.postedDate}</td>
+                            <td>${post.active}</td>
+                            <td>${post.health}</td>
+                            <td><a class="btn btn-secondary my-2 my-sm-0" href="post_ban?post_id=${post.id}">Ban/Revoke</a></td>
+                        </tr>
+                    </c:if>
                 </c:forEach>
                 </tbody>
             </table>
@@ -48,7 +57,6 @@
                 </thead>
                 <tbody>
                 <c:forEach var="post" items="${postsAll}">
-                    <c:if test="${!post.isHealthy()}">
                     <tr class="table-primary">
                         <td>${post.user.username}</td>
                         <td>${post.content}</td>
@@ -56,10 +64,10 @@
                         <td>${post.active}</td>
                         <td><a class="btn btn-secondary my-2 my-sm-0" href="post_ban?post_id=${post.id}">Ban/Revoke</a></td>
                     </tr>
-                    </c:if>
                 </c:forEach>
                 </tbody>
             </table>
+
 
         </main>
     </div>
