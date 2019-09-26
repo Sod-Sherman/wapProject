@@ -12,4 +12,6 @@ public interface PostRepository {
     public abstract void addPost(User user, Post post);
     public abstract List<Post> findAllPosts();
     public abstract List<Post> findAllActiveFollowersRecentPosts(User user);
+    public abstract List<Post> getHealthyPosts();
+    public abstract boolean checkHealth(Post post);
 }
