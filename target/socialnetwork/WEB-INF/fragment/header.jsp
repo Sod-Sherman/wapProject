@@ -12,14 +12,9 @@
     <title>Social Network</title>
     <link href="static/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="css/animate.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 
-    <script src="https//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="static/feather.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
-
-    <script src="static/jquery-3.3.1.slim.min.js"></script>
-
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
