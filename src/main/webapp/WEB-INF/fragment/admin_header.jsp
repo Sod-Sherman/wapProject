@@ -18,6 +18,7 @@
     <script src="static/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="static/feather.min.js"></script>
+    <script src="static/counter.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
 
     <style>
@@ -34,6 +35,34 @@
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
+        }
+        .counter {
+            background-color:#f5f5f5;
+            padding: 20px 0;
+            border-radius: 5px;
+        }
+
+        .count-title {
+            font-size: 40px;
+            font-weight: normal;
+            margin-top: 10px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .count-text {
+            font-size: 13px;
+            font-weight: normal;
+            margin-top: 10px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .fa-2x {
+            margin: 0 auto;
+            float: none;
+            display: table;
+            color: #4ad1e5;
         }
     </style>
 </head>
