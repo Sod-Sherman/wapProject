@@ -31,27 +31,96 @@ public final class PostRepositoryImpl implements PostRepository {
                 "\n" +
                 "With the help of community members contributing content to the site, JavaScript.com aims to also keep more advanced developers up to date on news, frameworks, and libraries.",
                 LocalDate.of(2019, 8, 30), "", sod);
+
         Post sodPost1 = new Post("The docuseries about my life and work is out today. I hope you’ll check it out on Netflix — and then read some of the stories that didn’t make the cut on my blog.",
                 LocalDate.of(2019, 8, 31), "images/post/safe_image.jpg", sod);
+
+        Post sodPost2 = new Post("A whistleblower complaint, which includes allegations about President Trump's conduct, was hand-delivered to Capitol Hill this afternoon for lawmakers to review.\n" +
+                "Few details have been released about the complaint, which was reviewed by lawmakers in a secured room..",
+                LocalDate.of(2019, 7, 28), "images/post/whitehouse.jpg", sod);
+
+        Post sodPost3 = new Post("Donald Trump pressed the Ukrainian president to work with the US attorney general to investigate his political rival Joe Biden, a damning White House memo revealed on Wednesday, raising the stakes in an acrimonious and polarising impeachment inquiry..",
+                LocalDate.of(2019, 8, 30), "https://www.theguardian.com/us-news/2019/sep/25/ukraine-trump-meeting-impeachment-inquiry-whistleblower-conversation#img-1", sod);
+
+        Post sodPost4 = new Post("Almost 21,000 people rushed out to buy a copy of David Cameron’s memoir in its first week on sale, placing it second on the latest book charts to Margaret Atwood’s The Testaments and, historically, behind Margaret Thatcher and Tony Blair for the title of fastest-selling political memoir by a former prime minister.",
+                LocalDate.of(2019, 8, 29), "https://www.theguardian.com/books/2019/sep/24/david-cameron-memoir-margaret-atwood-dystopia-for-the-record#img-1", sod);
 
         Post turPost = new Post("Today, one of the biggest challenges facing Alzheimer’s researchers is finding patients who can benefit from novel therapies before it’s too late. AI is showing a lot of promise in helping to detect Alzheimer’s far earlier than current methods. I'm eager to see how it could change how we better understand and fight the disease.",
                 LocalDate.of(2019, 9, 10), "https://external-ort2-1.xx.fbcdn.net/safe_image.php?d=AQCBV-qYsqZM5Hy7&w=540&h=282&url=https%3A%2F%2Fwww.statnews.com%2Fwp-content%2Fuploads%2F2019%2F08%2Fdom-brain-1024x576.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_hash=AQAF-ZJxpLw_rgYI", tur);
 
+        Post turPost1 = new Post("The docuseries about my life and work is out today. I hope you’ll check it out on Netflix — and then read some of the stories that didn’t make the cut on my blog.",
+                LocalDate.of(2019, 8, 31), "images/post/safe_image.jpg", tur);
+
+        Post turPost2 = new Post("Just 1% of English residents are responsible for nearly a fifth of all flights abroad, according to previously unpublished statistics.",
+                LocalDate.of(2019, 7, 28), "https://www.theguardian.com/environment/2019/sep/25/1-of-english-residents-take-one-fifth-of-overseas-flights-survey-shows#img-1", tur);
+
+        Post turPost3 = new Post("The all-action football sim includes a superb new six-a-side Volta mode and the controversial, pay-for Ultimate Team. There’s a question mark stalking EA’s football series with the unshakeable tenacity of Fabio Cannavaro in his prime.",
+                LocalDate.of(2019, 8, 30), "https://www.theguardian.com/games/2019/sep/25/fifa-20-review-not-your-typical-annual-update#img-1", tur);
+
+        Post turPost4 = new Post("Peel and finely chop 4 cloves of garlic. Peel a 4cm knob of ginger and cut it into fine matchstick-sized shreds. Halve, seed and finely chop 4 small, hot, red chillies. Finely chop 4 spring onions, discarding any dark or tough shoots.",
+                LocalDate.of(2019, 8, 29), "https://www.theguardian.com/food/2019/sep/24/nigel-slater-mushrooms-with-ginger-and-coriander-recipe#img-1", tur);
+
         Post puujgeePost = new Post("Whenever I hear an idea for what we can do to keep global warming in check—whether it’s over a conference table or a cheeseburger—I always ask this question: “What’s your plan for steel?” I know it sounds like an odd thing to say, but it opens the door to an important subject.",
                 LocalDate.of(2019, 9, 22), "https://external-ort2-1.xx.fbcdn.net/safe_image.php?d=AQAl4W7u2Re62WqJ&w=540&h=282&url=https%3A%2F%2Fwww.gatesnotes.com%2F-%2Fmedia%2FImages%2FArticles%2FEnergy%2FA-question-to-ask-about-every-climate-plan%2Fenergy-manufacturing_2019_article-hero_1200px_v2.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_hash=AQCGwLSvFlNlfwhe", puujgee);
 
+        Post puujgeePost1 = new Post("Zlatan is one of the best strikers of his generation, yet for many Zlatan Ibrahimovic is defined by what he says off the pitch rather than what he produces on it. Never before has this been truer than it is now. The Swede’s hat-trick against Sporting KC last week saw him break LA Galaxy’s single-season scoring record, and he now has 27 goals in 26 games. But that still doesn’t do justice to the way Ibrahimovic has affected the narrative in Major League Soccer this season..",
+                LocalDate.of(2019, 9, 23), "https://www.theguardian.com/football/2019/sep/25/how-ibrahimovic-and-rooney-became-advocates-for-mls-players-rights#img-1", puujgee);
+
+        Post puujgeePost2 = new Post("Zlatan is one of the best strikers of his generation, yet for many Zlatan Ibrahimovic is defined by what he says off the pitch rather than what he produces on it. Never before has this been truer than it is now. The Swede’s hat-trick against Sporting KC last week saw him break LA Galaxy’s single-season scoring record, and he now has 27 goals in 26 games. But that still doesn’t do justice to the way Ibrahimovic has affected the narrative in Major League Soccer this season..",
+                LocalDate.of(2019, 9, 23), "https://www.theguardian.com/football/2019/sep/25/how-ibrahimovic-and-rooney-became-advocates-for-mls-players-rights#img-1", puujgee);
+
+        Post puujgeePost3 = new Post("Caving in to apparently nonexistent demands for a competition football fans were unaware they needed, European football’s governing body has announced a new wheeze due to kick off in 2021.",
+                LocalDate.of(2019, 9, 24), "https://www.theguardian.com/football/2019/sep/25/uefa-europa-conference-league-big-fish-happy#img-1", puujgee);
+
+        Post puujgeePost4 = new Post("The Des Moines Register-CNN-Mediacom Iowa poll – the gold standard of polling – gave the strongest indication yet when it reported Saturday that Warren has 22% support of likely Iowa caucus-goers, while Joe Biden has 20% and Bernie Sanders 11%.",
+                LocalDate.of(2019, 3, 26), "https://www.theguardian.com/commentisfree/2019/sep/24/elizabeth-warren-may-win-iowa-caucuses-simply-by-virtue-of-showing-up#img-1", puujgee);
+
+        Post puujgeePost5 = new Post("Last night, for her first official evening engagement with Prince Harry, Meghan Markle wore an Alexander McQueen trouser suit. It was slim-fitting, with cropped cigarette trousers, worn with very high stiletto heels and a cream dishabille blouse.",
+                LocalDate.of(2019, 2, 23), "https://www.theguardian.com/fashion/2018/feb/02/eco-chic-and-trouser-suits-how-meghan-markles-style-reads-the-room#img-1", puujgee);
+
+        Post puujgeePost6 = new Post("Relatives and friends of those killed during the 2012 shooting in Aurora, Colorado have expressed concern over a gritty new take on Joker.",
+                LocalDate.of(2019, 7, 21), "https://www.theguardian.com/film/2019/sep/24/families-of-aurora-shooting-victims-condemn-gun-violence-in-joker#img-1", puujgee);
+
+        Post puujgeePost7 = new Post("Relatives and friends of those killed during the 2012 shooting in Aurora, Colorado have expressed concern over a gritty new take on Joker.",
+                LocalDate.of(2019, 9, 12), "https://www.theguardian.com/film/2019/sep/24/families-of-aurora-shooting-victims-condemn-gun-violence-in-joker#img-1", puujgee);
+
+        Post puujgeePost8 = new Post("Brad Pitt never looked more beautiful than in this mesmeric, flawed, superbly photographed and designed space adventure from director and co-writer James Gray. ",
+                LocalDate.of(2019, 7, 11), "https://www.theguardian.com/film/2019/sep/18/ad-astra-review-brad-pitt-tommy-lee-jones-james-gray#img-1", puujgee);
+
+        Post puujgeePost9 = new Post("Artificial intelligence is on a par with human experts when it comes to making medical diagnoses based on images, a review has found.",
+                LocalDate.of(2019, 9, 25), "https://www.theguardian.com/technology/2019/sep/24/ai-equal-with-human-experts-in-medical-diagnosis-study-finds#img-1", puujgee);
+
+        Post puujgeePost10 = new Post("Forget Apple’s much-vaunted iOS safeguards – attackers have been quietly breaking and entering for years",
+                LocalDate.of(2019, 9, 25), "https://www.theguardian.com/technology/commentisfree/2019/sep/08/iphone-safe-from-hackers-think-again-ios-android-zero-day-exploit-zerodium-google-threat-analysis#img-1", puujgee);
 
         this.posts = new ArrayList<Post>(Arrays.asList(sodPost, turPost, puujgeePost, sodPost1));
 
         List<Post> sodPosts = sod.getPosts();
         sodPosts.add(sodPost);
         sodPosts.add(sodPost1);
+        sodPosts.add(sodPost2);
+        sodPosts.add(sodPost3);
+        sodPosts.add(sodPost4);
 
         List<Post> turPosts = tur.getPosts();
         turPosts.add(turPost);
+        turPosts.add(turPost1);
+        turPosts.add(turPost2);
+        turPosts.add(turPost3);
+        turPosts.add(turPost4);
 
         List<Post> puujgeePosts = puujgee.getPosts();
         puujgeePosts.add(puujgeePost);
+        puujgeePosts.add(puujgeePost1);
+        puujgeePosts.add(puujgeePost2);
+        puujgeePosts.add(puujgeePost3);
+        puujgeePosts.add(puujgeePost4);
+        puujgeePosts.add(puujgeePost5);
+        puujgeePosts.add(puujgeePost6);
+        puujgeePosts.add(puujgeePost7);
+        puujgeePosts.add(puujgeePost8);
+        puujgeePosts.add(puujgeePost9);
+        puujgeePosts.add(puujgeePost10);
 
     }
 
