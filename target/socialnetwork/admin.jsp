@@ -16,6 +16,43 @@
     <div class="row">
         <%@ include file="WEB-INF/fragment/admin-side-panel.jsp"%>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="container">
+                <div class="row">
+                    <br/>
+                    <div class="col text-center">
+                        <h2>Today's report</h2>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <div class="counter">
+                            <i class="fa fa-code fa-2x"></i>
+                            <h2 class="timer count-title count-number" data-to="${postz}" data-speed="1500"></h2>
+                            <p class="count-text ">Total Posts</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="counter">
+                            <i class="fa fa-coffee fa-2x"></i>
+                            <h2 class="timer count-title count-number" data-to="${userz}" data-speed="1500"></h2>
+                            <p class="count-text ">Total users</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="counter">
+                            <i class="fa fa-lightbulb-o fa-2x"></i>
+                            <h2 class="timer count-title count-number" data-to="${activeAdz}" data-speed="1500"></h2>
+                            <p class="count-text ">Active advertisements</p>
+                        </div></div>
+                    <div class="col">
+                        <div class="counter">
+                            <i class="fa fa-bug fa-2x"></i>
+                            <h2 class="timer count-title count-number" data-to="${badPost}" data-speed="1500"></h2>
+                            <p class="count-text ">Unhealthy post</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <header>Usage Report
             <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -34,7 +71,7 @@
                         <thead>
                         <tr>
                             <th scope="col">User name</th>
-                            <th scope="col">Post Content</th>
+                            <th scope="col">Post Health</th>
                             <th scope="col">Posted Date</th>
                             <th scope="col">Status</th>
                         </tr>
@@ -43,8 +80,9 @@
                         <c:forEach var="post" items="${postsAll}">
                             <tr class="table-primary">
                                 <td>${post.user.username}</td>
-                                <td>${post.content}</td>
+                                <td>${post.health}</td>
                                 <td>${post.postedDate}</td>
+                                <td>${post.active}</td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -52,17 +90,62 @@
                 </div>
                 <div class="tab-pane fade" id="user">
                   <div>
-                      <p>
-                          table${usersAll}
-                      </p>
+                      <table class="table table-hover">
+                          <thead>
+                          <tr>
+                              <th scope="col">User id</th>
+                              <th scope="col">User Name</th>
+                              <th scope="col">Status</th>
+                              <th scope="col">Twitter account</th>
+                              <th scope="col">Email</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <c:forEach var="user" items="${usersAll}">
+                              <tr class="table-primary">
+                                  <td>${user.id}</td>
+                                  <td>${user.username}</td>
+                                  <td>${user.active}</td>
+                                  <td>${user.twitter}</td>
+                                  <td>${user.email}</td>
+                              </tr>
+                          </c:forEach>
+                          </tbody>
+                      </table>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="advertisement">
-                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Active</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Content</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">imgURL</th>
+                            <th scope="col">postedDate</th>
+                            <th scope="col">location</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="ad" items="${adsAll}">
+                            <tr class="table-primary">
+                                <td>${ad.active}</td>
+                                <td>${ad.id}</td>
+                                <td>${ad.content}</td>
+                                <td>${ad.url}</td>
+                                <td>${ad.imgUrl}</td>
+                                <td>${ad.postedDate}</td>
+                                <td>${ad.location}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-                <%@ include file="twit.jsp"%>
+
             </header>
+
         </main>
     </div>
 </div>

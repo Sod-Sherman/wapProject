@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/admin")
@@ -31,19 +32,37 @@ public class AdminController extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
         HttpSession session = req.getSession();
         User tempUser = (User)session.getAttribute("loggedInUser");
         if(!tempUser.getUsername().equals("admin")){
-            out.println("Unauthorized access!");
             resp.sendRedirect("timeline.jsp");
         }
         List<User> myUsers = userService.getAllUsers();
+        int userz = myUsers.size();
+        req.setAttribute("userz",userz);
         session.setAttribute("usersAll", myUsers);
         List<Post> myPosts = postService.getAllPosts();
         List<Ads> myAds = adsService.getAllAds();
-        session.setAttribute("adsAll", myAds);
-        session.setAttribute("postsAll", myPosts);
+        req.setAttribute("adsAll", myAds);
+        int postz = myPosts.size();
+        req.setAttribute("postz",postz);
+        req.setAttribute("postsAll", myPosts);
+        int activeAds = 0;
+        for(Ads ad: myAds){
+            if(ad.isActive()){
+                activeAds++;
+            }
+        }
+        int notHealthy = 0;
+        for(Post p : myPosts){
+            if(!p.isHealthy()){
+                notHealthy++;
+            }
+        }
+        int adz = myAds.size();
+        req.setAttribute("adz",adz);
+        req.setAttribute("activeAdz",activeAds);
+        req.setAttribute("badPost", notHealthy);
         //
         // resp.sendRedirect("admin.jsp");
         RequestDispatcher rd = req.getRequestDispatcher("admin.jsp");

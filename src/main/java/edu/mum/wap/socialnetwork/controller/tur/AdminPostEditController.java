@@ -21,6 +21,7 @@ public class AdminPostEditController extends HttpServlet {
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+
         String page = "";
         try {
             Post tempPost = postService.findPostById(Integer.parseInt(req.getParameter("post_id")));
