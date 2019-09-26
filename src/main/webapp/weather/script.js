@@ -71,17 +71,13 @@ function init(resultFromServer) {
 
     setPositionForWeatherInfo();
 }
-
 function setPositionForWeatherInfo(){
     let weatherContainer = document.getElementById('weatherContainer');
     let weatherContainerHeight = weatherContainer.clientHeight;
     let weatherContainerWidth = weatherContainer.clientWidth;
 
-    //weatherContainer.style.left = `calc(50% - ${weatherContainerWidth/2}px)`;
-    //weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/1.3}px)`;
     weatherContainer.style.visibility = 'visible';
 }
-
 document.getElementById('searchBtn').addEventListener('click', () =>{
         let searchTerm = '';
 
@@ -94,14 +90,11 @@ document.getElementById('searchBtn').addEventListener('click', () =>{
                     {'latLng': point},
                     function (res, status) {
                         var zip = res[0].formatted_address.match(/,\s\w{2}\s(\d{5})/);
-                        //searchTerm = zip;
                         console.log(zip[1]);
-                        //$("#location").val(zip);
                         searchTerm = zip[1];
                         let cityHeader = document.getElementById('searchInput').value;
                         if(cityHeader) searchTerm = cityHeader;
                         console.log(cityHeader);
-                        //if($("#searchInput").val()) searchTerm = $("#searchInput").val();
                         searchWeather(searchTerm);
                     }
                 );

@@ -39,7 +39,7 @@ public class UserList extends HttpServlet {
                 System.out.println("userIdToFollow = " + req.getParameter("userIdToFollow"));
 
                 Integer userIdToFollow = Integer.parseInt(req.getParameter("userIdToFollow"));
-                userRepository.addFollower(loggedInUser, userRepository.findByUserId(userIdToFollow));
+                userRepository.addFollower(userRepository.findByUserId(userIdToFollow), loggedInUser);
 
             }
             rd = req.getRequestDispatcher("userlist.jsp");

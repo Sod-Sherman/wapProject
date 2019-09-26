@@ -25,7 +25,7 @@ public final class UserRepositoryImpl implements UserRepository {
                 sod, puujgee, tur,
                 new User("Admin", "LastNameAdmin", "admin", "123", "a@mum.edu")));
 
-        sod.setFollowers(new ArrayList<User>(Arrays.asList(puujgee, tur)));
+        sod.setFollowers(new ArrayList<User>(Arrays.asList(tur)));
         puujgee.setFollowers(new ArrayList<User>(Arrays.asList(sod)));
 
     }
@@ -104,6 +104,16 @@ public final class UserRepositoryImpl implements UserRepository {
             if (!isUserInList(user, followers))
                 followers.add(user);
             followedUser.setFollowers(followers);
+
+            for(int i = 0;  i < users.size(); i++){
+                if(users.get(i).getId() == followedUser.getId()){
+                    users.set(i, followedUser);
+                }
+
+            }
+
+
+
         System.out.println(followedUser.getFollowers());
 
     }

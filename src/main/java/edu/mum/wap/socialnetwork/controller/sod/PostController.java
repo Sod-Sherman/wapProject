@@ -5,7 +5,6 @@ import edu.mum.wap.socialnetwork.model.User;
 import edu.mum.wap.socialnetwork.service.UserService;
 import edu.mum.wap.socialnetwork.service.impl.UserServiceImpl;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -65,8 +64,9 @@ public class PostController extends HttpServlet {
         userService.addPost(user, newPost);
         System.out.println(newPost + "\n" + user);
 
-        RequestDispatcher rd = request.getRequestDispatcher("timeline.jsp");
-        rd.forward(request,response);
+        //RequestDispatcher rd = request.getRequestDispatcher("timeline.jsp");
+        //rd.forward(request,response);
+        response.sendRedirect("timeline");
     }
 
     @Override

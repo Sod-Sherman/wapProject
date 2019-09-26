@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public final class PostRepositoryImpl implements PostRepository {
     private List<Post> posts;
@@ -144,7 +145,11 @@ public final class PostRepositoryImpl implements PostRepository {
                 if (p.getUser().getId().equals(user.getFollowers().get(i).getId()) || p.getUser().getId().equals(user.getId()))
                     result.add(p);
             }
+
         }
+
+        result = result.stream()
+                .distinct().collect(Collectors.toList());
         return result;
     }
 
@@ -182,7 +187,7 @@ public final class PostRepositoryImpl implements PostRepository {
             if (post.getActive()) result.add(post);
         }
         Collections.sort(result);
-        System.out.println("Posts by ordered: = " + result);
+//        System.out.println("Posts by ordered: = " + result);
         return result;
     }
 
